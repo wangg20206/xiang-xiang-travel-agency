@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,10 +48,10 @@
     </style>
 
     <script>
-        window.onscroll = function() {
+        window.onscroll = function () {
             scrollFunction();
         };
-        
+
         function scrollFunction() {
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                 document.getElementById("backToTopBtn").style.display = "block";
@@ -58,7 +59,7 @@
                 document.getElementById("backToTopBtn").style.display = "none";
             }
         }
-        
+
         // 回到頁面頂端的函數
         function scrollToTop() {
             window.scrollTo({
@@ -66,54 +67,63 @@
                 behavior: 'smooth'
             });
         }
-        </script>
-    
+    </script>
+
 
     <style>
         #backToTopBtn {
-    display: none; /* 初始隱藏 */
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    z-index: 99; /* 保證按鈕在其他內容之上 */
-    font-size: 18px;
-    border: none;
-    outline: none;
-    background-color: #1f2222;
-    color: white;
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 10px;
-    opacity: 0.7;
-}
+            display: none;
+            /* 初始隱藏 */
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            /* 保證按鈕在其他內容之上 */
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #1f2222;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 10px;
+            opacity: 0.7;
+        }
 
-#backToTopBtn:hover {
-    background-color: #333; /* 滑鼠移過時的背景色 */
-    opacity: 1;
-}
+        #backToTopBtn:hover {
+            background-color: #333;
+            /* 滑鼠移過時的背景色 */
+            opacity: 1;
+        }
 
         .schedule {
-    display: grid;
-    grid-template-columns: 120px 1fr; /* 固定時間列寬度 */
-    gap: 10px;
-    margin-bottom: 20px;
-    align-items: center; /* 使每行的內容在中間對齊 */
-}
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            /* 固定時間列寬度 */
+            gap: 10px;
+            margin-bottom: 20px;
+            align-items: center;
+            /* 使每行的內容在中間對齊 */
+        }
 
-.time {
-    font-weight: bold;
-    color: #ff4500;
-    text-align: right; /* 使時間靠右對齊 */
-    padding-right: 10px; /* 增加一點右側的間距 */
-}
+        .time {
+            font-weight: bold;
+            color: #ff4500;
+            text-align: right;
+            /* 使時間靠右對齊 */
+            padding-right: 10px;
+            /* 增加一點右側的間距 */
+        }
 
-.event {
-    padding-left: 10px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    padding: 10px; /* 增加內部的間距 */
-    word-break: break-word; /* 防止內容超出 */
-}
+        .event {
+            padding-left: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            padding: 10px;
+            /* 增加內部的間距 */
+            word-break: break-word;
+            /* 防止內容超出 */
+        }
 
         body {
             font-family: Arial, sans-serif;
@@ -121,6 +131,7 @@
             padding: 0;
             background-color: #faf5f5;
         }
+
         header {
             background-image: url("https://prd-static.gltjp.com/glt/data/article/21000/20453/20231015_020524_1de8d5b9_w1920.webp");
             background-size: cover;
@@ -133,31 +144,38 @@
             align-items: center;
             justify-content: center;
         }
+
         nav {
             text-align: center;
             background-color: #333;
         }
+
         nav a {
             color: white;
             padding: 14px 20px;
             text-decoration: none;
             display: inline-block;
         }
+
         nav a:hover {
             background-color: #ddd;
             color: black;
         }
+
         section {
             padding: 20px;
         }
+
         h2 {
             color: #ff4500;
         }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
         }
+
         .card {
             background-color: white;
             padding: 20px;
@@ -173,30 +191,39 @@
             font-size: 1.2em;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
         }
+
         .nara {
             background-image: url("https://www.kkday.com/zh-my/blog/wp-content/uploads/%E3%80%90%E6%97%A5%E6%9C%AC%E3%80%91%E5%A5%88%E8%89%AF%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A59.jpg");
         }
+
         .osaka {
             background-image: url("https://prd-static.gltjp.com/glt/data/article/21000/20172/20220706_021125_e2101516_w1920.webp");
         }
+
         .kyoto {
             background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFYVRUW_Zxt0TxMAw9qlD6GSS96DaN40z-d9XIzIgnWAI4byWM26njJsDg2mhuRb0RQ034LNsiqZk9MVmnuRS6drW57Bp1JrM9Ds5sIJI-1NZBSxzKaeM3ChyphenhyphendzotDsXG-HAxwEvl97E79/s1600-rw/%25E4%25BA%25AC%25E9%2583%25BD-%25E6%2599%25AF%25E9%25BB%259E-%25E6%258E%25A8%25E8%2596%25A6-%25E9%2587%2591%25E9%2596%25A3%25E5%25AF%25BA-%25E9%25B9%25BF%25E8%258B%2591%25E5%25AF%25BA-Kinkakuji-%25E8%25A7%2580%25E5%2585%2589-%25E8%2587%%25AA%25E7%2594%25B1%25E8%25A1%258C-%25E6%2597%2585%25E9%2581%258A-Kyoto-tourist-attraction-travel-best.jpg");
         }
+
         .fuji {
             background-image: url("https://zh-tw.skyticket.com/guide/wp-content/uploads/2022/05/a70eea530d1f70069be7e9c8a5c33c1b.jpg");
         }
+
         .tokyo {
             background-image: url("https://images.chinatimes.com/newsphoto/2018-08-03/656/20180803004172.jpg");
         }
+
         .asakusa {
             background-image: url("https://s3-ap-northeast-1.amazonaws.com/thegate/2021/03/22/20/51/08/Sensouji-temple.jpg");
         }
+
         .narita {
             background-image: url("https://mimihan.tw/wp-content/uploads/20210713140132_71.jpg");
         }
+
         .Akihabara {
             background-image: url("https://prd-static.gltjp.com/glt/data/article/21000/20306/20230428_135124_b546c095_w1920.webp");
         }
+
         footer {
             background-color: #333;
             color: white;
@@ -208,11 +235,12 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <h1 style="color: rgb(248, 234, 228);">日本旅遊七天六夜</h1>
     </header>
-    
+
     <nav>
         <a href="#about">關於這次的日本旅行</a>
         <a href="#need know">日本須知</a>
@@ -222,11 +250,11 @@
         <a href="#two">第二天</a>
         <a href="#three">第三天</a>
         <a href="#four">第四天</a>
-        <a href="#five">第五天</a>  
+        <a href="#five">第五天</a>
         <a href="#six">第六天</a>
         <a href="#Attractions">景點介紹</a>
         <a href="#hotel">住宿介紹</a>
-        <a href="#food">吃的介紹</a>
+        <a href="#food">美食介紹</a>
 
     </nav>
     <section id="about">
@@ -239,9 +267,12 @@
         <p>本行程出發時間為 2025/01/12 凌晨2點桃園機場出發，2025/01/18 晚上8:30下飛機，第一天出發請在1/11日晚上11點前到達現場</p>
         <p>本行程出發時間為冬季，請自備保暖衣物</p>
         <p>本行程為自由行，所以會走很多路，請穿著適合行走的鞋子</p>
-        <p>翔翔旅行社擁有此行程最終解釋權，旅客不得有異議</p>
+        <p>本行程中除了有幾天飯店有提供早餐，其餘餐點皆須自行付費。(以一餐200元台幣預估約需要準備3600台幣)</p>
+        <P>本行程移動工具皆為大眾交通工具，需自行付費。(車資約為2675台幣(匯率0.21))</P>
+        <P>本行程預計全部花費約為35904元[(住宿10650)+(機票18980)+(車資2675)+(餐錢3600)]</P>
+        <p>※翔翔旅行社擁有此行程最終修改、變更及解釋之權利，若有相關異動將會公告於網站，恕不吝行通知。</p>
     </section>
-    
+
     <section id="attractions">
         <h2>會去的熱門景點</h2>
         <div class="grid">
@@ -271,201 +302,206 @@
             </div>
         </div>
     </section>
-    
+
     <style>
-    .card a {
-        color: white; /* 設置文字顏色為白色 */
-        text-decoration: none; /* 移除下劃線 */
-    }
-    
-    .card a:hover {
-        text-decoration: underline; /* 滑鼠懸停時添加下劃線 */
-    }
+        .card a {
+            color: white;
+            /* 設置文字顏色為白色 */
+            text-decoration: none;
+            /* 移除下劃線 */
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+            /* 滑鼠懸停時添加下劃線 */
+        }
     </style>
 
 
-<section id="zero">
-    <h2 class="highlight">第零天</h2>
-    <p>因為機票的緣故導致我們被迫多增加一天行程，所以我決定帶大家去吃鹿餅。</p>
-    <div class="schedule">
-        <div class="time">02:30</div>
-        <div class="event">桃園國際機場出發</div>
-        
-        <div class="time">06:00</div>
-        <div class="event">抵達大阪關西國際機場</div>
-        
-        <div class="time">08:00~10:00</div>
-        <div class="event">前往洛哈斯JR奈良站天然溫泉超級飯店</div>
-        
-        <div class="time">10:00</div>
-        <div class="event">抵達飯店放行李</div>
-        
-        <div class="time">10:30~11:30</div>
-        <div class="event">志津香釜飯</div>
-        
-        <div class="time">12:00~17:00</div>
-        <div class="event">奈良公園</div>
-        
-        <div class="time">20:00</div>
-        <div class="event">Hostel & Gallery G Is Good     <a href="#zero-hotel">第零天 奈良住宿</a></div>
-    </div>
-</section>
+    <section id="zero">
+        <h2 class="highlight">第零天</h2>
+        <p>因為機票的緣故導致我們被迫多增加一天行程，所以我決定帶大家去吃鹿餅。</p>
+        <div class="schedule">
+            <div class="time">02:30</div>
+            <div class="event">桃園國際機場出發</div>
 
-<section id="one">
-    <h2 class="highlight">第一天</h2>
-    <p>第二天就是逛街行程，可以買藥妝那些的</p>
-    <div class="schedule">
-        <div class="time">09:00</div>
-        <div class="event">抵達大阪橋樑酒店心齋橋(放置行李) <a href="#first-hotel">第一天 大阪住宿</a></div>
-        
-        <div class="time">10:00~14:00</div>
-        <div class="event">搭乘道頓堀水上觀光船，心齋橋筋商店街中餐自理</div>
-        
-        <div class="time">14:00~17:00</div>
-        <div class="event">新世界本通商店街，通天閣+溜滑梯</div>
-        
-        <div class="time">17:00~19:00</div>
-        <div class="event">阿倍也展望台</div>
+            <div class="time">06:00</div>
+            <div class="event">抵達大阪關西國際機場</div>
 
-        <div class="time">20:30~21:30</div>
-        <div class="event">橋梁飯店拉麵吃到飽</div>
+            <div class="time">08:00~10:00</div>
+            <div class="event">前往洛哈斯JR奈良站天然溫泉超級飯店</div>
 
-        <div class="time">21:30~</div>
-        <div class="event">朝陽之湯自行考慮是否要前往(有一點遠最晚營業時間為12:00可進入)</div>
-    </div>
-</section>
+            <div class="time">10:00</div>
+            <div class="event">抵達飯店放行李</div>
 
-<section id="two">
-    <h2 class="highlight">第二天</h2>
-    <p>體驗日本傳統文化和吃路邊小吃</p>
-    <div class="schedule">
-        <div class="time">09:00~12:00</div>
-        <div class="event">大阪城觀光，大阪城御座船乘船（先買票，十點才能搭）</div>
-        
-        <div class="time">12:20~13:00</div>
-        <div class="event">京都《茶花》大阪燒 (ちゃばな 天満橋OMMビル店)</div>
-        
-        <div class="time">13:00~14:30</div>
-        <div class="event">搭乘京阪本線前往京都</div>
-        
-        <div class="time">14:30</div>
-        <div class="event">Check-in 天然溫泉 蓮花之湯 御宿野乃京都七條 <a href="#second-hotel">第二天 京都住宿</a></div>
-        
-        <div class="time">15:30~</div>
-        <div class="event">清水寺體驗日本文化風情</div>
-        
-        <div class="time">16:30~</div>
-        <div class="event">三年坂到一年坂沿途逛街</div>
-        
-        <div class="time">18:00~</div>
-        <div class="event">前往八阪神社看夜景</div>
-    </div>
-</section>
+            <div class="time">10:30~11:30</div>
+            <div class="event">志津香釜飯</div>
 
-<section id="three">
-    <h2 class="highlight">第三天</h2>
-    <p>觀賞貴船神社的冬景並且搭夜巴前往東京</p>
-    <div class="schedule">
-        <div class="time">08:30~09:30</div>
-        <div class="event">璟市場 吃早餐</div>
-        
-        <div class="time">10:00~12:00</div>
-        <div class="event">伏見稻荷大社</div>
+            <div class="time">12:00~17:00</div>
+            <div class="event">奈良公園</div>
 
-        <div class="time">10:00~12:00</div>
-        <div class="event">祢ざめ家鰻魚飯及稻荷壽司 或 伏見稻荷千本壽司</div>
-        
-        <div class="time">13:30~18:00</div>
-        <div class="event">貴船神社 (到達貴船時間約1小時)</div>
+            <div class="time">20:00</div>
+            <div class="event">Hostel & Gallery G Is Good <a href="#zero-hotel">第零天 奈良住宿</a></div>
+        </div>
+    </section>
 
-        <div class="time">18:00~19:00</div>
-        <div class="event">麵屋豬一 (需提前抽號碼牌)</div>
-        
-        <div class="time">19:00~21:00</div>
-        <div class="event">抹茶行程(伊藤久右衛門、中村藤吉)</div>
+    <section id="one">
+        <h2 class="highlight">第一天</h2>
+        <p>第二天就是逛街行程，可以買藥妝那些的</p>
+        <div class="schedule">
+            <div class="time">09:00</div>
+            <div class="event">抵達大阪橋樑酒店心齋橋(放置行李) <a href="#first-hotel">第一天 大阪住宿</a></div>
 
-        <div class="time">21:00~</div>
-        <div class="event">回飯店拿行李</div>
-        
-        <div class="time">23:00~</div>
-        <div class="event">夜晚巴士前往東京 <a href="#third-hotel">第三天 京都住宿</a></div>
-    </div>
-</section>
+            <div class="time">10:00~14:00</div>
+            <div class="event">搭乘道頓堀水上觀光船，心齋橋筋商店街中餐自理</div>
 
-<section id="four">
-    <h2 class="highlight">第四天</h2>
-    <p>因為冬天怕會有公車停駛這些無法處理的問題，這一天我們是直接買旅行社行程，會有遊覽車跟導遊帶我們逛富士山。</p>
-    <div class="schedule">
-        <div class="time">08:30 </div>
-        <div class="event">東京火車站旁邊集合搭遊覽車</div> 
-        
-        <div class="time">10:30</div>
-        <div class="event">自由活動，新倉山公園（1 小時 10 分鐘）: 站在富士山下網紅公園山巔，遠望富士山那雄偉壯麗的身姿，宛如身臨畫卷之中🗻。</div>
-        
-        <div class="time">11:50</div>
-        <div class="event">自由活動，Hikawa Clock Shop（20 分鐘）: 天梯小鎮日川時計店，日式風情與富士山的完美交融。</div>
-        
-        <div class="time">12:40</div>
-        <div class="event">自由活動，忍野八海（1 小時 20 分鐘）: 推薦品嚐地道的蕎麥麵、烤魷魚、烤糰子以及美味草餅等特色當地小吃，欣賞四周迷人的景色，盡享美食與美景的雙重盛宴！😋</div>
-        
-        <div class="time">14:20</div>
-        <div class="event">自由活動，大石公園（40 分鐘）: 楓葉迴廊，春暖花開到金秋送爽，賞花漫步。10 月 20 日至 11 月 22 日河口湖楓葉季期間，改去楓葉迴廊賞紅葉，領略醉人絢爛，謝謝💕。</div>
-        
-        <div class="time">15:20</div>
-        <div class="event">自由活動，Lawson Fujikawaguchiko Town Hall（20 分鐘）: 旅拍勝地🌟，富士山與羅森便利店，時尚與自然的完美融合！</div>
-        
-        <div class="time">15:20</div>
-        <div class="event">我們會在羅森便利店脫隊，在市區採購好食物後前往我們包棟民宿，大約二十分鐘車程</div>
-        
-        <div class="time">~17:00</div>
-        <div class="event">抵達河口湖民宿--夢見る河口湖 コテージ戸沢センター <a href="#fourth-hotel">第四天 富士山住宿</a></div>
-    </div>
-</section>
+            <div class="time">14:00~17:00</div>
+            <div class="event">新世界本通商店街，通天閣+溜滑梯</div>
 
-<section id="five">
-    <h2 class="highlight">第五天</h2>
-    <p>天堂，噴錢錢的地方，小心不要回不了家</p>
-    <div class="schedule">
-        <div class="time">09:30~12:00</div>
-        <div class="event">離開富士山河口湖前往秋葉原</div>
-        
-        <div class="time">12:00~13:00</div>
-        <div class="event">野郎ラーメン 秋葉原店</div>
-        
-        <div class="time">13:00~18:00</div>
-        <div class="event">秋葉原無線電會館開始逛整條街</div>
-        
-        <div class="time">18:00</div>
-        <div class="event">秋葉原找東西吃</div>
-        
-        <div class="time">19:00</div>
-        <div class="event">回 OMO3 淺草飯店 <a href="#fifth-hotel">第五天 淺草住宿</a></div>
-        
-        <div class="time">20:00</div>
-        <div class="event">東京晴空塔 東京晴空街道</div>
-    </div>
-</section>
+            <div class="time">17:00~19:00</div>
+            <div class="event">阿倍也展望台</div>
 
-<section id="six">
-    <h2 class="highlight">第六天</h2>
-    <p>最後一天簡單收尾，行程相對寬裕，然後就可以欣賞最後的日本景色回家</p>
-    <div class="schedule">
-        <div class="time">10:00</div>
-        <div class="event">淺草寺參拜 仲見世通商店街 大黑家天婦羅</div>
-        
-        <div class="time">12:00</div>
-        <div class="event">前往成田機場附近</div>
-        
-        <div class="time">13:30~17:30</div>
-        <div class="event">成田山表參道「Souvenir Shop Shibaraku」 長命泉 成田山表參道 SABONSAMA 新勝寺</div>
-        
-        <div class="time">18:00</div>
-        <div class="event">到機場</div>
-        
-        <div class="time">20:10</div>
-        <div class="event">飛機起飛時間</div>
-    </div>
-</section>
+            <div class="time">20:30~21:30</div>
+            <div class="event">橋梁飯店拉麵吃到飽</div>
+
+            <div class="time">21:30~</div>
+            <div class="event">朝陽之湯自行考慮是否要前往(有一點遠最晚營業時間為12:00可進入)</div>
+        </div>
+    </section>
+
+    <section id="two">
+        <h2 class="highlight">第二天</h2>
+        <p>體驗日本傳統文化和吃路邊小吃</p>
+        <div class="schedule">
+            <div class="time">09:00~12:00</div>
+            <div class="event">大阪城觀光，大阪城御座船乘船（先買票，十點才能搭）</div>
+
+            <div class="time">12:20~13:00</div>
+            <div class="event">京都《茶花》大阪燒 (ちゃばな 天満橋OMMビル店)</div>
+
+            <div class="time">13:00~14:30</div>
+            <div class="event">搭乘京阪本線前往京都</div>
+
+            <div class="time">14:30</div>
+            <div class="event">Check-in 天然溫泉 蓮花之湯 御宿野乃京都七條 <a href="#second-hotel">第二天 京都住宿</a></div>
+
+            <div class="time">15:30~</div>
+            <div class="event">清水寺體驗日本文化風情</div>
+
+            <div class="time">16:30~</div>
+            <div class="event">三年坂到一年坂沿途逛街</div>
+
+            <div class="time">18:00~</div>
+            <div class="event">前往八阪神社看夜景</div>
+        </div>
+    </section>
+
+    <section id="three">
+        <h2 class="highlight">第三天</h2>
+        <p>觀賞貴船神社的冬景並且搭夜巴前往東京</p>
+        <div class="schedule">
+            <div class="time">08:30~09:30</div>
+            <div class="event">璟市場 吃早餐</div>
+
+            <div class="time">10:00~12:00</div>
+            <div class="event">伏見稻荷大社</div>
+
+            <div class="time">10:00~12:00</div>
+            <div class="event">祢ざめ家鰻魚飯及稻荷壽司 或 伏見稻荷千本壽司</div>
+
+            <div class="time">13:30~18:00</div>
+            <div class="event">貴船神社 (到達貴船時間約1小時)</div>
+
+            <div class="time">18:00~19:00</div>
+            <div class="event">麵屋豬一 (需提前抽號碼牌)</div>
+
+            <div class="time">19:00~21:00</div>
+            <div class="event">抹茶行程(伊藤久右衛門、中村藤吉)</div>
+
+            <div class="time">21:00~</div>
+            <div class="event">回飯店拿行李</div>
+
+            <div class="time">23:00~</div>
+            <div class="event">夜晚巴士前往東京 <a href="#third-hotel">第三天 京都住宿</a></div>
+        </div>
+    </section>
+
+    <section id="four">
+        <h2 class="highlight">第四天</h2>
+        <p>因為冬天怕會有公車停駛這些無法處理的問題，這一天我們是直接買旅行社行程，會有遊覽車跟導遊帶我們逛富士山。旅行社網址(https://activity.eztravel.com.tw/detail/TKNKL-100747)
+        </p>
+        <div class="schedule">
+            <div class="time">08:30 </div>
+            <div class="event">東京火車站旁邊集合搭遊覽車</div>
+
+            <div class="time">10:30</div>
+            <div class="event">自由活動，新倉山公園（1 小時 10 分鐘）: 站在富士山下網紅公園山巔，遠望富士山那雄偉壯麗的身姿，宛如身臨畫卷之中🗻。</div>
+
+            <div class="time">11:50</div>
+            <div class="event">自由活動，Hikawa Clock Shop（20 分鐘）: 天梯小鎮日川時計店，日式風情與富士山的完美交融。</div>
+
+            <div class="time">12:40</div>
+            <div class="event">自由活動，忍野八海（1 小時 20 分鐘）: 推薦品嚐地道的蕎麥麵、烤魷魚、烤糰子以及美味草餅等特色當地小吃，欣賞四周迷人的景色，盡享美食與美景的雙重盛宴！😋</div>
+
+            <div class="time">14:20</div>
+            <div class="event">自由活動，大石公園（40 分鐘）: 楓葉迴廊，春暖花開到金秋送爽，賞花漫步。10 月 20 日至 11 月 22 日河口湖楓葉季期間，改去楓葉迴廊賞紅葉，領略醉人絢爛，謝謝💕。
+            </div>
+
+            <div class="time">15:20</div>
+            <div class="event">自由活動，Lawson Fujikawaguchiko Town Hall（20 分鐘）: 旅拍勝地🌟，富士山與羅森便利店，時尚與自然的完美融合！</div>
+
+            <div class="time">15:20</div>
+            <div class="event">我們會在羅森便利店脫隊，在市區採購好食物後前往我們包棟民宿，大約二十分鐘車程</div>
+
+            <div class="time">~17:00</div>
+            <div class="event">抵達河口湖民宿--夢見る河口湖 コテージ戸沢センター <a href="#fourth-hotel">第四天 富士山住宿</a></div>
+        </div>
+    </section>
+
+    <section id="five">
+        <h2 class="highlight">第五天</h2>
+        <p>天堂，噴錢錢的地方，小心不要回不了家</p>
+        <div class="schedule">
+            <div class="time">09:30~12:00</div>
+            <div class="event">離開富士山河口湖前往秋葉原</div>
+
+            <div class="time">12:00~13:00</div>
+            <div class="event">野郎ラーメン 秋葉原店</div>
+
+            <div class="time">13:00~18:00</div>
+            <div class="event">秋葉原無線電會館開始逛整條街</div>
+
+            <div class="time">18:00</div>
+            <div class="event">秋葉原找東西吃</div>
+
+            <div class="time">19:00</div>
+            <div class="event">回 OMO3 淺草飯店 <a href="#fifth-hotel">第五天 淺草住宿</a></div>
+
+            <div class="time">20:00</div>
+            <div class="event">東京晴空塔 東京晴空街道</div>
+        </div>
+    </section>
+
+    <section id="six">
+        <h2 class="highlight">第六天</h2>
+        <p>最後一天簡單收尾，行程相對寬裕，然後就可以欣賞最後的日本景色回家</p>
+        <div class="schedule">
+            <div class="time">10:00</div>
+            <div class="event">淺草寺參拜 仲見世通商店街 大黑家天婦羅</div>
+
+            <div class="time">12:00</div>
+            <div class="event">前往成田機場附近</div>
+
+            <div class="time">13:30~17:30</div>
+            <div class="event">成田山表參道「Souvenir Shop Shibaraku」 長命泉 成田山表參道 SABONSAMA 新勝寺</div>
+
+            <div class="time">18:00</div>
+            <div class="event">到機場</div>
+
+            <div class="time">20:10</div>
+            <div class="event">飛機起飛時間</div>
+        </div>
+    </section>
 
     <section id="Attractions">
         <h2>景點介紹</h2>
@@ -473,42 +509,55 @@
 
     <section class="hotel-section" id="nara vacation">
         <h2>奈良</h2>
-        <img src="https://tw.wamazing.com/media/wp-content/uploads/sites/4/2024/03/narapark_pixta_36693798_M-853x569.jpg.webp">
+        <img
+            src="https://tw.wamazing.com/media/wp-content/uploads/sites/4/2024/03/narapark_pixta_36693798_M-853x569.jpg.webp">
         <p><strong>奈良公園</strong></p>
-        <p>佔地約660公頃的「奈良公園」，包含了位於奈良市街中心部分的「春日大社」、「興福寺」、「東大寺」等被指定為世界文化遺產的知名景點，更有一整片原始林的「若草山」、「春日山」山區等自然景觀，與自古以來就棲息於此的小鹿們形成了一個獨特的歷史自然公園。來到奈良公園，遊客可以體驗到悠久的歷史文化、廣大的自然景觀，以及可以與被指定為日本國家自然紀念物的小鹿們嬉戲，奈良公園也因此成為了奈良縣代表性的觀光景點。</p>
-        <img src="https://wp-odai.wamazing.com/media/wp-content/uploads/sites/2/2024/03/narapark_pixta_76987906_M.jpg.webp">
+        <p>佔地約660公頃的「奈良公園」，包含了位於奈良市街中心部分的「春日大社」、「興福寺」、「東大寺」等被指定為世界文化遺產的知名景點，更有一整片原始林的「若草山」、「春日山」山區等自然景觀，與自古以來就棲息於此的小鹿們形成了一個獨特的歷史自然公園。來到奈良公園，遊客可以體驗到悠久的歷史文化、廣大的自然景觀，以及可以與被指定為日本國家自然紀念物的小鹿們嬉戲，奈良公園也因此成為了奈良縣代表性的觀光景點。
+        </p>
+        <img
+            src="https://wp-odai.wamazing.com/media/wp-content/uploads/sites/2/2024/03/narapark_pixta_76987906_M.jpg.webp">
         <p><strong>春日大社</strong></p>
-        <p>世界文化遺產之一的「春日大社」是日本全國約3,000座春日神社的總本社，相傳奈良公園裡的鹿群便是春日大社神明的使者，在神社境內不但能與小鹿互動拍照，不同時期造訪更是有不同的看點。例如每年2月與8月會舉辦「萬燈籠」活動，在夜晚18:00至20:30之間將二之鳥居到本殿之間約3,000盞的燈籠點燃，黑暗中顯現的朱紅色的社殿，使得神社內充滿神祕氛圍。</p>
-        <img src="https://wp-odai.wamazing.com/media/wp-content/uploads/sites/2/2024/03/narapark_pixta_31684533_M.jpg.webp">
+        <p>世界文化遺產之一的「春日大社」是日本全國約3,000座春日神社的總本社，相傳奈良公園裡的鹿群便是春日大社神明的使者，在神社境內不但能與小鹿互動拍照，不同時期造訪更是有不同的看點。例如每年2月與8月會舉辦「萬燈籠」活動，在夜晚18:00至20:30之間將二之鳥居到本殿之間約3,000盞的燈籠點燃，黑暗中顯現的朱紅色的社殿，使得神社內充滿神祕氛圍。
+        </p>
+        <img
+            src="https://wp-odai.wamazing.com/media/wp-content/uploads/sites/2/2024/03/narapark_pixta_31684533_M.jpg.webp">
         <p><strong>東大寺</strong></p>
-        <p>以奈良大佛聞名的寺院「東大寺」，不但被列為世界文化遺產之一，境內的「大佛殿」更是世界最大規模的木造建築之一。而在大佛殿內的「盧舍那佛像」以及矗立在南大門的「金剛力士像」都是東大寺境內絕對不能錯過的必看看點。由於東大寺境內各建築，包括大佛殿、法華堂等，都需要再額外買票才能入內參觀，因此可以依個人喜好安排造訪唷！</p>
-        <img src="https://wp-odai.wamazing.com/media/wp-content/uploads/sites/2/2024/03/narapark_pixta_66186756_M.jpg.webp">
+        <p>以奈良大佛聞名的寺院「東大寺」，不但被列為世界文化遺產之一，境內的「大佛殿」更是世界最大規模的木造建築之一。而在大佛殿內的「盧舍那佛像」以及矗立在南大門的「金剛力士像」都是東大寺境內絕對不能錯過的必看看點。由於東大寺境內各建築，包括大佛殿、法華堂等，都需要再額外買票才能入內參觀，因此可以依個人喜好安排造訪唷！
+        </p>
+        <img
+            src="https://wp-odai.wamazing.com/media/wp-content/uploads/sites/2/2024/03/narapark_pixta_66186756_M.jpg.webp">
         <p><strong>興福寺</strong></p>
-        <p>距離近鐵奈良站步行僅需約5分鐘路程的「興福寺」，與東大寺同樣屬於世界文化遺產，境內的「五重塔」是奈良具代表性的地標之一。推薦到「國寶館」走走，館內展示著日本國寶佛像「阿修羅像」，對佛教美術有興趣的遊客可千萬不能錯過！</p>
+        <p>距離近鐵奈良站步行僅需約5分鐘路程的「興福寺」，與東大寺同樣屬於世界文化遺產，境內的「五重塔」是奈良具代表性的地標之一。推薦到「國寶館」走走，館內展示著日本國寶佛像「阿修羅像」，對佛教美術有興趣的遊客可千萬不能錯過！
+        </p>
     </section>
-    
+
     <section class="hotel-section" id="osaka vacation">
         <h2>大阪</h2>
         <img src="https://www.osp.osaka-info.jp/upload/facility_shop/4/20200123_192706_765964.jpg" alt="道頓堀水上觀光船">
         <p><strong>道頓堀水上觀光船</strong></p>
         <p>在大阪導遊的解說下，從道頓堀川欣賞橋樑或散步步道等大阪南區的熱鬧景象、是一趟約20分鐘的航程。</p>
-    
+
         <img src="https://bobby.tw/wp-content/uploads/pixnet/2b4ffc6caf3c3cfe6cdf7764c4771136.jpg" alt="心齋橋商店街">
         <p><strong>心齋橋商店街</strong></p>
         <p>心齋橋商店街長約600公尺，匯集180家店舖，還有屋頂不怕下雨超好逛。</p>
-    
-        <img src="https://prd-static.gltjp.com/glt/data/article/21000/20340/20230721_162517_8be010dc_w1920.webp" alt="通天閣">
+
+        <img src="https://prd-static.gltjp.com/glt/data/article/21000/20340/20230721_162517_8be010dc_w1920.webp"
+            alt="通天閣">
         <p><strong>通天閣</strong></p>
-        <p>通天閣是一座展望塔，興建於被稱為「新世界」之鬧區地帶的核心區域。以巴黎的凱旋門加上艾菲爾鐵塔為靈感，於1912年興建完成的通天閣高75公尺，是當時日本最高的建築。1943年時因火災而拆除，後於1956年重建。現今的通天閣為第2代，包含避雷針的高度高達108公尺。從地下1樓到5樓・屋頂，各樓層皆設有各式各樣的設施，從小孩到大人都能樂在其中。</p>
-    
-        <img src="https://prd-static.gltjp.com/glt/data/article/21000/20340/20230721_163844_e57c42a4_w1920.webp" alt="TOWER SLIDER">
+        <p>通天閣是一座展望塔，興建於被稱為「新世界」之鬧區地帶的核心區域。以巴黎的凱旋門加上艾菲爾鐵塔為靈感，於1912年興建完成的通天閣高75公尺，是當時日本最高的建築。1943年時因火災而拆除，後於1956年重建。現今的通天閣為第2代，包含避雷針的高度高達108公尺。從地下1樓到5樓・屋頂，各樓層皆設有各式各樣的設施，從小孩到大人都能樂在其中。
+        </p>
+
+        <img src="https://prd-static.gltjp.com/glt/data/article/21000/20340/20230721_163844_e57c42a4_w1920.webp"
+            alt="TOWER SLIDER">
         <p><strong>不只能展望還能體驗！「TOWER SLIDER」</strong></p>
-        <p>於2022年新設的尖叫系遊樂設施，是全長60公尺，採用管狀滑道的溜滑梯。由通天閣3樓・標高22公尺處，沿著電梯塔外圍，以約10秒1層樓的速度滑下。上半部為透明設計，因此在遊玩的過程中，還能同時欣賞通天閣與新世界周邊的街景。喜愛尖叫系遊樂設施的旅人，請務必體驗看看吧～。</p>
-    
-        <img src="https://bobby.tw/wp-content/uploads/pixnet/f056dd607a1b687753ebc0f2a85c4993.jpg" alt="阿倍野展望台HARUKAS 300夜景">
+        <p>於2022年新設的尖叫系遊樂設施，是全長60公尺，採用管狀滑道的溜滑梯。由通天閣3樓・標高22公尺處，沿著電梯塔外圍，以約10秒1層樓的速度滑下。上半部為透明設計，因此在遊玩的過程中，還能同時欣賞通天閣與新世界周邊的街景。喜愛尖叫系遊樂設施的旅人，請務必體驗看看吧～。
+        </p>
+
+        <img src="https://bobby.tw/wp-content/uploads/pixnet/f056dd607a1b687753ebc0f2a85c4993.jpg"
+            alt="阿倍野展望台HARUKAS 300夜景">
         <p><strong>阿倍野展望台HARUKAS 300夜景</strong></p>
         <p>要拍出好夜景第一步就是要把握日落後30分鐘的魔幻時刻，此時天尚未全黑，天空呈現深藍夢幻色調，怎麼拍怎麼美；如果等到天黑才上來，就很難拍出地景和建築物的細節，變成一片黑麻麻的夜景囉。</p>
-    
+
         <img src="https://www.osp.osaka-info.jp/upload/facility_shop/241/20231025_113108_985690.jpg" alt="天然溫泉 日向之湯">
         <p><strong>天然溫泉 日向之湯</strong></p>
         <p>Hinata no Yu是一個讓您可以在大城市裡享受真正的天然溫泉的都市型Spa！您還可以在9層的室外浴池享受大阪的夜景。</p>
@@ -516,108 +565,135 @@
         <img src="https://www.osp.osaka-info.jp/upload/facility_shop/4/20200123_192706_765964.jpg" alt="道頓堀水上觀光船">
         <p><strong>道頓堀水上觀光船</strong></p>
         <p>在大阪導遊的解說下，從道頓堀川欣賞橋樑或散步步道等大阪南區的熱鬧景象、是一趟約20分鐘的航程。</p>
-        
+
         <img src="https://pic.pimg.tw/sumsum6/1682757028-1365973540-g_n.jpg" alt="大阪城御座船">
         <p><strong>大阪城御座船</strong></p>
         <p>從高聳的城牆往上遙望大阪城與天守閣，實在令人讚嘆在古代要用多少的人力才能完成如此碩大的工程，真的太了不起了。</p>
         <p>整個乘船的過程約有二十分鐘，坐在復古的船上，吹著徐徐的微風，雖然聽不懂船師傅的介紹，但邊坐船邊欣賞古城的風景與壯碩真的很愜意喔！</p>
-        
-        <img src="https://prd-static.gltjp.com/glt/data/article/21000/20379/20240604_033345_ac39fb85_w1920.webp" alt="大阪城">
+
+        <img src="https://prd-static.gltjp.com/glt/data/article/21000/20379/20240604_033345_ac39fb85_w1920.webp"
+            alt="大阪城">
         <p><strong>大阪城</strong></p>
-        <p>大阪城位在大阪市中央區的「大阪城公園」內，與名古屋城和姬路城一同名列『日本三大名城』之一。以「大阪城跡」之名被指定為國家特別史跡，是被視為日本文化象徵的古城。如此名聞遐邇的大阪城，其魅力除了受到全世界高度評價的華美建築，還包括令人夢迴戰國到江戶時代的歷史幽情。</p>
-        <p>此外，城內仍保存有大手門、一番櫓、金明水井戶屋形等當時的建築遺跡，其中多數被指定為重要文化財，向世人傳承了當時的建築技術與美意識。大阪城公園內還可欣賞梅花與櫻花等豐富的花草樹木，一年四季都可享受不同的景色，非常推薦參觀。歷史上共興建過3代「大阪城天守」，現在的天守是以當時（1931年）的最新技術打造的鋼筋混凝土結構建築。</p>
+        <p>大阪城位在大阪市中央區的「大阪城公園」內，與名古屋城和姬路城一同名列『日本三大名城』之一。以「大阪城跡」之名被指定為國家特別史跡，是被視為日本文化象徵的古城。如此名聞遐邇的大阪城，其魅力除了受到全世界高度評價的華美建築，還包括令人夢迴戰國到江戶時代的歷史幽情。
+        </p>
+        <p>此外，城內仍保存有大手門、一番櫓、金明水井戶屋形等當時的建築遺跡，其中多數被指定為重要文化財，向世人傳承了當時的建築技術與美意識。大阪城公園內還可欣賞梅花與櫻花等豐富的花草樹木，一年四季都可享受不同的景色，非常推薦參觀。歷史上共興建過3代「大阪城天守」，現在的天守是以當時（1931年）的最新技術打造的鋼筋混凝土結構建築。
+        </p>
     </section>
 
     <section class="hotel-section" id="kyoto vacation">
         <section class="kyoto-section">
             <h2>京都</h2>
-        
-            <img src="https://prd-static.gltjp.com/glt/data/article/21000/20372/20230817_150243_d2e027b7_w1920.webp" alt="清水寺">
+
+            <img src="https://prd-static.gltjp.com/glt/data/article/21000/20372/20230817_150243_d2e027b7_w1920.webp"
+                alt="清水寺">
             <p><strong>清水寺</strong></p>
-            <p>清水寺位於JR「京都站」東北側，正式名稱為「音羽山 清水寺」，坐落於京都市與琵琶湖（滋賀縣）之間的音羽山半山腰中，是一座極具歷史價值的古老寺廟，已被登錄為聯合國教科文組織世界文化遺產。境內有國寶「本堂」，以及國家重要文化財產「仁王門」、「西門」、「鐘樓」和「三重塔」等30多座廟堂及石碑。</p>
-        
-            <img src="https://prd-static.gltjp.com/glt/data/article/21000/20372/20230817_151022_fdfbc0ca_w1920.webp" alt="清水寺地標「三重塔」">
+            <p>清水寺位於JR「京都站」東北側，正式名稱為「音羽山
+                清水寺」，坐落於京都市與琵琶湖（滋賀縣）之間的音羽山半山腰中，是一座極具歷史價值的古老寺廟，已被登錄為聯合國教科文組織世界文化遺產。境內有國寶「本堂」，以及國家重要文化財產「仁王門」、「西門」、「鐘樓」和「三重塔」等30多座廟堂及石碑。
+            </p>
+
+            <img src="https://prd-static.gltjp.com/glt/data/article/21000/20372/20230817_151022_fdfbc0ca_w1920.webp"
+                alt="清水寺地標「三重塔」">
             <p><strong>清水寺地標「三重塔」</strong></p>
             <p>清水寺的「三重塔」高約30公尺，是日本最大規模的三重塔。始建於847年，現在看到的是於1632年重建的三重塔。無論是過去還是現在，從京都市區都能看到三重塔，自古以來一直是清水寺的象徵。</p>
-        
-            <img src="https://prd-static.gltjp.com/glt/data/article/21000/20372/20230817_151115_a7ee217f_w1920.webp" alt="本堂（清水舞台）">
+
+            <img src="https://prd-static.gltjp.com/glt/data/article/21000/20372/20230817_151115_a7ee217f_w1920.webp"
+                alt="本堂（清水舞台）">
             <p><strong>本堂（清水舞台）</strong></p>
             <p>「本堂」建造在音羽山的懸崖之上，供奉著本尊「十一面千手千眼觀音像」。現在的本堂重建於1633年，被登錄為國寶。</p>
             <p>本堂前方搭建有一座高約13公尺的舞台。採用日本古老的傳統建築工法，不用一釘一鐵，通過木材相互支撐來分散受力，即使在很難建造房屋的懸崖上也具有極強的耐震能力。
                 支撐舞台的柱子都是用樹齡已有400餘年的巨大櫸木製成，非常值得觀賞。</p>
             <p>本堂前懸空的舞台自古以來就享有盛名，成為日本諺語「從清水舞台跳下」的來源。這句諺語從江戶時代（1603-1868）流傳至今。諺語的意思是「抱著必死的決心背水一戰」。
                 據說江戶時代，真的有人在許過願後會從舞台上跳下去。</p>
-            <img src="https://prd-static.gltjp.com/glt/data/article/21000/20372/20230817_153750_f8c21855_w1920.webp" alt="八坂神社">
+            <img src="https://prd-static.gltjp.com/glt/data/article/21000/20372/20230817_153750_f8c21855_w1920.webp"
+                alt="八坂神社">
             <p><strong>八坂神社</strong></p>
-            <p>京都八坂神社可是全日本3,000多間八坂神社的總本社，其位於祇園，又稱作祇園神社，而日本三大祭之一、長達一個月的夏日祭典 – – – 「祇園祭」，便是由京都的八坂神社舉辦的，在唐貞觀11年，因傳染病流行，日本民眾向該寺神祇祈求平安，「祇園祭」因此誕生，再祭典期間，又以宵山跟山鉾巡行被視為祭典最高潮，是一個具有一千多年歷史的節慶活動。</p>
-                
+            <p>京都八坂神社可是全日本3,000多間八坂神社的總本社，其位於祇園，又稱作祇園神社，而日本三大祭之一、長達一個月的夏日祭典 – – –
+                「祇園祭」，便是由京都的八坂神社舉辦的，在唐貞觀11年，因傳染病流行，日本民眾向該寺神祇祈求平安，「祇園祭」因此誕生，再祭典期間，又以宵山跟山鉾巡行被視為祭典最高潮，是一個具有一千多年歷史的節慶活動。</p>
+
             <img src="https://www.bring-you.info/wp-content/uploads/2019/01/Ichinenzaka-1.jpg" alt="一年坂">
             <p><strong>一年坂</strong></p>
-            <p>清水寺周圍真的是感受古都風情的好地方，但是「清水坂」、「二年坂」一帶真的過度擁擠，除了買伴手禮、拍照、看雜貨，真的很難靜下心來感受千年古都的風華，而高台寺一路走寧寧之道往二年坂路上，會經過名聲比較不大的「一年坂」，沿途非常靜謐，零星幾家茶屋、旅館，穿梭其間特別有感覺。</p>
-        
+            <p>清水寺周圍真的是感受古都風情的好地方，但是「清水坂」、「二年坂」一帶真的過度擁擠，除了買伴手禮、拍照、看雜貨，真的很難靜下心來感受千年古都的風華，而高台寺一路走寧寧之道往二年坂路上，會經過名聲比較不大的「一年坂」，沿途非常靜謐，零星幾家茶屋、旅館，穿梭其間特別有感覺。
+            </p>
+
             <img src="https://www.bring-you.info/wp-content/uploads/2019/01/ninenzaka-5.jpg" alt="二年坂">
             <p><strong>二年坂</strong></p>
             <p>二年坂一路往清水坂方向走，都是上坡，體力比較不好的會有些吃力，但個人沒什麼感覺，連日本人也都是牽著腳踏車上來。</p>
-        
-            <img src="https://www.bring-you.info/wp-content/uploads/2016/05/Starbucks-Coffee-Kyoto-Ninenzaka-1.jpg" alt="榻榻米星巴克">
+
+            <img src="https://www.bring-you.info/wp-content/uploads/2016/05/Starbucks-Coffee-Kyoto-Ninenzaka-1.jpg"
+                alt="榻榻米星巴克">
             <p><strong>全世界唯一的「榻榻米星巴克」</strong></p>
             <p>星星巴克迷來到京都二年坂最不能錯過的就是全世界唯一的榻榻米星巴克，租用了百年雙層木造古民宅，跪坐著喝咖啡也很有京都風呢！</p>
-        
-            <img src="https://www.bring-you.info/wp-content/uploads/2015/08/Donguri-Garden-Benelic-Kyoto-1.jpg" alt="橡子共和國">
+
+            <img src="https://www.bring-you.info/wp-content/uploads/2015/08/Donguri-Garden-Benelic-Kyoto-1.jpg"
+                alt="橡子共和國">
             <p><strong>【二年坂購物】橡子共和國</strong></p>
-            <p>進入三年坂前別忘了到「橡子共和國」逛逛吉卜力動畫相關的周邊商品，除了二年坂店，橡子共和國在清水坂也有分店，就在「お地藏さんの小路」裡，轉進去除了整排可愛的地藏菩薩，還有龍貓娃娃，可以在此買宮崎駿卡通週邊，並和龍貓站牌合照。</p>
-        
+            <p>進入三年坂前別忘了到「橡子共和國」逛逛吉卜力動畫相關的周邊商品，除了二年坂店，橡子共和國在清水坂也有分店，就在「お地藏さんの小路」裡，轉進去除了整排可愛的地藏菩薩，還有龍貓娃娃，可以在此買宮崎駿卡通週邊，並和龍貓站牌合照。
+            </p>
+
             <img src="https://www.bring-you.info/wp-content/uploads/2019/01/Akebonotei-1.jpg" alt="三年坂">
             <p><strong>三年坂</strong></p>
-            <p>二年坂連接到三年坂，便開始是一小段石階路，這裡便是「三年坂」，建於大同三年(西元808年)，因而稱做「三年坂」，又因為日文發音類似產寧，也有人叫「產寧坂」，這是古代孕婦通往清水寺「子安塔」祈求產子順利的道路。</p>
-        
+            <p>二年坂連接到三年坂，便開始是一小段石階路，這裡便是「三年坂」，建於大同三年(西元808年)，因而稱做「三年坂」，又因為日文發音類似產寧，也有人叫「產寧坂」，這是古代孕婦通往清水寺「子安塔」祈求產子順利的道路。
+            </p>
+
             <img src="https://www.bring-you.info/wp-content/uploads/2015/08/kyoto-fujinami-3.jpg" alt="藤菜美">
             <p><strong>【三年坂必吃】藤菜美</strong></p>
-            <p>三年坂有許多特色小吃店、雜貨店，其中飄兒推薦的小店，便是有超好喝冰抹茶的藤菜美，藤菜美是保留了京都傳統風味的醬油丸子專賣店，在三年坂、清水寺、高台寺都有分店，販售醬油丸子，還有洛水（抹茶）、蕨餅等點心、飲品，是體驗京風的絕佳好店。</p>
-        
+            <p>三年坂有許多特色小吃店、雜貨店，其中飄兒推薦的小店，便是有超好喝冰抹茶的藤菜美，藤菜美是保留了京都傳統風味的醬油丸子專賣店，在三年坂、清水寺、高台寺都有分店，販售醬油丸子，還有洛水（抹茶）、蕨餅等點心、飲品，是體驗京風的絕佳好店。
+            </p>
+
             <img src="https://www.bring-you.info/wp-content/uploads/2015/08/sannenzaka-shopping-14.jpg" alt="松原通（清水坂）">
             <p><strong>松原通（清水坂）</strong></p>
-            <p>最後，三年坂石階的頂端便是接向「 松原通（Matsubara-dori）」，這段寬闊的街道，便是通往清水寺前的主要通道，一路從東大路通延伸至清水寺，又稱為「清水坂」，整條清水坂兩旁，滿滿的都是名產店，可以在此試吃各家店的「生八橋」，決定要買哪家當伴手禮。</p>
-        
+            <p>最後，三年坂石階的頂端便是接向「 松原通（Matsubara-dori）」，這段寬闊的街道，便是通往清水寺前的主要通道，一路從東大路通延伸至清水寺，又稱為「清水坂」，整條清水坂兩旁，滿滿的都是名產店，可以在此試吃各家店的「生八橋」，決定要買哪家當伴手禮。
+            </p>
+
             <img src="https://bobby.tw/wp-content/uploads/pixnet/9e172f9d67f8195830f0777c134c1300.jpg" alt="錦市場">
             <p><strong>錦市場</strong></p>
             <p>抵達錦市場後，迫不及待準備大快朵頤了所有好吃的啦！整個錦市場錦市場商店街長達400公尺，多達130幾間店，有遮雨棚不怕日曬雨淋。但由於走道空間並不算寬敞，記得帶上錦市場地圖才不容易來回與大家擠來擠去。</p>
-        
-            <img src="https://prd-static.gltjp.com/glt/data/article/21000/20446/20230928_135602_d57f304f_w1920.webp" alt="伏見稻荷大社">
+
+            <img src="https://prd-static.gltjp.com/glt/data/article/21000/20446/20230928_135602_d57f304f_w1920.webp"
+                alt="伏見稻荷大社">
             <p><strong>伏見稻荷大社</strong></p>
             <p>據說日本秦氏後裔秦伊侶巨在稻荷山祭祀稻荷神，並於711年創建了「伏見稻荷大社」。
                 秦氏是日本古代的一個氏族，從朝鮮半島渡海而來。他們以先進的技術和經濟實力開發了這個地區。
                 「伏見稻荷大社」的社名源自所處地名「伊奈利（Inari）」。而「伊奈利」與日文中「稻生（意為長出稻子）」的發音相同，象徵五穀豐登。所以稻荷神社也被尊為保佑五穀豐登的神明。
                 神社的許多建築物在1467年的「応仁之亂」中被戰火摧毀，後於1499年重新修建了曾經失去的所有建築物。</p>
-        
-            <img src="https://tw.wamazing.com/media/wp-content/uploads/sites/4/2023/09/kyotoItinerary13_pixta_49335706_M-852x569.jpg.webp" alt="貴船神社">
+
+            <img src="https://tw.wamazing.com/media/wp-content/uploads/sites/4/2023/09/kyotoItinerary13_pixta_49335706_M-852x569.jpg.webp"
+                alt="貴船神社">
             <p><strong>貴船神社</strong></p>
-            <p>位於京都近郊的鞍馬與貴船地區，是京都知名能量景點；而供奉水神的「貴船神社」，更是因冬天雪景而遠近馳名。這次要帶大家搭乘巴士走進貴船地區，享受清新的空氣、淨水和寂靜氛圍，也會介紹交通、當地川床美食、好玩的手作體驗以及推薦的一日遊行程規劃哦！</p>
-        
-            <img src="https://lh3.googleusercontent.com/p/AF1QipO0YLwWr4Dkx58pG1NswP6xYjiEkVMVccSGjJ6O=s680-w680-h510" alt="伊藤久右衛門">
+            <p>位於京都近郊的鞍馬與貴船地區，是京都知名能量景點；而供奉水神的「貴船神社」，更是因冬天雪景而遠近馳名。這次要帶大家搭乘巴士走進貴船地區，享受清新的空氣、淨水和寂靜氛圍，也會介紹交通、當地川床美食、好玩的手作體驗以及推薦的一日遊行程規劃哦！
+            </p>
+
+            <img src="https://lh3.googleusercontent.com/p/AF1QipO0YLwWr4Dkx58pG1NswP6xYjiEkVMVccSGjJ6O=s680-w680-h510"
+                alt="伊藤久右衛門">
             <p><strong>伊藤久右衛門</strong></p>
             <p>宇治糕點工房是伊藤久右衛門宇治總店的附屬工房，由專門從事抹茶糕點的糕點師使用抹茶和宇治茶手工製作糕點。
                 它於 2012 年成立，旨在探索抹茶甜點的可能性。
                 在宇治製果工房，我們以傳統的法式點心製作方法為基礎，使用抹茶、宇治茶、日本原料等製作新的點心。 </p>
         </section>
-        
+
         <section class="hotel-section" id="fuji vacation">
             <h2>富士山</h2>
-            <img src="https://bobbyworld.tw/wp-content/uploads/pixnet/1b32ddf802c8937dec04d95e9d8b3696.jpg" >
+            <img src="https://bobbyworld.tw/wp-content/uploads/pixnet/1b32ddf802c8937dec04d95e9d8b3696.jpg">
             <p><strong>河口湖大石公園</strong></p>
-            <p>河口湖大石公園，位於河口湖畔的公園，坐擁巨無霸富士山美景，近乎全貌無遮蔽超級狂，來河口湖一日遊必去！免門票，四季都是花季能賞花，其中以大石公園薰衣草 (夏天6月下旬～7月中旬)、波波草 (秋天10月中下旬)最夯。</p>
+            <p>河口湖大石公園，位於河口湖畔的公園，坐擁巨無霸富士山美景，近乎全貌無遮蔽超級狂，來河口湖一日遊必去！免門票，四季都是花季能賞花，其中以大石公園薰衣草 (夏天6月下旬～7月中旬)、波波草
+                (秋天10月中下旬)最夯。</p>
             <p>冬天還有雪景可以欣賞，看完後大石公園美食，河口湖自然生活館能吃冰淇淋，買諸多富士山造型伴手禮很推薦。</p>
             <img src="https://farm66.static.flickr.com/65535/53321855936_b167ac073e_b.jpg">
             <p><strong>日川時計店</strong></p>
-            <p>說到這些年最火紅的富士山打卡點，除了河口湖外，就屬於日川時計店了，而這裡之所以火紅，就是因為可以拍攝到，隨著無盡頭的道路終點，是富士山。要前往日川時計店其實不難，可以跟羅賓一樣在富士山站下車後步行前往，這也是我最推薦的方式，因為沿路都有各種不同的富士山景觀能拍到，而且還能好好的欣賞富士吉田市的美。</p>
+            <p>說到這些年最火紅的富士山打卡點，除了河口湖外，就屬於日川時計店了，而這裡之所以火紅，就是因為可以拍攝到，隨著無盡頭的道路終點，是富士山。要前往日川時計店其實不難，可以跟羅賓一樣在富士山站下車後步行前往，這也是我最推薦的方式，因為沿路都有各種不同的富士山景觀能拍到，而且還能好好的欣賞富士吉田市的美。
+            </p>
             <img src="https://cdn2.ettoday.net/images/6872/e6872155.jpg">
             <p><strong>羅森便利店</strong></p>
-            <p>位於富士山腳的「河口湖」是近年最受歡迎的東京近郊旅遊地，在當地有許多拍攝點能欣賞到富士山的千百種姿態，其中河口湖車站前的「LAWSON 河口湖站前店」因恰巧落於富士山頭下方，平整方正的建築、藍白相間的看板，與背景的白頭富士山構成極為乾淨、優美的構圖，因而在 SNS 上爆紅成為炙手可熱的打卡點。</p>
-            <img src="https://res-2.cloudinary.com/jnto/image/upload/w_2064,h_1300,c_fill,f_auto,fl_lossy,q_auto/v1671447928/yamanashi/Yamanashi_t_id382_1">
+            <p>位於富士山腳的「河口湖」是近年最受歡迎的東京近郊旅遊地，在當地有許多拍攝點能欣賞到富士山的千百種姿態，其中河口湖車站前的「LAWSON
+                河口湖站前店」因恰巧落於富士山頭下方，平整方正的建築、藍白相間的看板，與背景的白頭富士山構成極為乾淨、優美的構圖，因而在 SNS 上爆紅成為炙手可熱的打卡點。</p>
+            <img
+                src="https://res-2.cloudinary.com/jnto/image/upload/w_2064,h_1300,c_fill,f_auto,fl_lossy,q_auto/v1671447928/yamanashi/Yamanashi_t_id382_1">
             <p><strong>忍野八海</strong></p>
             <p>｢八海｣是指忍野八海的八個池塘，也是這裡的主要景點。走在橋樑與步道上欣賞寧靜的池塘，望著傳統茅草屋、緩慢轉動的水車，以及令人驚豔的富士山 風景，讓人感覺彷彿進入了另一個時代。</p>
-            <p>忍野八海的八個池塘都是火山噴發以及密集火山運動後形成的美麗傑作。有多個池塘的水源是來自於地下湧泉，並以富含礦物質的泉水而聞名。湧池的池水極清澈乾淨，日本環境省在 1985 年已將其列為全國最優質泉水之一。</p>
-            <img src="https://fujiyoshida.net/image/rendering/attraction_image/17/trim.1024/3/2?v=2117c7110fbe2f9218fdaa7205f8d756b89a04c0">
+            <p>忍野八海的八個池塘都是火山噴發以及密集火山運動後形成的美麗傑作。有多個池塘的水源是來自於地下湧泉，並以富含礦物質的泉水而聞名。湧池的池水極清澈乾淨，日本環境省在 1985 年已將其列為全國最優質泉水之一。
+            </p>
+            <img
+                src="https://fujiyoshida.net/image/rendering/attraction_image/17/trim.1024/3/2?v=2117c7110fbe2f9218fdaa7205f8d756b89a04c0">
             <p><strong>新倉山淺間公園</strong></p>
             <P>新倉山淺間公園擁有大約650株的櫻花樹（染井吉野為主），一般在4月初旬到中旬期間開放。
                 在櫻花時節來訪，可以在新倉山淺間公園的展望台拍攝到忠靈塔與富士山加上櫻花的美景。因為一次就能看到代表日本的富士山、櫻花、以及五重塔的建築，所以據說不少外國人認為只要來了這裡就可以一次感受到日本的美。</P>
@@ -625,20 +701,24 @@
         </section>
         <section class="hotel-section" id="Akihabara vacation">
             <h2>秋葉原</h2>
-            <img str="https://resources.matcha-jp.com/resize/720x2000/2020/02/24-98034.webp">  
+            <img str="https://resources.matcha-jp.com/resize/720x2000/2020/02/24-98034.webp">
             <p><strong>秋葉原無線電會館</strong></p>
-            <P>滿坑滿谷動漫商店的秋葉原，到底該從何逛起？不妨就從JR秋葉原電器街出口斜前方的「秋葉原無線電會館」開始吧！這裡聚集的店家五花八門，商品種類更是多到眼花撩亂，就把無線電會館當作朝聖起點，展開秋葉原的驚奇旅程！</P>
+            <P>滿坑滿谷動漫商店的秋葉原，到底該從何逛起？不妨就從JR秋葉原電器街出口斜前方的「秋葉原無線電會館」開始吧！這裡聚集的店家五花八門，商品種類更是多到眼花撩亂，就把無線電會館當作朝聖起點，展開秋葉原的驚奇旅程！
+            </P>
             <p>在動漫文化興盛於秋葉原之前，裡頭聚集的店家販賣各式各樣的電器商品，隨著時代變遷，這裡逐漸由經營集換式卡牌、模型、漫畫等店鋪取代，現在館內商鋪以經營動漫相關商品為大宗。</p>
             <img src="https://prd-static.gltjp.com/glt/data/article/21000/20306/20230428_140023_64155447_w1920.webp">
             <p><strong>秋葉原電氣街</strong></p>
-            <p>秋葉原集結了大型店家和大小各種型態的電氣店，是日本最具代表性的電器街。以「AKIBA」暱稱而廣為民眾熟知，不僅日本國內，也是深受世界各國矚目的人氣景點。聚集了家電製品、電腦、智慧型手機等匯集了數位機器中最先進技街的商品，以及動漫、電玩、公仔、鐵道模型等，是知名的流行文化聖地。</p>
+            <p>秋葉原集結了大型店家和大小各種型態的電氣店，是日本最具代表性的電器街。以「AKIBA」暱稱而廣為民眾熟知，不僅日本國內，也是深受世界各國矚目的人氣景點。聚集了家電製品、電腦、智慧型手機等匯集了數位機器中最先進技街的商品，以及動漫、電玩、公仔、鐵道模型等，是知名的流行文化聖地。
+            </p>
             <img src="https://prd-static.gltjp.com/glt/data/article/21000/20306/20230428_140236_b0b51696_w1920.webp">
             <p><strong>CURE MAID CAFÉ</strong></p>
             <p>CURE MAID CAFÉ是於2001年開幕的日本第一家女僕咖啡廳。女僕們穿著古典的制服提供服務的風格，就是源自於此。也曾在動漫作品中登場過，被粉絲們視為「聖地」，擁有極高的人氣。</p>
-            <p>從歐姆蛋飯、義大利麵等份量十足的餐點，到精心製作的甜點，餐食、飲料類的選擇豐富。還被日本紅茶協會認定為「好喝紅茶的店家」，有司康餅、格子鬆餅等多種下午茶不可或缺的餐點。店內使用多款餐具將這些餐點和飲品襯托得更為精緻</p>
+            <p>從歐姆蛋飯、義大利麵等份量十足的餐點，到精心製作的甜點，餐食、飲料類的選擇豐富。還被日本紅茶協會認定為「好喝紅茶的店家」，有司康餅、格子鬆餅等多種下午茶不可或缺的餐點。店內使用多款餐具將這些餐點和飲品襯托得更為精緻
+            </p>
             <img src="https://prd-static.gltjp.com/glt/data/article/21000/20306/20230802_162858_24cbf7f4_w1920.webp">
             <p><strong>Animate 秋葉原</strong></p>
-            <p>Animate（安利美特）秋葉原店是日本規模最大的動畫、漫畫、遊戲專賣店。在2023年4月，1號館搬遷到2號館旁重新開幕。全新的1號館從地下1樓到7樓，共有8個樓層。地下1樓有音樂、影像和遊戲相關產品，1樓到6樓則以熱門動畫作品和人氣角色人物周邊商品為主，以秋葉原動漫聖地受到廣大粉絲的喜愛。</p>
+            <p>Animate（安利美特）秋葉原店是日本規模最大的動畫、漫畫、遊戲專賣店。在2023年4月，1號館搬遷到2號館旁重新開幕。全新的1號館從地下1樓到7樓，共有8個樓層。地下1樓有音樂、影像和遊戲相關產品，1樓到6樓則以熱門動畫作品和人氣角色人物周邊商品為主，以秋葉原動漫聖地受到廣大粉絲的喜愛。
+            </p>
             <img src="https://prd-static.gltjp.com/glt/data/article/21000/20306/20230802_163012_81e09425_w1920.webp">
             <p><strong>mAAch ecute 神田萬世橋</strong></p>
             <p>將明治時代後期建造，在東京站啟用前為中央線的起點繁榮發展的舊萬世橋站，和現仍使用中的JR中央線的鐵道高架橋「萬世橋高架橋」，經整修後轉型的商業設施。</p>
@@ -661,24 +741,30 @@
 
         <section class="hotel-section" id="asakusa vacation">
             <h2>淺草</h2>
-            <img src="https://www.newamazing.com.tw/eweb_newamazing/japan/tokyo/images/asakusa/asakusa-01.jpg" >
+            <img src="https://www.newamazing.com.tw/eweb_newamazing/japan/tokyo/images/asakusa/asakusa-01.jpg">
             <p><strong>淺草寺</strong></p>
-            <P>傳說公園628年，兩位漁民從海中撈出一座金觀音像，後來經附近人家集資蓋成一座廟宇。後來經德川家康重建後成為較完整的觀音寺大社，江戶時代後期，附近一帶成為以淺草寺為中心的庶民遊樂中心。鎮守正門的風神雷神與雷門大燈籠，也成為到東京旅遊的遊客，必去的打卡地標之一。</P>
+            <P>傳說公園628年，兩位漁民從海中撈出一座金觀音像，後來經附近人家集資蓋成一座廟宇。後來經德川家康重建後成為較完整的觀音寺大社，江戶時代後期，附近一帶成為以淺草寺為中心的庶民遊樂中心。鎮守正門的風神雷神與雷門大燈籠，也成為到東京旅遊的遊客，必去的打卡地標之一。
+            </P>
             <img src="https://www.bring-you.info/wp-content/uploads/2019/05/Nakamise-Shopping-Street-22.jpg">
             <p><strong>仲見世商店街</strong></p>
-            <p>淺草寺前的仲見世通商店街，從淺草雷門大燈籠一直延伸到入口淺草寺前小舟町門口，長度約250M，商店街的歷史最早可以追溯至17世紀，目前約有90幾間店家，兩側聚集了不少店家，除了販賣日式雜貨紀念品、零食土產、飾品…等店家，也有很多日式的傳統小吃可以買來吃，最有名的有人形燒、菠蘿麵包、炸肉餅..等美食，有吃又有得買。搭配附近的新仲見世商店街、傳法院通、雷門通、合羽橋道具街，晃上半天不成問題。</p>
+            <p>淺草寺前的仲見世通商店街，從淺草雷門大燈籠一直延伸到入口淺草寺前小舟町門口，長度約250M，商店街的歷史最早可以追溯至17世紀，目前約有90幾間店家，兩側聚集了不少店家，除了販賣日式雜貨紀念品、零食土產、飾品…等店家，也有很多日式的傳統小吃可以買來吃，最有名的有人形燒、菠蘿麵包、炸肉餅..等美食，有吃又有得買。搭配附近的新仲見世商店街、傳法院通、雷門通、合羽橋道具街，晃上半天不成問題。
+            </p>
             <img src="https://hanblog.tw/wp-content/uploads/2024/04/1710326563-2187358983-g_n.jpg">
             <p><strong>大黑家天婦羅 本店</strong></p>
-            <p>大黑家天婦羅創立於西元1887年，距今已經130多年，歷史非常悠久。大黑家天婦羅本店位於淺草寺旁的傳法院通上，過雷門後經過仲見世商店街繼續往前走，快到淺草寺前，就會經過橫向的傳法院通，往左轉走一下就到了。很適合參觀完淺草寺後來這裡用餐。</p>
+            <p>大黑家天婦羅創立於西元1887年，距今已經130多年，歷史非常悠久。大黑家天婦羅本店位於淺草寺旁的傳法院通上，過雷門後經過仲見世商店街繼續往前走，快到淺草寺前，就會經過橫向的傳法院通，往左轉走一下就到了。很適合參觀完淺草寺後來這裡用餐。
+            </p>
         </section>
 
-        <section class="hotel-section" id="narita vacation">   
+        <section class="hotel-section" id="narita vacation">
             <h2>成田</h2>
-            <img src="https://tw.wamazing.com/media/wp-content/uploads/sites/4/2018/05/naritasanshinsho_pixta_80927087_M-853x569.jpg.webp">
+            <img
+                src="https://tw.wamazing.com/media/wp-content/uploads/sites/4/2018/05/naritasanshinsho_pixta_80927087_M-853x569.jpg.webp">
             <p><strong>成田山新勝寺</strong></p>
             <p>「成田山新勝寺」是日本旅遊的熱門景點之一，是當地人也經常參拜的寺院，又被稱為「成田不動」。因其距離千葉縣「成田機場」僅1站的優越地理位置，使得無論在抵達日本或是要離開日本時安排半日遊都很合適。</p>
-            <p>成田山新勝寺創建於西元940年，主要祀奉保佑達成心願出名的「不動明王」，自古至今吸引了不少名人，包括鎌倉幕府將軍「源賴朝」、歌舞伎演員「市川團十郎」等人都曾前往參拜。這裡亦是千葉縣著名的新年參拜地點，每年的1月1日至1月3日據說有多達300萬人以上的參拜人潮。</p>
-            <img src="https://wp-odai.wamazing.com/media/wp-content/uploads/sites/2/2024/07/naritasanshinsho_pixta_83505352_M.jpg.webp">
+            <p>成田山新勝寺創建於西元940年，主要祀奉保佑達成心願出名的「不動明王」，自古至今吸引了不少名人，包括鎌倉幕府將軍「源賴朝」、歌舞伎演員「市川團十郎」等人都曾前往參拜。這裡亦是千葉縣著名的新年參拜地點，每年的1月1日至1月3日據說有多達300萬人以上的參拜人潮。
+            </p>
+            <img
+                src="https://wp-odai.wamazing.com/media/wp-content/uploads/sites/2/2024/07/naritasanshinsho_pixta_83505352_M.jpg.webp">
             <p><strong>必吃鰻魚飯！參道上約60間鰻魚餐廳飄香</strong></p>
             <p>因成田山新勝寺附近有著湖泊，自江戶時代起鰻魚飯成為了成田地區的名產，在新勝寺的表參道至今依舊能找到將近60間的鰻魚專賣店。以下要推薦3間必吃名店給大家！</p>
             <P>川豐
@@ -695,92 +781,272 @@
                 地址：千葉県成田市仲町359
                 交通方式：從JR「成田站」或京成電鐵「京成成田站」徒步約13分鐘
                 官網：https://www.surugaya-unagi.net/</p>
-            <img src="https://wp-odai.wamazing.com/media/wp-content/uploads/sites/2/2024/07/naritasanshinsho_pixta_46903987_M.jpg.webp">
+            <img
+                src="https://wp-odai.wamazing.com/media/wp-content/uploads/sites/2/2024/07/naritasanshinsho_pixta_46903987_M.jpg.webp">
             <p><strong>小吃天堂！鰻魚麵包、甘太郎燒、串仙貝等讓你吃不停</strong></p>
-            <p>除了鰻魚飯，也別錯過參道上的各式小吃！像是老字號甜點店「金時甘太郎燒」（金時の甘太郎焼）有以手工捏製紅豆泥內餡、燒烤到香噴噴的「甘太郎燒」（類似紅豆餅）；還有「下田康生堂麵包茶屋」（下田康生堂ぱん茶屋）結合蒲燒鰻魚及麵包的「鰻魚麵包」（うなぎパン）。</p>
-            <p>另外也別錯過手工仙貝專賣店「林田仙貝」（林田のおせんべい）所推出、適合邊走邊吃的「串仙貝」，以及集結縣內各大知名伴手禮、超好逛的名產店「NAGOMI米屋總本店」（なごみの米屋總本店）喔！</p> 
-         </section>
+            <p>除了鰻魚飯，也別錯過參道上的各式小吃！像是老字號甜點店「金時甘太郎燒」（金時の甘太郎焼）有以手工捏製紅豆泥內餡、燒烤到香噴噴的「甘太郎燒」（類似紅豆餅）；還有「下田康生堂麵包茶屋」（下田康生堂ぱん茶屋）結合蒲燒鰻魚及麵包的「鰻魚麵包」（うなぎパン）。
+            </p>
+            <p>另外也別錯過手工仙貝專賣店「林田仙貝」（林田のおせんべい）所推出、適合邊走邊吃的「串仙貝」，以及集結縣內各大知名伴手禮、超好逛的名產店「NAGOMI米屋總本店」（なごみの米屋總本店）喔！</p>
+        </section>
 
 
     </section>
-    
-    <section id="food">
-        <h2>吃的介紹</h2>
-        <p>能不能給我多億點點時間和多億點點溫柔，不要讓我如此難受</p>
-    </section>
-    <section  id="hotel">
+
+    <section id="hotel">
         <h2>住宿介紹</h2>
     </section>
 
-    <section class="hotel-section" id="zero-hotel"> 
+    <section class="hotel-section" id="zero-hotel">
         <h2>第零天 奈良住宿</h2>
-        <img src="https://pix8.agoda.net/hotelImages/161928/-1/88ff3cb6217ebd014b4d27a271901fdf.jpg?ca=7&ce=1&s=1024x" alt="洛哈斯JR奈良站天然溫泉超級酒店">
+        <img src="https://pix8.agoda.net/hotelImages/161928/-1/88ff3cb6217ebd014b4d27a271901fdf.jpg?ca=7&ce=1&s=1024x"
+            alt="洛哈斯JR奈良站天然溫泉超級酒店">
         <p><strong>洛哈斯JR奈良站天然溫泉超級酒店</strong></p>
-        <p>酒店與JR奈良站相通，只需步行1分鐘就到達，而且AEON超市就在JR車站1樓，購買日常用品超方便。酒店設有天然溫泉，讓大家在市中心也能享受浸泡時光。房間有枕頭選單，住客可按個人需要，揀選不同高度、硬度、材質的枕頭。</p>
+        <p>酒店與JR奈良站相通，只需步行1分鐘就到達，而且AEON超市就在JR車站1樓，購買日常用品超方便。酒店設有天然溫泉，讓大家在市中心也能享受浸泡時光。房間有枕頭選單，住客可按個人需要，揀選不同高度、硬度、材質的枕頭。
+        </p>
     </section>
-    
-    <section class="hotel-section" id="first-hotel"> 
+
+    <section class="hotel-section" id="first-hotel">
         <h2>第一天 大阪住宿</h2>
         <img src="https://bridge-group.net/img/hotel/img-bridge.jpg" alt="心齋橋橋樑酒店">
         <p><strong>心齋橋 橋樑酒店</strong></p>
         <p>橋樑酒店位於從心齋橋站，四橋站徒步3分鐘的絕好位置。每天22點至23點有免費的拉麵，啤酒，燒酒，雞尾酒，紅酒，日本酒，威士忌等50多種酒精飲料。</p>
     </section>
-    
-    <section class="hotel-section" id="second-hotel"> 
+
+    <section class="hotel-section" id="second-hotel">
         <h2>第二天 京都住宿</h2>
-        <img src="https://s.yimg.com/ny/api/res/1.2/4VK9OwDe.GBnQvopeSMcdg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTY0MDtjZj13ZWJw/https://s.yimg.com/os/creatr-uploaded-images/2023-09/8b06b060-50b8-11ee-b7bb-ad0d17031e3a" alt="京都御宿野乃溫泉飯店">
+        <img src="https://s.yimg.com/ny/api/res/1.2/4VK9OwDe.GBnQvopeSMcdg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTY0MDtjZj13ZWJw/https://s.yimg.com/os/creatr-uploaded-images/2023-09/8b06b060-50b8-11ee-b7bb-ad0d17031e3a"
+            alt="京都御宿野乃溫泉飯店">
         <p><strong>京都 御宿 野乃溫泉飯店</strong></p>
-        <p>店大廳沒有太多複雜的設計，但有個很棒又貼心的地方－免費供應的mini bar，提供喝到飽的咖啡跟抹茶牛奶，還有孩子最愛的果汁，讓嗨寶喝到笑得合不攏嘴。除了有這些無限供應的飲品外，泡完溫泉後，休息室也無料提供冰棒（每人限拿一支）；還有夜間限定，每晚21:30～23:00，免費提供飯店特製的醬油拉麵，真的是不怕你吃，只怕你吃不完。</p>
+        <p>店大廳沒有太多複雜的設計，但有個很棒又貼心的地方－免費供應的mini
+            bar，提供喝到飽的咖啡跟抹茶牛奶，還有孩子最愛的果汁，讓嗨寶喝到笑得合不攏嘴。除了有這些無限供應的飲品外，泡完溫泉後，休息室也無料提供冰棒（每人限拿一支）；還有夜間限定，每晚21:30～23:00，免費提供飯店特製的醬油拉麵，真的是不怕你吃，只怕你吃不完。
+        </p>
     </section>
-    
-    <section class="hotel-section" id="third-hotel"> 
+
+    <section class="hotel-section" id="third-hotel">
         <h2>第三天 京都住宿</h2>
         <img src="https://resources.matcha-jp.com/resize/720x2000/2017/10/03-37639.webp" alt="京都到東京的夜間巴士">
         <p><strong>京都到東京的夜間巴士</strong></p>
         <p>傳說中只有沒錢和身體硬朗的大學生才敢做的省錢交通工具，身為符合這兩點的我們必須試試。</p>
     </section>
-    
-    <section class="hotel-section" id="fourth-hotel"> 
+
+    <section class="hotel-section" id="fourth-hotel">
         <h2>第四天 富士山住宿</h2>
-        <img src="https://img1.cdn-eztravel.com.tw/images/0222k12000ak2gqenE8B5_C_790_444_R5_Q70.jpg" alt="Cottage Tozawa Center">
+        <img src="https://img1.cdn-eztravel.com.tw/images/0222k12000ak2gqenE8B5_C_790_444_R5_Q70.jpg"
+            alt="Cottage Tozawa Center">
         <p><strong>Cottage Tozawa Center</strong></p>
         <p>館內設有煮食用具及大雪櫃，雙層單位很有特色，有郊區親近鄉下的感覺，十分寫意舒適，難免會有昆蟲入屋，介意者要留意。 每一戶都對正富士山，可以享受開窗見到逆富士的美景。</p>
     </section>
-    
-    <section class="hotel-section" id="fifth-hotel"> 
+
+    <section class="hotel-section" id="fifth-hotel">
         <h2>第五天 淺草住宿</h2>
-        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/513512988.jpg?k=cdbc42ee49e6bf45501673c06a2a65a9007df979ee16442000984f0c1c9a5151&o=&hp=1" alt="OMO3 Asakusa by Hoshino Resorts">
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/513512988.jpg?k=cdbc42ee49e6bf45501673c06a2a65a9007df979ee16442000984f0c1c9a5151&o=&hp=1"
+            alt="OMO3 Asakusa by Hoshino Resorts">
         <p><strong>OMO3 Asakusa by Hoshino Resorts</strong></p>
-        <p>OMO3 Asakusa by Hoshino Resorts 地理位置很棒，位於東京，有空調客房、共用休息室、WiFi（免費）和露台。這間飯店位置很不錯，位在台東區，距離 Komagatado 600 公尺，距離 Edo Taito Traditional Crafts Center 600 公尺。這間住宿全面禁菸，距離 Hozomon Gate 200 公尺，客房均提供平面電視和保險箱。這間住宿的每間客房都有寢具和毛巾。</p>
+        <p>OMO3 Asakusa by Hoshino Resorts 地理位置很棒，位於東京，有空調客房、共用休息室、WiFi（免費）和露台。這間飯店位置很不錯，位在台東區，距離 Komagatado 600 公尺，距離
+            Edo Taito Traditional Crafts Center 600 公尺。這間住宿全面禁菸，距離 Hozomon Gate 200 公尺，客房均提供平面電視和保險箱。這間住宿的每間客房都有寢具和毛巾。
+        </p>
     </section>
-    
-    
-        
+
+    <section id="food">
+        <h2>美食介紹</h2>
+        <section class="hotel-section" id="zero-hotel">
+
+            <h2>奈良美食</h2>
+            <img src="https://bobbyworld.tw/wp-content/uploads/pixnet/d2061b5ac0f11208d148e7a07b5adfaf.jpg"
+                alt="奈良志津香釜飯">
+            <p><strong>奈良志津香釜飯</strong></p>
+            <p>奈良志津香釜飯是享用正宗釜飯的理想選擇，特別推薦人氣「奈良七種釜めし」。這道料理的米飯香Q且帶有脆口的鍋巴，搭配鮮美的天然食材，適合不愛重口味的遊客。志津香在奈良有兩家分店：公園店和大宮店。公園店距奈良公園更近，非常方便餵鹿完後前往，但通常人潮較多；若希望享受較為安靜的用餐環境，可選擇大宮店。
+            </p>
+
+            <h2>大阪心齋橋美食</h2>
+            <img src="https://bobbyworld.tw/wp-content/uploads/pixnet/755116637ca128e8536051f927c42698.jpg"
+                alt="北極星蛋包飯">
+            <p><strong>北極星蛋包飯</strong></p>
+            <p>傳說中的日本蛋包飯創始店－北極星蛋包飯，擁有近百年歷史，名氣響亮。</p>
+            <p>店內最受歡迎的餐點是「雞肉蛋包飯」，米飯飽滿，搭配偏酸濃郁的番茄醬，雖然口味樸實但耐吃。心齋橋的另一家明治軒蛋包飯也相當有名，吃過北極星的人不妨前往嚐試不同風味。</p>
+            <img src="https://bobbyworld.tw/wp-content/uploads/pixnet/e84fa8945ac407ab10845bc4a3bb6f8d.jpg"
+                alt="新世界元祖串炸達摩">
+            <p><strong>新世界元祖串炸達摩</strong></p>
+            <p>起源於新世界的「串炸達摩」，可說是大阪串炸的代名詞。</p>
+            <p>串炸的麵衣細緻酥脆，搭配酸酸甜甜的獨門醬汁，毫無油膩感，不知不覺就能吃掉好幾支。要注意的是，每支串炸只能沾一次醬汁，否則店員可能會像招牌的大叔一樣發火呢！</p>
+            <img src="https://bobbyworld.tw/wp-content/uploads/pixnet/5825a80ef16ff85b34d1f3c09d31811b.jpg" alt="神座拉麵">
+            <p><strong>神座拉麵</strong></p>
+            <p>以清爽系「醬油白菜湯頭」聞名的神座拉麵，加入大量大白菜，湯頭清甜且營養均衡。</p>
+            <p>另一道特色菜是「蔬菜爆棚拉麵」，一次補足一天的纖維需求。在地人推薦加入臭臭辣辣的辣韭菜，更添風味，別具特色。</p>
+            <img src="https://bobbyworld.tw/wp-content/uploads/pixnet/8d2ea50c3e347d802d7adc26be5c63ca.jpg"
+                alt="PABLO半熟起司蛋糕">
+            <p><strong>PABLO半熟起司蛋糕</strong></p>
+            <p>誕生於大阪，並風靡全日本的PABLO半熟起司蛋糕，酥香的派皮搭配濃郁的乳酪內餡，香滑順口，濃而不膩。三分熟與五分熟兩種熟度都相當受歡迎。</p>
+            <p>冷藏保存可保持三天，但攜帶回台容易變形，建議現場品嚐，口感最為美味。</p>
+            <img src="https://bobbyworld.tw/wp-content/uploads/pixnet/5efa76f819b71649dfb67db145c7ca9f.jpg"
+                alt="宇治園本店抹茶">
+            <p><strong>宇治園本店抹茶</strong></p>
+            <p>京都創業超過百年的抹茶老店－宇治園，人氣最高的抹茶冰淇淋，滋味醇厚濃郁，抹茶香氣四溢，讓人一吃就停不下來！</p>
+            <p>此外，兩款招牌茶葉「火男烘焙茶」和「小佳女煎茶」也不容錯過，包裝精美又好喝，非常適合作為送禮的選擇。</p>
+            <img src="https://bobbyworld.tw/wp-content/uploads/pixnet/5b65a71720cf8dce159c596f0a50c144.jpg"
+                alt="銀裝蜂蜜蛋糕">
+            <p><strong>銀裝蜂蜜蛋糕</strong></p>
+            <p>這款蜂蜜蛋糕充滿濃郁蜂蜜香，帶有水分，順口不乾不澀，美味程度遠超過預期！</p>
+            <p>每盒有四入小包裝，保存期限為2至3天，常溫保存攜帶回台非常方便。</p>
+            <img src="https://bobbyworld.tw/wp-content/uploads/pixnet/177b9ea62f6c01a51941e5f4abb78b21.jpg" alt="万菓堂">
+            <p><strong>万菓堂</strong></p>
+            <p>万菓堂販售各式各樣的在地伴手禮，最特別的是由創業近400年的「千鳥屋宗家」直送的甜點。</p>
+            <p>其中，「みたらし小餅」外層麻糬口感軟Q，濃郁的米香搭配醬油餡，味道十分獨特；「本千鳥饅頭」更是其中的亮點，使用北海道手亡豆製作的白豆沙，口感綿密，入口即化，極力推薦！</p>
+            <img src="https://mimihan.tw/wp-content/uploads/20231220163925_0.jpg" alt="大阪心齋橋橋梁酒店">
+            <img src="https://mimihan.tw/wp-content/uploads/20231220170910_0.jpg" alt="大阪心齋橋橋梁酒店">
+            <img src="https://mimihan.tw/wp-content/uploads/20231220170910_0.jpg" alt="大阪心齋橋橋梁酒店">
+            <p><strong>大阪心齋橋橋梁酒店</strong></p>
+            <p>大阪心齋橋橋梁酒店每天提供免費生啤酒、日本酒、雞尾酒等50多種飲品，讓住客可以無限暢飲。除此之外，酒店還有無限量的冰淇淋和宵夜拉麵供應，讓你隨時滿足味蕾。</p>
+
+            <h2>京都</h2>
+            <img src="https://prd-isolate.cmosite.com/wp-content/uploads/sites/10/2020/12/chyabana_cmo_cheese.png"
+                alt="京都《茶花》大阪燒">
+            <p><strong>京都《茶花》大阪燒</strong></p>
+            <p>找不到介紹，那就<br>看起來好吃！</p>
+            <img src="https://mimihan.tw/wp-content/uploads/20191026110617_92.jpg" alt="麵屋豬一">
+            <p><strong>麵屋豬一</strong></p>
+            <p>位於京都河原町附近的麵屋豬一（豬一拉麵），近年來已成為非常夯的京都美食，並多次獲得米其林必比登推薦，2022年也榜上有名。在日本Tabelog食評網站上，更以3.74分的高評價，受到食客們的喜愛。</p>
+            <img src="https://pic.pimg.tw/juhsin1011/1617383057-3141014399-g.jpg" alt="京都．宇治 伊藤久右衛門">
+            <p><strong>京都．宇治 伊藤久右衛門</strong></p>
+            <p>創建於1832年（約180年前）的京都宇治伊藤久右衛門，專門製造與銷售日本茶及相關產品。這裡的商品涵蓋了茶葉、抹茶粉、糖果、蕎麥麵、大福、蛋糕、生巧克力、以及日本清酒等。1996年，伊藤久右衛門在京都宇治開設了首家日本茶葉複合式咖啡廳，成為當地的一大亮點。
+            </p>
+
+
+            <h2>清水板、三年板~一年板</h2>
+            <img src="https://www.bring-you.info/wp-content/uploads/2016/05/kiyomizu-kyoami-1.jpg" alt="清水坂八ツ橋しゅ泡芙">
+            <p><strong>清水坂八ツ橋しゅ泡芙</strong></p>
+            <p>距離清水寺大門超近的這間「清水坂八ツ橋しゅ泡芙」，是《食尚玩家》也介紹過的小吃甜品店，販售有咖啡、抹茶、抹茶冰淇淋、肉桂泡芙、冰淇淋泡芙。</p>
+            <img src="https://www.bring-you.info/wp-content/uploads/2015/08/sannenzaka-shopping-6.jpg"
+                alt="比沙家 京都清水坂本店">
+            <p><strong>比沙家 京都清水坂本店</strong></p>
+            <p>「比沙家」在關東、關西區域共有十幾家分店，雖然我一直覺得中國吃到的栗子最好吃，軟又甜，但「比沙家栗子」則是精心挑選含糖量較大的栗子，講究天然無添加物，栗子的自然甘甜令人回味無窮。</p>
+            <img src="https://www.bring-you.info/wp-content/uploads/2015/08/kyobaum-1.jpg" alt="清水坂抹茶豆漿霜淇淋 京ばあむ">
+            <p><strong>清水坂抹茶豆漿霜淇淋 京ばあむ</strong></p>
+            <p>飄兒點的是大人氣的「抹茶年輪蛋糕豆乳霜淇淋」，豆乳霜淇淋選的是抹茶和豆乳混合的口味。冰淇淋吃來相當滑順，抹茶味不會過於濃烈，上方還有一塊酥脆的八橋餅可以當湯匙使用，重點是下方的抹茶年輪蛋糕，依然是記憶中的美味。
+            </p>
+            <img src="https://www.bring-you.info/wp-content/uploads/2023/11/ukiya-kyoto-11.jpg" alt="有喜屋">
+            <p><strong>有喜屋</strong></p>
+            <p>「有喜屋」雖然被歸類為手工蕎麥麵店，但他們的蕎麥麵吃起來普通，反而是「親子丼」超級好吃。炸蝦親子丼的麵衣酥脆且美味，鮮蝦彈牙可口；蛋花軟嫩滑口，搭配美味的日本米飯，真的是清水寺午餐的最佳選擇！</p>
+            <img src="https://www.bring-you.info/wp-content/uploads/2015/08/kyoto-fujinami-hon-3.jpg" alt="藤菜美三年坂本店">
+            <p><strong>藤菜美三年坂本店</strong></p>
+            <p>藤菜美是保留了京都傳統風味的醬油丸子專賣店，在三年坂、清水寺和高台寺都有分店，販售醬油丸子、洛水（抹茶）、蕨餅等點心。他們家的冰抹茶從飄兒第一次喝起，就一直超愛，每次到清水寺都一定會來買，因為飄兒就是喜歡那種又甜又冰的抹茶！不過有一次在十幾度的氣溫下喝，忽然覺得沒那麼好喝，看來天氣還是要熱一點才有感。
+            </p>
+            <p>藤菜美的糰子也很好吃，過去飄兒一直不喜歡鹹醬油糰子，但吃過藤菜美的後就開始愛上鹹糰子。其實清水寺周邊也有很多家不錯的糰子店，但習慣性就會選擇來藤菜美。</p>
+            <img src="https://www.bring-you.info/wp-content/uploads/2021/07/umezono-1.jpg" alt="甘党茶屋 京 梅園 清水店">
+            <p><strong>甘党茶屋 京 梅園 清水店</strong></p>
+            <p>「梅園」創立於1927年，在京都有超過五間分店，清水店一整個古色古香，室內空間寬敞舒適，甜點也非常美味，一待就不想走。店內有個窗邊位置，可以直擊窗外庭園，讓人感到格外閒適。必點的點心組合豐富多樣，包括抹茶、白玉紅豆抹茶、蕨餅、御手洗丸等。
+            </p>
+            <img src="https://www.bring-you.info/wp-content/uploads/2016/05/Kirakuanokamoto-1.jpg" alt="喜楽庵 岡本 産寧坂店">
+            <p><strong>喜楽庵 岡本 産寧坂店</strong></p>
+            <p>每天可以賣到上千個的「喜樂庵 可樂餅」、「唐揚雞串」、「霜淇淋」都受到很多顧客的喜愛。</p>
+            <img src="https://www.bring-you.info/wp-content/uploads/2016/05/sannenzaka-ninenzaka-streets2023-1.jpg"
+                alt="奧丹湯豆腐">
+            <p><strong>奧丹湯豆腐</strong></p>
+            <p>位於三年坂接八坂通的轉角，這家有名的「総本家 ゆどうふ 奥丹清水」，賣的是京都必吃的京料理湯豆腐。創立於江戶時代的奧丹湯豆腐可說是間名店，與和順正湯豆腐一樣，深受當地人和遊客的喜愛。</p>
+            <img src="https://www.bring-you.info/wp-content/uploads/2016/08/tsuboneyarisshun-3.jpg" alt="局屋立春">
+            <p><strong>局屋立春</strong></p>
+            <p>局屋立春是很多在地日本人會來買的和菓子店，提供的糖果小巧可口，吃來比其他店家的還要美味。逛完清水寺後，如果累了，也可以在店內享受下午茶。局屋立春的蕨餅口感非常軟嫩，搭配黃豆粉，整體味道搭配得相當好。而他們的抹茶也很正統，並非那種加糖的冰抹茶，而是用茶筅刷出的抹茶，喝起來帶有自然的苦味，喜歡抹茶的人應該會愛上這裡的抹茶。
+            </p>
+
+            <h2>璟市場</h2>
+            <img src="https://bobbyworld.tw/wp-content/uploads/pixnet/555df88aa611a96159d4e7151050d98b.jpg" alt="三木雞卵">
+            <p><strong>三木雞卵</strong></p>
+            <p>三木雞卵的口感細緻滑嫩，濃郁的蛋香和鮮美的高湯相融合，口感十分出色。這家店的獨特蛋黃豆沙麵包也非常熱賣，來到這裡一定要記得買上一塊，味道讓人難忘。</p>
+            <img src="https://bobbyworld.tw/wp-content/uploads/pixnet/84b5e96ca1028e5f6478511eea27f44c.jpg" alt="豆乳甜甜圈">
+            <p><strong>豆乳甜甜圈</strong></p>
+            <p>「こんなもんじゃ」超人氣的明星商品——豆乳甜甜圈，搭配鮮奶油食用，口感微酥軟彈，十分美味。店內人氣第二的豆乳冰淇淋也非常好吃，濃郁的豆香和微冰沙口感相得益彰，份量十足，令人滿足。</p>
+            <img src="https://bobbyworld.tw/wp-content/uploads/pixnet/5bf55c4085cade42ec7e7961ea63eaec.jpg"
+                alt="櫂KAI章魚蛋串">
+            <p><strong>櫂KAI章魚蛋串</strong></p>
+            <p>這款在錦市場的章魚蛋串，外觀十分古怪吸引，乍看下像是生食，但其實已經煮熟了。最特別的是中間那顆像要爆漿的頭部，裡面塞入了鳥蛋，十分有趣！雖然看起來新奇，口感完全不怕，反而讓人驚喜，是錦市場的必吃美食之一。
+            </p>
+            <img src="https://bobbyworld.tw/wp-content/uploads/pixnet/e182509c8e927a4e18f854ab940a9e06.jpg" alt="鮮魚木村">
+            <img src="https://bobbyworld.tw/wp-content/uploads/pixnet/512a3c66cb145949be8f9568d866feeb.jpg" alt="鮮魚木村">
+            <p><strong>鮮魚木村</strong></p>
+            <p>鮮魚木村是錦市場必吃的海鮮攤位之一，因為超新鮮的食材而深受喜愛，攤位前總是人潮湧動。其No.1鮭魚生魚片串和No.3鮪魚生魚片串特別熱賣，還有新鮮海膽、鮮蝦、牡蠣等選擇，簡單醃製現賣，還可以擠上檸檬汁增添風味。每一口都充滿新鮮感，是平價又美味的海鮮美食選擇，讓人大大滿足。
+            </p>
+
+            <h2>伏見稻荷大社</h2>
+            <img src="https://www.ujimiyage.com/html/template/ujimiyage/assets/img/profile/profile104/main.jpg"
+                alt="まるもち家 伏見稲荷本店">
+            <p><strong>まるもち家 伏見稲荷本店</strong></p>
+            <p>伏見稻荷大社是全國稻荷神社的總社，作為生意興隆之神而聞名。這裡的“稻荷”一詞代表五穀豐登，受到農業及商業人士的崇拜。從巨大的正門進入，首先會看到一座狐狸形狀的石造建築，當你進入神社的深處，會被千本鳥居所吸引，彷彿走進仙境。Marumochiya的老闆深受伏見稻荷大社獨特世界觀的啟發，決定在這條神社參道上開設這家店。
+            </p>
+            <img src="https://mimihan.tw/wp-content/uploads/20181211134414_24.jpg" alt="祇をんう鰻魚飯">
+            <p><strong>【京都】祇をんう鰻魚飯</strong></p>
+            <p>祇をんう是一家知名的京都鰻魚飯店，提供美味的鰻魚飯料理，搭配醇厚的醬汁，口感極佳。這家店的鰻魚飯讓人回味無窮，是來到京都必嚐的美食之一。</p>
+
+            <h2>秋葉原</h2>
+            <img src="https://today-obs.line-scdn.net/0hm8bP1nGUMhdfKScUuXVNQGd_PmZsTygefUZ6Iyh5biAgBXZEY0dhdHksazt7H3ESf0goJnN6aC5zSSVCMw/w644"
+                alt="中餐 野郎ラーメン 秋葉原店">
+            <p><strong>中餐 野郎ラーメン 秋葉原店</strong></p>
+            <p>看起來不錯！這家位於秋葉原的「野郎ラーメン」以濃厚湯頭和獨特的拉麵風格而聞名，是許多拉麵愛好者的必試之地。</p>
+
+            <h2>淺草</h2>
+            <img src="https://www.bring-you.info/wp-content/uploads/2014/08/asakusa-2.jpg" alt="きびだんご　あづま ~ 吉備糰子">
+            <p><strong>きびだんご　あづま ~ 吉備糰子</strong></p>
+            <p>「きびだんご　あづま ~ 吉備糰子」是仲見世通上非常受歡迎的小吃店，這裡的吉備糰子使用黍粉和米粉揉成麻糬串，再沾上黃豆粉，外酥內軟，口感極佳。尤其在夏季，店內還會提供免費的冰涼抹茶，清爽解暑，是來訪的必試美食。
+            </p>
+            <img src="https://www.bring-you.info/wp-content/uploads/2019/05/Nakamise-Shopping-Street-2.jpg"
+                alt="淺草絲綢布丁（浅草シルクプリン）">
+            <p><strong>淺草絲綢布丁（浅草シルクプリン）</strong></p>
+            <p>這款布丁吃來宛如絲綢般入口即化，柔嫩的口感超越了飄兒心目中前幾名好吃的奈良大佛布丁，真的是一大驚喜。價格約在450日圓至580日圓之間，是來到淺草必試的甜點之一。</p>
+            <img src="https://www.bring-you.info/wp-content/uploads/2019/05/asakusa-kagetudo-junjube-melonpan-2.jpg"
+                alt="花月堂波蘿麵包">
+            <p><strong>花月堂波蘿麵包</strong></p>
+            <p>這款波蘿麵包大得令人驚訝，甚至比臉還大。它的特色是外層酥脆、內層卻是絲滑的冰淇淋波蘿麵包，口感令人回味無窮。</p>
+            <img src="https://www.bring-you.info/wp-content/uploads/2019/05/Nakamise-Shopping-Street-11.jpg"
+                alt="淺草炸豬肉餅">
+            <p><strong>淺草炸豬肉餅（浅草メンチ）</strong></p>
+            <p>位於仲見世通接近淺草寺前的傳法院通，是淺草名物之一，這家小店的炸豬肉餅經常排隊購買。外皮炸得酥脆，內餡使用高品質的豬肉，鮮嫩多汁，口感美味，絕對是來淺草必吃的美食！</p>
+            <img src="https://www.bring-you.info/wp-content/uploads/2014/08/asakusa-9.jpg" alt="龜屋 炭火烤醬油仙貝">
+            <p><strong>龜屋 炭火烤醬油仙貝（浅草亀な仙貝）</strong></p>
+            <p>來淺草旅遊，很多人都會購買仙貝作為紀念品，而龜屋的炭火烤醬油仙貝特別受歡迎。這款仙貝由經驗豐富的老師傅現場烘烤，口感香脆，醬油味濃，十分適合作為手信或是當地美食的享受。</p>
+            <img src="https://www.bring-you.info/wp-content/uploads/2014/08/asakusa-20.jpg"
+                alt="仲見世通必買伴手禮--淺草木村家本店 人形燒">
+            <p><strong>仲見世通必買伴手禮--淺草木村家本店 人形燒</strong></p>
+            <p>走到仲見世通的最末端，你會看到有著百年歷史的木村家本店，這裡販售的「人形燒」是淺草寺的代表性小吃。木村家提供各種形狀的人形燒，如五重塔、雷門、燈籠等，作為紀念品十分有價值。雖然味道偏甜，類似紅豆餅，但由於造型獨特，十分適合作為伴手禮。
+            </p>
+
+            <h2>成田山表參道</h2>
+            <img src="https://wp-odai.wamazing.com/media/wp-content/uploads/sites/2/2024/07/naritasanshinsho_pixta_83505352_M.jpg.webp"
+                alt="必吃鰻魚飯！參道上約60間鰻魚餐廳飄香">
+            <p><strong>必吃鰻魚飯！參道上約60間鰻魚餐廳飄香</strong></p>
+            <p>成田山新勝寺附近因為有湖泊，從江戶時代起便成為了鰻魚飯的發源地，現在在表參道依舊能找到近60家專賣鰻魚的餐廳。以下推薦三家必吃名店：</p>
+            <ul>
+                <li><strong>川豐：</strong>以捕魚、養魚批發起家，鰻魚經過蒸烤處理後更加美味，建議提前抽號碼牌。</li>
+                <li><strong>菊屋：</strong>創立於1814年，提供高雅的鰻魚料理，餐廳內充滿懷舊氛圍。</li>
+                <li><strong>駿河屋：</strong>以高級養殖魚「共水鰻魚」為原料，使用當地醬油和味醂調味，帶出鰻魚最佳風味。</li>
+            </ul>
+            <p>參拜過後，不妨選擇心儀的鰻魚飯餐廳，享受這道美味佳餚。</p>
+            <img src="https://wp-odai.wamazing.com/media/wp-content/uploads/sites/2/2024/07/naritasanshinsho_pixta_46903987_M.jpg.webp" alt="小吃天堂！鰻魚麵包、甘太郎燒、串仙貝等讓你吃不停">
+            <p><strong>小吃天堂！鰻魚麵包、甘太郎燒、串仙貝等讓你吃不停</strong></p>
+            <p>除了必吃的鰻魚飯，成田山新勝寺的參道上還有許多各式各樣的美味小吃，讓你吃不停：</p>
+            <ul>
+              <li><strong>金時甘太郎燒：</strong>這家老字號甜點店提供手工捏製的紅豆泥內餡，燒烤到香噴噴的「甘太郎燒」，類似紅豆餅，外脆內軟。</li>
+              <li><strong>下田康生堂麵包茶屋：</strong>這間店結合了蒲燒鰻魚和麵包，創造出了獨特的「鰻魚麵包」，新奇又美味。</li>
+              <li><strong>林田仙貝：</strong>專賣手工仙貝，推出適合邊走邊吃的「串仙貝」，是參道上的人氣小吃。</li>
+              <li><strong>NAGOMI米屋總本店：</strong>這家店匯集了縣內各大知名伴手禮，無論是買禮品或是自己品嘗，都非常適合。</li>
+            </ul>
+            <p>如果你來到成田山，不妨在品嚐完鰻魚飯後，試試這些當地的美味小吃，享受更多的美食驚喜！</p>
+            
+        </section>
+
+
+    </section>
+
+
+
+
+
+
 
     <h2 style="text-align: center;">頁面底端</h2>
-    section {
-        padding: 20px;
-        margin-bottom: 80px; 
-    }
-    
-    section p {
-        padding-bottom: 100px; 
-        margin-bottom: 20px;
-    }
-    
-    footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 100px;
-        position: fixed;
-        width: 100%;
-        bottom: 0;
-    }
-    
+
     <footer>
         <p>&copy; 2024 翔翔旅行社 版權所有.但圖片都不是我的 嘿嘿</p>
     </footer>
 </body>
 <button id="backToTopBtn" onclick="scrollToTop()">↑ top </button>
+
 </html>
