@@ -360,12 +360,10 @@ function plusSlides(n) {
     clearInterval(slideInterval); // 停止當前計時器
     slideIndex += n;  // ✅ 這裡直接 +1 或 -1，而不是 `n-1`
     if (slideIndex >= slides.length) {
-        slideIndex = 0;
-    } else if (slideIndex < 0) {
-        slideIndex = slides.length - 1;
-    }
-    showSlides(); // 立即顯示新的幻燈片
-    startSlideShow(); // 重新啟動計時器
+    slideIndex = 0; // 從第一張開始
+}
+if (slideIndex < 0) {
+    slideIndex = slides.length - 1; // 回到最後一張
 }
 
 // 🔹 頁面載入時執行
