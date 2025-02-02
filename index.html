@@ -343,23 +343,39 @@ function showSlides() {
         slides[i].style.display = "none"; // 隱藏所有幻燈片
     }
 
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1; } // 從第一張開始循環
-    slides[slideIndex - 1].style.display = "block"; // 顯示當前幻燈片
+    if (slideIndex >= slides.length) {
+        slideIndex = 0; // 從第一張開始
+    }
+    if (slideIndex < 0) {
+        slideIndex = slides.length - 1; // 回到最後一張
+    }
+
+    slides[slideIndex].style.display = "block"; // 顯示當前幻燈片
 }
 
-// 🔹 設定自動播放的間隔
+// ✅ 設定自動輪播
 function startSlideShow() {
     slideInterval = setInterval(() => {
+        slideIndex++;  // 自動輪播向後移動
         showSlides();
     }, 5000); // 每 5 秒換一張
 }
 
-// 🔹 新增函數：手動換圖片，並重置計時器
+// ✅ 修正按鈕函式，確保可以前後切換
 function plusSlides(n) {
     clearInterval(slideInterval); // 停止當前計時器
-    slideIndex += n;  // ✅ 這裡直接 +1 或 -1，而不是 `n-1`
-    if (slideIndex >= slides.length) {
+    slideIndex += n; // `n` 為 +1 或 -1，代表前後切換
+    showSlides(); // 立即更新幻燈片
+    startSlideShow(); // 重新啟動計時器
+}
+
+// ✅ 頁面載入時執行
+window.onload = function () {
+    showSlides(); // 先顯示第一張
+    startSlideShow(); // 啟動自動輪播
+};
+
+if (slideIndex >= slides.length) {
     slideIndex = 0; // 從第一張開始
 }
 if (slideIndex < 0) {
