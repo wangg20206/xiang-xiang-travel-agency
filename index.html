@@ -358,7 +358,7 @@ function startSlideShow() {
 // 🔹 新增函數：手動換圖片，並重置計時器
 function plusSlides(n) {
     clearInterval(slideInterval); // 停止當前計時器
-    slideIndex += n - 1;
+    slideIndex += n;  // ✅ 這裡直接 +1 或 -1，而不是 `n-1`
     if (slideIndex >= slides.length) {
         slideIndex = 0;
     } else if (slideIndex < 0) {
