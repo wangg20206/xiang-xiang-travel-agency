@@ -339,12 +339,12 @@ function showSlides() {
         return;
     }
 
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none"; // 隱藏所有幻燈片
-    }
+    // 隱藏所有幻燈片
+    slides.forEach(slide => slide.style.display = "none");
 
+    // 確保索引在合法範圍內
     if (slideIndex >= slides.length) {
-        slideIndex = 0; // 從第一張開始
+        slideIndex = 0; // 回到第一張
     }
     if (slideIndex < 0) {
         slideIndex = slides.length - 1; // 回到最後一張
@@ -356,7 +356,7 @@ function showSlides() {
 // ✅ 設定自動輪播
 function startSlideShow() {
     slideInterval = setInterval(() => {
-        slideIndex++;  // 自動輪播向後移動
+        slideIndex++;  // 自動播放下一張
         showSlides();
     }, 5000); // 每 5 秒換一張
 }
@@ -373,19 +373,6 @@ function plusSlides(n) {
 window.onload = function () {
     showSlides(); // 先顯示第一張
     startSlideShow(); // 啟動自動輪播
-};
-
-if (slideIndex >= slides.length) {
-    slideIndex = 0; // 從第一張開始
-}
-if (slideIndex < 0) {
-    slideIndex = slides.length - 1; // 回到最後一張
-}
-
-// 🔹 頁面載入時執行
-window.onload = function () {
-    showSlides(); // 先顯示第一張
-    startSlideShow(); // 啟動輪播
 };
 
 </script>
