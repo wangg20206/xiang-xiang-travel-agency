@@ -177,43 +177,52 @@ body {
     cursor: pointer;
 }
 
+/* 🔹 確保 `.popup` 預設隱藏 */
+/* 🔹 確保 `.popup` 預設隱藏 */
 .popup {
-    display: none;
+    display: none; /* 確保預設隱藏 */
     position: absolute;
     left: 50%;
     top: 100%;
     transform: translateX(-50%);
-    background-color: #ffffff; /* 白色背景 */
-    color: black; /* 文字改為黑色 */
-    padding: 25px;  /* 增加內距 */
+    background-color: #ffffff;
+    color: black;
+    padding: 20px;
     border-radius: 8px;
-    white-space: normal; /* 允許換行 */
     font-size: 14px;
-    z-index: 9999; /* 確保彈窗在最上層 */
+    z-index: 9999;
     text-align: center;
-    max-width: 90%; /* 讓視窗最多佔螢幕 90% */
-    width: 400px;  /* 預設寬度 */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* 增加陰影，使其更立體 */
-    border: 1px solid #ddd; /* 淡灰色邊框 */
+    max-width: 90vw;
+    max-height: 90vh;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
+    display: none !important; /* 強制隱藏，避免其他 CSS 覆蓋 */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-/* 確保圖片不會跑版 */
+/* 🔹 當滑鼠懸停在 `.news-item` 時才顯示 `.popup` */
+.news-item:hover .popup {
+    display: flex !important; /* 強制顯示 */
+}
+
+/* 🔹 確保圖片完整顯示 */
 .popup img {
-    width: 100%;
-    max-height: 660px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 8px;
+    max-width: 95vw;
+    max-height: 85vh;
+    object-fit: contain; 
+    display: block;
 }
 
-/* 確保段落文字換行且不重疊 */
+/* 🔹 確保段落文字換行且不重疊 */
 .popup p {
     margin: 5px 0;
     line-height: 1.5;
     font-size: 14px;
 }
 
-/* 超連結樣式 */
+/* 🔹 超連結樣式 */
 .popup a {
     display: block;
     color: #007BFF;
@@ -226,10 +235,7 @@ body {
     text-decoration: underline;
 }
 
-/* 滑鼠懸停時顯示 */
-.news-item:hover .popup {
-    display: block;
-}
+
 
 /* 滑鼠懸停時顯示彈窗 */
 
@@ -446,7 +452,7 @@ window.onload = function () {
                     <a href="七天六夜走斷腿行程.html">七天六夜走斷腿行程</a>
                     <div class="popup">
                         <a href="七天六夜走斷腿行程.html" target="_blank">
-                        <img src="https://www.datocms-assets.com/101439/1700314201-mount-fuji-and-pagoda.jpg?auto=format&fit=crop&h=800&w=1200" alt="觀光景點">
+                        <img src="https://zstravelliving.com/wp-content/uploads/2024/12/20241219231841_0_a6c0cf.jpg" alt="觀光景點">
                         <p>持之以恆四個字的偉大在這趟旅行得到了驗證，途中的每分每秒都是一次挑戰，唯有堅持到底，才能發現隱藏在山中、雪中、夜色中那令人忘返的美景</p>
                         <a href="七天六夜走斷腿行程.html" target="_blank" >查看更多</a>
                     </div>
