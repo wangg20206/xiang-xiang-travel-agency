@@ -409,7 +409,12 @@ window.onload = function () {
     // 每 5 分鐘更新一次
     setInterval(fetchExchangeRate, 300000);
     </script>
-    
+
+    <script>
+    if (window.innerWidth < 768) { // 偵測螢幕寬度，小於 768px 代表是手機
+        document.getElementsByTagName("meta")["viewport"].content = "width=1280";
+    }
+</script>
     
 
 
