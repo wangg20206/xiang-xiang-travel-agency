@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翔翔旅行社  台灣最大日本自由邢</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+
+/*標題*/
+* {
+    margin: 10;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;  /* 讓內容水平置中 */
+    align-items: center;      /* 讓內容垂直對齊 */
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 2px solid #eee;
+    gap: 20px; /* 增加 LOGO、選單、Icons 之間的距離 */
+    position: relative; 
+    z-index: 10; /* 確保選單不會被幻燈片蓋住 */
+    background: white;
+}
+
+/* 確保選單佔據足夠空間，讓其內容居中 */
+.menu {
+    flex-grow: 1; /* 讓 menu 佔據最大可能的空間 */
+    display: flex;
+    justify-content: center; /* 讓 ul 內的項目居中 */
+}
+
+/* 選單的 UL 調整 */
+.menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* 確保選單項目在 UL 內部也居中 */
+    padding: 0;
+}
+
+/* 選單項目 */
+.menu ul li {
+    margin: 0 15px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icons a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.icons img {
+    height: 20px;
+}
+
+.search-icon, .profile-icon {
+    font-size: 18px;
+}
+/*標題*/
+
+
+/*標題旅行社圖片*/
+.logo {
+    display: flex;
+    align-items: center; /* 讓圖片與文字對齊 */
+    gap: 10px; /* 增加 LOGO 與文字間距 */
+}
+
+.logo img {
+    height: 60px; /* 調整 LOGO 圖片大小 */
+}
+
+.logo-text {
+    font-size: 40px; /* 增大字體 */
+    font-weight: bold;
+    color: #07f2fa; 
+    white-space: nowrap; /* 確保文字不會換行 */
+}
+
+/*標題旅行社圖片*/
+
+
+
+/*幻燈片*/
+/* 幻燈片容器 */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    height: 500px; /* 固定高度 */
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* 水平置中 */
+    align-items: center; /* 垂直置中 */
+    background-color: #f5f5f5; /* 設定背景色，避免圖片不滿 */
+}
+
+/* 確保每張圖片完整顯示 */
+.slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 確保圖片完整顯示，不變形 */
+    display: block;
+}
+
+
+
+
+/* 幻燈片切換動畫 */
+.fade {
+    animation: fadeEffect 1.5s;
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0.4;}
+    to {opacity: 1;}
+}
+
+/* 左右箭頭 */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    padding: 10px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+/*幻燈片*/
+
+
+
+/* 滑鼠懸停時顯示彈窗 */
+.news-item {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    background-color: #ffffff; /* 白色背景 */
+    color: black; /* 文字改為黑色 */
+    padding: 25px;  /* 增加內距 */
+    border-radius: 8px;
+    white-space: normal; /* 允許換行 */
+    font-size: 14px;
+    z-index: 9999; /* 確保彈窗在最上層 */
+    text-align: center;
+    width: 1000px; /* 彈窗寬度 */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* 增加陰影，使其更立體 */
+    border: 1px solid #ddd; /* 淡灰色邊框 */
+}
+
+/* 確保圖片不會跑版 */
+.popup img {
+    width: 100%;
+    max-height: 660px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+/* 確保段落文字換行且不重疊 */
+.popup p {
+    margin: 5px 0;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+/* 超連結樣式 */
+.popup a {
+    display: block;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.popup a:hover {
+    text-decoration: underline;
+}
+
+/* 滑鼠懸停時顯示 */
+.news-item:hover .popup {
+    display: block;
+}
+
+/* 滑鼠懸停時顯示彈窗 */
+
+
+/* 確保幻燈片顯示第一張*/
+.slide {
+    display: none;
+    width: 100%;
+}
+/* 確保幻燈片顯示第一張*/
+
+/* 匯率顯示區塊 */
+.exchange-rate-container {
+    display: flex;
+    justify-content: center; /* 置中 */
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* 外框樣式 */
+.exchange-rate-box {
+    background: linear-gradient(135deg, #02afff, #0051ff); /* 漸變背景 */
+    color: rgb(240, 240, 240);
+    padding: 15px 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 250px;
+}
+
+/* 標題樣式 */
+.exchange-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* 匯率數值 */
+.exchange-value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* 更新時間 */
+.exchange-time {
+    font-size: 12px;
+    opacity: 0.8;
+}
+.news-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.news-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.news-card {
+    width: 300px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.news-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.news-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.news-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+.news-card a {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #ff5722;
+    font-weight: bold;
+}
+
+
+
+
+</style>
+
+
+<script>
+let slideIndex = 0;
+let slides;
+let slideInterval;
+
+function showSlides() {
+    slides = document.querySelectorAll(".slide");
+    if (slides.length === 0) {
+        console.log("找不到幻燈片，請檢查 HTML 結構！");
+        return;
+    }
+
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none"; // 隱藏所有幻燈片
+    }
+
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1; } // 從第一張開始循環
+    slides[slideIndex - 1].style.display = "block"; // 顯示當前幻燈片
+}
+
+// 🔹 設定自動播放的間隔
+function startSlideShow() {
+    slideInterval = setInterval(() => {
+        showSlides();
+    }, 5000); // 每 5 秒換一張
+}
+
+// 🔹 新增函數：手動換圖片，並重置計時器
+function plusSlides(n) {
+    clearInterval(slideInterval); // 停止當前計時器
+    slideIndex += n - 1;
+    if (slideIndex >= slides.length) {
+        slideIndex = 0;
+    } else if (slideIndex < 0) {
+        slideIndex = slides.length - 1;
+    }
+    showSlides(); // 立即顯示新的幻燈片
+    startSlideShow(); // 重新啟動計時器
+}
+
+// 🔹 頁面載入時執行
+window.onload = function () {
+    showSlides(); // 先顯示第一張
+    startSlideShow(); // 啟動輪播
+};
+
+</script>
+
+
+
+         <!-- 台幣換日圓 -->
+<script>
+    async function fetchExchangeRate() {
+        try {
+            const apiKey = "2ccc581afbbdfaf5278942b0"; // ⚠️ 替換成你的 API Key
+            const apiUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/TWD`;
+    
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+    
+            if (data.result === "success") {
+                const jpyRate = data.conversion_rates.JPY;
+                const now = new Date();
+                const timeString = now.toLocaleTimeString("zh-TW", { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    
+                document.getElementById("jpy-rate").innerHTML = `1 TWD = <span style="color:#ffeb3b">${jpyRate.toFixed(3)}</span> JPY`;
+                document.getElementById("last-updated").innerHTML = `更新時間：${timeString}`;
+            } else {
+                document.getElementById("jpy-rate").innerHTML = "匯率獲取失敗";
+            }
+        } catch (error) {
+            console.error("獲取匯率時發生錯誤:", error);
+            document.getElementById("jpy-rate").innerHTML = "無法載入匯率";
+        }
+    }
+    
+    // 初次載入
+    fetchExchangeRate();
+    // 每 5 分鐘更新一次
+    setInterval(fetchExchangeRate, 300000);
+    </script>
+    
+    
+
+
+
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="xiang_logo.png" alt="翔翔旅遊">
+            <span class="logo-text">翔翔旅遊</span>
+        </div>
+        
+        <nav class="menu">
+            <ul>
+                <li class="news-item">
+                    <a href="#">日本地圖</a>
+                    <div class="popup">
+                        <img src="https://www.e-japannavi.com/syuyu/images/map_idx_default.png" alt="觀光景點">
+                        <p>最新的觀光資訊，讓你掌握旅遊動態！</p>
+                        <a href="https://www.example.com/news" target="_blank">查看更多</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <nav class="menu">
+            <ul>
+                <li class="news-item">
+                    <a href="https://wangg20206.github.io/xiang-xiang-travel-agency/">七天六夜走到斷腿行程</a>
+                    <div class="popup">
+                        <img src="https://www.datocms-assets.com/101439/1700314201-mount-fuji-and-pagoda.jpg?auto=format&fit=crop&h=800&w=1200" alt="觀光景點">
+                        <p>持之以恆四個字的偉大在這趟旅行得到了驗證，途中的每分每秒都是一次挑戰，唯有堅持到底，才能發現隱藏在山中、雪中、夜色中那令人忘返的美景</p>
+                        <a href="https://wangg20206.github.io/xiang-xiang-travel-agency/" >查看更多</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        
+         
+        <div class="icons">
+            <a href="https://youtube.com/shorts/SQdDumn-6dY?feature=share"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/640px-Logo_of_YouTube_%282015-2017%29.svg.png" alt="YouTube"></a>
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/640px-LINE_logo.svg.png" alt="LINE"></a>
+            <a href="#" class="search-icon">🔍</a>
+            <a href="#" class="profile-icon">👤</a>
+        </div>
+
+
+    </header>
+
+
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="https://www.pdtravel.com.tw/material-alias/%E5%BD%AD%E5%A4%A7%E6%97%85%E9%81%8A%E9%A0%81/%E4%BC%81%E5%8A%83%E9%A0%81-%E6%B2%96%E7%B9%A9/%E5%BD%AD%E5%A4%A7%E6%97%85%E9%81%8A-%E4%BC%81%E5%8A%83%E9%A0%81-%E6%B2%96%E7%B9%A9.jpg" alt="沖繩">
+        </div>
+        <div class="slide fade">
+            <img src="https://static.lifetour.info/eWeb_lifetour/IMGDB/003462/003520/003528/003543/003565/00113570.WEBP" alt="四國/中國">
+        </div>
+        <div class="slide fade">
+            <img src="https://media.wwpkg.com.hk/live/Resources/Tour/20230626/0aa687ab-3f8c-44f1-964f-b5ab84a0b8b7.webp" alt="九州">
+        </div>
+        <div class="slide fade">
+            <img src="https://hiyoritravel.com/wp-content/uploads/event_0316%E4%B8%AD%E9%83%A8%E5%8C%97%E9%99%B8%E8%AC%9B%E5%BA%A7.png" alt="中部">
+        </div>
+        <div class="slide fade">
+            <img src="https://www.worldwide.com.tw/material-alias/EDM/JP20240130/banner-kanto.jpg" alt="關東">
+        </div>
+        <div class="slide fade">
+            <img src="https://www.csf.com.tw/foreign/japan/images/sdj.jpg" alt="東北">
+        </div>
+        <div class="slide fade">
+            <img src="https://static.lifetour.info/eWeb_lifetour/IMGDB/003462/003520/003528/003540/003559/00113567.WEBP" alt="北海道">
+        </div>
+                    <!-- 左右控制箭頭 -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <div>
+        <h2>翔翔旅行社</h2>
+        <p>誠摯地邀請您，用最便宜的價格乘風踏上日本之旅，感受櫻花飛舞的詩意，品味抹茶幽香的情懷，流連於古韻與現代交織的夢幻國度。</p>
+    </div>
+
+    <div class="news-section">
+        <h2>📢 最新日本旅遊資訊</h2>
+        <div class="news-container">
+            <div class="news-card">
+                <img src="https://source.unsplash.com/400x250/?japan,travel" alt="京都賞櫻">
+                <h3>京都賞櫻季來了！最佳花期時間公布</h3>
+                <p>日本氣象廳近日公布了最新的櫻花前線，京都預計 3 月中旬進入滿開期...</p>
+                <a href="#">閱讀更多</a>
+            </div>
+            <div class="news-card">
+                <img src="https://source.unsplash.com/400x250/?sushi,food" alt="東京壽司店">
+                <h3>東京必吃！2024 年壽司店 TOP 10</h3>
+                <p>如果你是壽司愛好者，千萬不能錯過這些東京當地人推薦的隱藏美食...</p>
+                <a href="#">閱讀更多</a>
+            </div>
+        </div>
+    </div>
+    
+
+             <!-- 台幣換日圓 -->
+<div class="exchange-rate-container">
+    <div class="exchange-rate-box">
+        <p class="exchange-title">日幣匯率</p>
+        <p class="exchange-value" id="jpy-rate">載入中...</p>
+        <p class="exchange-time" id="last-updated">更新時間：載入中...</p>
+    </div>
+</div>
+    <script>
+    async function fetchExchangeRate() {
+        try {
+            const apiKey = "2ccc581afbbdfaf5278942b0";
+            const apiUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/TWD`;
+    
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+    
+            if (data.result === "success") {
+                const jpyRate = data.conversion_rates.JPY;
+                const now = new Date();
+                const timeString = now.toLocaleTimeString("zh-TW", { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    
+                document.getElementById("jpy-rate").innerHTML = `1 TWD = ${jpyRate.toFixed(3)} JPY`;
+                document.getElementById("last-updated").innerHTML = `更新時間：${timeString}`;
+            } else {
+                document.getElementById("jpy-rate").innerHTML = "匯率獲取失敗";
+            }
+        } catch (error) {
+            console.error("獲取匯率時發生錯誤:", error);
+            document.getElementById("jpy-rate").innerHTML = "無法載入匯率";
+        }
+    }
+    
+    fetchExchangeRate();
+    setInterval(fetchExchangeRate, 300000);
+    </script>
+    
+
+
+</body>
+</html>
