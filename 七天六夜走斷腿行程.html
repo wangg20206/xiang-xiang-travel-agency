@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>日本旅遊七天六夜</title>
 
+    
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -67,6 +69,21 @@
                 behavior: 'smooth'
             });
         }
+
+        function toggleButton() {
+        var button = document.getElementById("hiddenButton");
+        button.style.display = (button.style.display === "none" || button.style.display === "") ? "inline-block" : "none";
+    }
+
+    let clickCount = 0;
+    function toggleButton() {
+        clickCount++;
+        
+        if (clickCount === 2) {
+            window.open("https://liustartn.github.io/8150-trip-website/", "_blank"); // 替換成你想跳轉的網站
+            clickCount = 0; 
+        }
+    }
     </script>
 
 
@@ -238,7 +255,7 @@
 
 <body>
     <header>
-        <h1 style="color: rgb(248, 234, 228);">日本旅遊七天六夜</h1>
+        <h1 onclick="toggleButton()">日本旅遊七天六夜</h1>
     </header>
 
     <nav>
