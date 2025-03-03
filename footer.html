@@ -1,0 +1,145 @@
+<!-- footer.html -->
+<style>
+    /* ========== Footer 相關 CSS ========== */
+    .site-footer {
+      background-color: #f8f8f8;
+      padding: 30px 20px;
+      font-family: Arial, sans-serif;
+      color: #333;
+      display: flex;
+      flex-wrap: wrap; /* 手機版可自動換行 */
+      justify-content: space-between;
+      gap: 20px;       /* 區塊間的間距 */
+    }
+  
+    /* 左側 LOGO 與公司名稱 */
+    .footer-brand {
+      flex: 1 1 200px; /* 讓區塊可縮放，最小 200px */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .footer-brand img {
+      height: 50px;
+      margin-bottom: 10px;
+    }
+    .footer-brand .brand-name {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  
+    /* 中間多欄連結區域 */
+    .footer-links {
+      flex: 2 1 300px; /* 讓連結區域佔較多空間 */
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;       /* 每一欄的間距 */
+    }
+    .footer-column {
+      flex: 1 1 120px; /* 每一欄最小寬度 */
+    }
+    .footer-column h4 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #555;
+    }
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-column li {
+      margin-bottom: 6px;
+    }
+    .footer-column a {
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+    }
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+  
+    /* 右側聯絡資訊、社群按鈕 */
+    .footer-contact {
+      flex: 1 1 200px;
+    }
+    .footer-contact p {
+      margin-bottom: 6px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  
+    /* 社群或付款圖示 */
+    .footer-icons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .footer-icons img {
+      height: 24px;
+    }
+  
+    /* 版權聲明 */
+    .footer-copy {
+      text-align: center;
+      width: 100%;      /* 讓它在最下方獨佔一行 */
+      margin-top: 20px;
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
+  
+  <footer class="site-footer">
+    <!-- 左側 LOGO 與公司名稱 -->
+    <div class="footer-brand">
+      <img src="你的LOGO.png" alt="公司 LOGO">
+      <span class="brand-name">某某旅遊</span>
+    </div>
+  
+    <!-- 中間多欄連結區域 -->
+    <div class="footer-links">
+      <div class="footer-column">
+        <h4>關於我們</h4>
+        <ul>
+          <li><a href="#">公司介紹</a></li>
+          <li><a href="#">服務條款</a></li>
+          <li><a href="#">隱私政策</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>旅遊資訊</h4>
+        <ul>
+          <li><a href="#">熱門景點</a></li>
+          <li><a href="#">優惠活動</a></li>
+          <li><a href="#">常見問題</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>會員服務</h4>
+        <ul>
+          <li><a href="#">登入 / 註冊</a></li>
+          <li><a href="#">訂單查詢</a></li>
+          <li><a href="#">優惠券</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- 右側聯絡資訊、社群按鈕 -->
+    <div class="footer-contact">
+      <p>聯絡電話：02-1234-5678</p>
+      <p>傳真：02-8765-4321</p>
+      <p>Email：info@example.com</p>
+      <div class="footer-icons">
+        <img src="line.png" alt="LINE">
+        <img src="facebook.png" alt="Facebook">
+        <img src="instagram.png" alt="Instagram">
+      </div>
+    </div>
+  
+    <!-- 版權聲明 -->
+    <div class="footer-copy">
+      © 2025 某某旅遊 All Rights Reserved
+    </div>
+  </footer>
+  
