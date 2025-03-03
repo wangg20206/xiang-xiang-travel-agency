@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>副網頁</title>
+</head>
+<body>
+    <div id="header-container"></div>   
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+              console.log("header.html 內容：", data); // 檢查是否有正確讀取到內容
+              document.getElementById("header-container").innerHTML = data;
+            })
+            .catch(error => console.error("載入 header 失敗:", error));
+        });
+      </script>
+      
+</body>
+</html>
