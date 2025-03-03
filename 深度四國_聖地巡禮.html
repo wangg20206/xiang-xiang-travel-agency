@@ -1,0 +1,655 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+    
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翔翔旅行社  全台最大日本自由邢</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+
+/*標題*/
+* {
+    margin: 10;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;         
+    background-color: #f0f0f094;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;  /* 讓內容水平置中 */
+    align-items: center;      /* 讓內容垂直對齊 */
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 2px solid #eee;
+    gap: 20px; /* 增加 LOGO、選單、Icons 之間的距離 */
+    position: relative; 
+    z-index: 10; /* 確保選單不會被幻燈片蓋住 */
+    background: white;
+}
+
+
+
+/* 確保選單佔據足夠空間，讓其內容居中 */
+.menu {
+    flex-grow: 1; /* 讓 menu 佔據最大可能的空間 */
+    display: flex;
+    justify-content: center; /* 讓 ul 內的項目居中 */
+}
+
+/* 選單的 UL 調整 */
+.menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* 確保選單項目在 UL 內部也居中 */
+    padding: 0;
+}
+
+/* 選單項目 */
+.menu ul li {
+    margin: 0 15px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icons a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.icons img {
+    height: 20px;
+}
+
+.search-icon, .profile-icon {
+    font-size: 18px;
+}
+/*標題*/
+
+
+/*標題旅行社圖片*/
+.logo {
+    display: flex;
+    align-items: center; /* 讓圖片與文字對齊 */
+    gap: 10px; /* 增加 LOGO 與文字間距 */
+}
+
+.logo img {
+    height: 60px; /* 調整 LOGO 圖片大小 */
+}
+
+.logo-text {
+    font-size: 40px; /* 增大字體 */
+    font-weight: bold;
+    color: #0799fa; 
+    white-space: nowrap; /* 確保文字不會換行 */
+}
+
+/*標題旅行社圖片*/
+
+
+
+
+
+/* 滑鼠懸停時顯示彈窗 */
+.news-item {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* 🔹 確保 `.popup` 預設隱藏 */
+/* 🔹 確保 `.popup` 預設隱藏 */
+.popup {
+    display: none; /* 確保預設隱藏 */
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 9999;
+    text-align: center;
+    max-width: 90vw;
+    max-height: 90vh;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
+    display: none !important; /* 強制隱藏，避免其他 CSS 覆蓋 */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* 🔹 當滑鼠懸停在 `.news-item` 時才顯示 `.popup` */
+.news-item:hover .popup {
+    display: flex !important; /* 強制顯示 */
+}
+
+/* 🔹 確保圖片完整顯示 */
+.popup img {
+    max-width: 95vw;
+    max-height: 85vh;
+    object-fit: contain; 
+    display: block;
+}
+
+/* 🔹 確保段落文字換行且不重疊 */
+.popup p {
+    margin: 5px 0;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+/* 🔹 超連結樣式 */
+.popup a {
+    display: block;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.popup a:hover {
+    text-decoration: underline;
+}
+
+
+.news-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.news-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.news-card {
+    width: 300px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.news-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.news-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.news-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+.news-card a {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #0799fa; 
+    font-weight: bold;
+}
+
+.beginning {
+    max-width: 1000px; /* 可依需要調整容器寬度 */
+    margin: 0 auto;
+    text-align: left;
+    margin-bottom: 50px; /* 調整數值來增加或減少間距 */
+}
+
+
+.beginning h2 {
+    font-size: 30px;
+    margin-bottom: 40px; /* 標題與下方內容的間距 */
+}
+
+/* 新增一個容器來包圖片與註解 */
+.beginning .image-caption-container {
+    display: flex;
+    align-items: flex-start; /* 註解與圖片頂部對齊，可依需要調整 */
+}
+
+.beginning .image-caption-container img {
+    width: 720px;
+    height: 480px;
+    display: block;
+    border-radius: 15px;  /* 調整這個值來控制圓角的大小 */
+}
+
+
+.beginning .caption {
+    margin-left: 15px;  /* 註解與圖片之間的間距 */
+    font-size: 16px;    /* 可自行調整註解文字大小 */
+}
+
+.Tour_Highlights h1 {
+    font-size: 40px;
+    color: #0799fa;
+    margin-bottom: 15px; /* 標題與下方內容的間距 */
+}
+
+.Tour_Highlights img{
+    width: 800px;
+    height: 600px;
+    border-radius: 15px;
+}
+
+.Tour_Highlights {
+    text-align: center;
+    max-width: 1000px;  /* 限制區塊寬度 */
+    margin: 0 auto;  /* 讓內容置中 */
+}
+
+.Tour_Highlights p {
+    max-width: 1000px; /* 讓文字寬度與圖片相同 */
+    margin: 10px auto; /* 讓文字置中 */
+    text-align: justify; /* 讓文字左右對齊 */
+    font-size: 18px; /* 調整字體大小 */
+    line-height: 1.8; /* 增加行距，讓閱讀更舒服 */
+    color: #333; /* 設定文字顏色 */
+}
+
+/* 讓 .journey 區塊的最大寬度與文字一致 */
+.journey {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 左側較大，右側為兩張圖片 */
+    grid-template-rows: 1fr 1fr; /* 右側上下兩張 */
+    gap: 10px; /* 圖片間距 */
+    max-width: 1000px; /* 設定最大寬度，與 p 段落一致 */
+    margin: 0 auto; /* 讓區塊置中 */
+}
+
+
+
+.journey img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 確保圖片不變形 */
+}
+
+.journey p {
+    max-width: 100%; /* 讓文字寬度與圖片一致 */
+    text-align: justify; /* 讓文字對齊 */
+    font-size: 18px; /* 文字大小 */
+    line-height: 1.8; /* 行距，讓閱讀更舒服 */
+    color: #333; /* 文字顏色 */
+    padding: 10px; /* 內邊距，讓文字與圖片有間距 */
+}
+
+.journey h1 {
+    font-size: 40px;
+    color: #0799fa;
+}
+
+/* 讓左側的主圖占據兩行 */
+.journey .main-img {
+    grid-row: span 2; /* 讓這張圖片佔據兩行 */
+}
+
+.journey-text {
+    max-width: 1000px; /* 限制文字區塊的最大寬度 */
+    margin: 0 auto; /* 讓文字區塊置中 */
+    text-align: justify; /* 讓文字左右對齊 */
+    font-size: 18px; /* 文字大小 */
+    line-height: 1.8; /* 調整行距讓閱讀更舒服 */
+    color: #333; /* 文字顏色 */
+    padding-top: 15px; /* 讓文字與圖片之間有適當間距 */
+}
+
+
+/*try try see*/
+.container {
+    display: flex;
+    align-items: stretch; /* 讓內容垂直置中 */
+    gap: 20px; /* 圖片與白色框框的間距 */
+    max-width: 1000px; /* 限制最大寬度 */
+    margin: 20px auto; /* 讓整個區塊置中 */
+}
+
+/* 圖片樣式 */
+.container img {
+    width: 65%; /* 圖片占 50% 空間 */
+    border-radius: 10px; /* 圓角效果 */
+    object-fit: cover;
+}
+
+/* 右側白色框框 */
+.price-card {
+    background: #ffffff;  /* 白色背景 */
+    border-radius: 10px;  /* 圓角 */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  /* 陰影 */
+    padding: 20px;  /* 內邊距 */
+    width: 35%;  /* 讓框框與圖片各占一半 */
+    text-align: center; /* 讓內容置中 */
+}
+
+/* 價格字體 */
+.price  {
+    font-size: 30px;
+    font-weight: bold;
+    color:#0799fa; 
+    margin: 10px 0;
+}
+
+
+
+
+
+/* 底部裝飾區域 */
+.price-card .footer {
+    background: #f6f6f6;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.divider-line {
+    display: flex;
+    align-items: center;  /* 讓內容垂直置中 */
+    justify-content: center;  /* 讓內容水平置中 */
+    width: 80%;  /* 設定寬度 */
+    margin: 40px auto;  /* 讓線條置中，並增加上下間距 */
+    position: relative;  /* 讓文字可以絕對定位 */
+    
+}
+
+.divider-line::before,
+.divider-line::after {
+    content: "";
+    flex: 1;  /* 讓左右兩條線平均分配空間 */
+    height: 1px;  /* 設定線條的粗細 */
+    background-color: #000000;   /* 設定黑色 */
+    margin: 0 10px;  /* 讓線條與文字間有一點距離 */
+}
+
+.divider-text {
+    font-size: 35px;  /* 文字大小 */
+    font-weight: bold;  /* 加粗 */
+    white-space: nowrap;  /* 防止換行 */
+    
+}
+
+
+
+/* try try see*/
+
+/* 航班資訊*/
+.flight-card {
+    background: #ffffff; /* 白色背景 */
+    border-radius: 10px; /* 圓角邊框 */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* 陰影 */
+    padding: 20px;
+    max-width: 900px; /* 限制寬度 */
+    margin: 20px auto;
+}
+
+/* 標題樣式 */
+.flight-card h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+/* 提示文字 */
+.flight-card .notice {
+    color: #ff6600;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* 表格樣式 */
+.flight-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.flight-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.flight-table tr:last-child td {
+    border-bottom: none; /* 最後一行去掉底線 */
+}
+
+.flight-table .flight-time {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 箭頭樣式 */
+.flight-arrow {
+    text-align: center;
+    font-size: 18px;
+    color: #999;
+}
+
+/* 目的地字體顏色 */
+.destination {
+    color: #666;
+    font-size: 14px;
+}
+
+/* 淡色日期 */
+.gray-text {
+    color: #999;
+    font-size: 14px;
+}
+
+/* 航班資訊*/
+
+.space {
+    margin-top: 50px; /* 在上方加 50px 空間 */
+    margin-bottom: 50px; /* 在下方加 50px 空間 */
+}
+
+
+</style>
+
+
+
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="xiang_logo.png" alt="翔翔旅遊">
+            <span class="logo-text">翔翔旅遊</span>
+        </div>
+        
+        <nav class="menu">
+            <ul>
+                <li class="news-item">
+                    <a href="#">日本地圖</a>
+                    <div class="popup">
+                        <img src="https://www.e-japannavi.com/syuyu/images/map_idx_default.png" alt="觀光景點">
+                        <p>最新的觀光資訊，讓你掌握旅遊動態！</p>
+                        <a href="https://www.example.com/news" target="_blank">查看更多</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <nav class="menu">
+            <ul>
+                <li class="news-item">
+                    <a href="七天六夜走斷腿行程.html">七天六夜走斷腿行程</a>
+                    <div class="popup">
+                        <a href="七天六夜走斷腿行程.html" target="_blank">
+                        <img src="https://zstravelliving.com/wp-content/uploads/2024/12/20241219231841_0_a6c0cf.jpg" alt="觀光景點">
+                        <p>持之以恆四個字的偉大在這趟旅行得到了驗證，途中的每分每秒都是一次挑戰，唯有堅持到底，才能發現隱藏在山中、雪中、夜色中那令人忘返的美景</p>
+                        <a href="七天六夜走斷腿行程.html" target="_blank" >查看更多</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        
+        <nav class="menu">
+            <ul>
+                <li class="news-item">
+                    <a href="關東伊豆深度旅遊.html">關東伊豆深度旅遊</a>
+                    <div class="popup">
+                        <a href="關東伊豆深度旅遊.html" target="_blank">
+                        <img src="https://www.bubu-jp.com/wp-content/uploads/2024/02/pixta_71851928_M.jpg" alt="觀光景點">
+                        <p>持之以恆四個字的偉大在這趟旅行得到了驗證，途中的每分每秒都是一次挑戰，唯有堅持到底，才能發現隱藏在山中、雪中、夜色中那令人忘返的美景</p>
+                        <a href="關東伊豆深度旅遊.html" target="_blank" >查看更多</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <nav class="menu">
+            <ul>
+                <li class="news-item">
+                    <a href="橫跨東瀛_夢見伊豆X聖地巡禮.html">橫跨東瀛:夢見伊豆X聖地巡禮</a>
+                    <div class="popup">
+                        <a href="橫跨東瀛_夢見伊豆X聖地巡禮.html" target="_blank">
+                        <img src="https://www.bubu-jp.com/wp-content/uploads/2024/02/pixta_71851928_M.jpg" alt="觀光景點">
+                        <p>持之以恆四個字的偉大在這趟旅行得到了驗證，途中的每分每秒都是一次挑戰，唯有堅持到底，才能發現隱藏在山中、雪中、夜色中那令人忘返的美景</p>
+                        <a href="橫跨東瀛_夢見伊豆X聖地巡禮.html" target="_blank" >查看更多</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <nav class="menu">
+            <ul>
+                <li class="news-item">
+                    <a href="縱貫關西_橫躍四國_聖地巡禮.html">縱貫關西X橫躍四國X聖地巡禮</a>
+                    <div class="popup">
+                        <a href="縱貫關西_橫躍四國_聖地巡禮.html" target="_blank">
+                        <img src="https://www.bubu-jp.com/wp-content/uploads/2024/02/pixta_71851928_M.jpg" alt="觀光景點">
+                        <p>持之以恆四個字的偉大在這趟旅行得到了驗證，途中的每分每秒都是一次挑戰，唯有堅持到底，才能發現隱藏在山中、雪中、夜色中那令人忘返的美景</p>
+                        <a href="縱貫關西_橫躍四國_聖地巡禮.html" target="_blank" >查看更多</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+                <nav class="menu">
+            <ul>
+                <li class="news-item">
+                    <a href="深度四國_聖地巡禮.html">深度四國X聖地巡禮</a>
+                    <div class="popup">
+                        <a href="深度四國_聖地巡禮.html" target="_blank">
+                        <img src="https://www.bubu-jp.com/wp-content/uploads/2024/02/pixta_71851928_M.jpg" alt="觀光景點">
+                        <p>持之以恆四個字的偉大在這趟旅行得到了驗證，途中的每分每秒都是一次挑戰，唯有堅持到底，才能發現隱藏在山中、雪中、夜色中那令人忘返的美景</p>
+                        <a href="深度四國_聖地巡禮.html" target="_blank" >查看更多</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        
+
+
+    </header>
+
+
+    
+    <div class="beginning">
+        <h2>深度四國X聖地巡禮 (擅長捉弄人的高木同學、夏天的隧道再見的出口、鈴芽之旅)
+            平溫泉琴山閣 奧祖谷二重藤蔓橋 OMO7高知 愛媛下攤 小豆島 天橋立 貴船神社 清水寺</h2>
+        <div class="container">
+            <!-- 左側圖片 -->
+            <img src="https://www.bubu-jp.com/wp-content/uploads/2024/02/pixta_71851928_M.jpg" alt="新倉山淺間公園">
+            
+            <!-- 右側白色框框 -->
+            <div class="price-card">
+                <p style="font-size: 25px; color: blue; font-weight: bold; text-align: center;">TWD 30,000(不含餐)</p>
+            
+                <!-- 這五行先靠左，再向右移一點 -->
+                <p style="font-size: 20px; color: black; text-align: left; margin-left: 20px;">成團人數:12人</p>
+                <p style="font-size: 20px; color: black; text-align: left; margin-left: 20px;">旅遊方式:自駕</p>
+                <p style="font-size: 20px; color: black; text-align: left; margin-left: 20px;">去程2026暑(預計7天7夜)</p>
+                <p style="font-size: 20px; color: black; text-align: left; margin-left: 20px;">回程2026暑</p>
+                <p style="font-size: 20px; color: black; text-align: left; margin-left: 20px;">城市:關東</p>
+            
+                <p style="font-size: 20px; color: black; font-weight: bold; text-align: center;">翔翔旅行社保留最終解釋權</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="flight-card">
+        <h2>✈ 本次航班</h2>
+        <p class="notice">還沒確定</p>
+        
+        <table class="flight-table">
+            <tr>
+                <td>去程</td>
+                <td>泰獅<br><span class="gray-text">SL394</span></td>
+                <td class="gray-text">2025/03/18 (二)</td>
+                <td class="flight-time">12:10</td>
+                <td class="destination">台灣桃園國際機場</td>
+                <td class="flight-arrow">→</td>
+                <td class="flight-time">16:15</td>
+                <td class="destination">東京成田機場</td>
+            </tr>
+            <tr>
+                <td>回程</td>
+                <td>泰獅<br><span class="gray-text">SL395</span></td>
+                <td class="gray-text">2025/03/22 (六)</td>
+                <td class="flight-time">17:15</td>
+                <td class="destination">東京成田機場</td>
+                <td class="flight-arrow">→</td>
+                <td class="flight-time">20:20</td>
+                <td class="destination">台灣桃園國際機場</td>
+            </tr>
+        </table>
+    </div>
+    
+    
+    <div class="divider-line">
+        <span class="divider-text">行程特色</span>
+    </div>
+    
+
+    <div class="journey">
+        <img src="https://www.gltjp.com/edo/img/summary/akihabara/ogp.webp" alt="主圖片" class="main-img">
+        <img src="https://static.gltjp.com/glt/data/article/21000/20306/20230428_135604_e305c90f_w1920.webp" alt="右上圖片">
+        <img src="https://imagedelivery.net/Ahwf2rDz3ZiXm1qkpDKg1w/live/-/media/110F08F0532442C78759F4400A9E8B00.jpg/w=750?d=20231227T055531&w=750" alt="右下圖片">
+    </div>
+    <p class="journey-text">滿坑滿谷動漫商店的秋葉原，到底該從何逛起？不妨就從JR秋葉原電器街出口斜前方的「秋葉原無線電會館」開始吧！這裡聚集的店家五花八門，商品種類更是多到眼花撩亂，就把無線電會館當作朝聖起點，展開秋葉原的驚奇旅程！</p>
+    
+    <div class="space"></div> <!-- 這是一個隱形空白區塊 -->
+
+    
+
+
+</body>
+</html>
