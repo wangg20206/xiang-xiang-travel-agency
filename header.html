@@ -82,24 +82,26 @@
   
 .popup {
   display: none;
-  position: absolute;
+  position: fixed; /* 固定在畫面中央 */
   left: 50%;
-  top: 100%;
-  transform: translate(-50%, 0);
+  top: 50%;
+  transform: translate(-50%, -50%); /* 完全置中 */
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
   z-index: 9999;
   text-align: center;
-  max-width: 90vw;
+  max-width: 80vw;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-  
+
+/* 當滑鼠移到 .news-item 上時，顯示 .popup */
 .news-item:hover .popup {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 
   #unique-image {
     width: 905px; /* 設定寬度 */
