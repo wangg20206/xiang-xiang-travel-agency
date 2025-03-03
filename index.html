@@ -437,18 +437,6 @@ window.onload = function () {
         .catch(error => console.error("載入 footer 失敗:", error));
     });
   </script>
-<body>
-    <div id="header-container"></div>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    fetch("header.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("header-container").innerHTML = data;
-      })
-      .catch(error => console.error("載入 header 失敗:", error));
-  });
-</script>
 
 
 
@@ -540,7 +528,20 @@ window.onload = function () {
     fetchExchangeRate();
     setInterval(fetchExchangeRate, 300000);
     </script>
-    
+      <!-- 這裡放置 footer 容器 -->
+  <div id="footer-container"></div>
+
+  <!-- 用 fetch() 動態載入 footer.html -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch("footer.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("footer-container").innerHTML = data;
+        })
+        .catch(error => console.error("載入 footer 失敗:", error));
+    });
+  </script>
 
 
 </body>
