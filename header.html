@@ -80,26 +80,26 @@
     cursor: pointer;
   }
   
-  .popup {
-    display: none;
-    position: absolute;
-    left: 50%;
-    top: 100%;
-    transform: translateX(-50%);
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    z-index: 9999;
-    text-align: center;
-    max-width: 90vw;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
+.popup {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 0);
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 9999;
+  text-align: center;
+  max-width: 90vw;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
   
-  .news-item:hover .popup {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.news-item:hover .popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
   #unique-image {
     width: 905px; /* 設定寬度 */
