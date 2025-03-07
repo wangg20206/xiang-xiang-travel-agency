@@ -9,8 +9,11 @@
     * {
       margin: 0;
       padding: 0;
-    } 
+    }
 
+    body {
+      background-color: white; /* 將背景改為白色 */
+    }
 
     /* Container 垂直排列 header 與 main */
     .container {
@@ -103,15 +106,15 @@
     .menu ul {
       list-style: none;
       display: flex;
-      justify-content: flex-start; /* 左對齊，方便滑動 */
+      justify-content: center; /* 按鈕居中 */
       padding: 0;
       width: 100%;
       background-color: #fff; /* 確保 ul 的背景也是白色 */
     }
 
     .menu ul li {
-      margin: 0;
-      flex: none; /* 移除 flex: 1，讓按鈕按實際內容寬度排列 */
+      margin: 0 15px; /* 保留間距 */
+      flex: none; /* 按實際內容寬度排列 */
     }
 
     /* 設定白色方格與滑鼠懸停變色 */
