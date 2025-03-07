@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翔翔旅行社 全台最大日本自由行</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header 容器，會載入 header.html -->
+    <div id="header-container"></div>
+  
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="https://www.pdtravel.com.tw/material-alias/%E5%BD%AD%E5%A4%A7%E6%97%85%E9%81%8A%E9%A0%81/%E4%BC%81%E5%8A%83%E9%A0%81-%E6%B2%96%E7%B9%A9/%E5%BD%AD%E5%A4%A7%E6%97%85%E9%81%8A-%E4%BC%81%E5%8A%83%E9%A0%81-%E6%B2%96%E7%B9%A9.jpg" alt="沖繩">
+        </div>
+        <div class="slide fade">
+            <img src="https://static.lifetour.info/eWeb_lifetour/IMGDB/003462/003520/003528/003543/003565/00113570.WEBP" alt="四國/中國">
+        </div>
+        <div class="slide fade">
+            <img src="https://media.wwpkg.com.hk/live/Resources/Tour/20230626/0aa687ab-3f8c-44f1-964f-b5ab84a0b8b7.webp" alt="九州">
+        </div>
+        <div class="slide fade">
+            <img src="https://hiyoritravel.com/wp-content/uploads/event_0316%E4%B8%AD%E9%83%A8%E5%8C%97%E9%99%B8%E8%AC%9B%E5%BA%A7.png" alt="中部">
+        </div>
+        <div class="slide fade">
+            <img src="https://www.worldwide.com.tw/material-alias/EDM/JP20240130/banner-kanto.jpg" alt="關東">
+        </div>
+        <div class="slide fade">
+            <img src="https://www.csf.com.tw/foreign/japan/images/sdj.jpg" alt="東北">
+        </div>
+        <div class="slide fade">
+            <img src="https://static.lifetour.info/eWeb_lifetour/IMGDB/003462/003520/003528/003540/003559/00113567.WEBP" alt="北海道">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+
+    <div>
+        <h2>翔翔旅行社</h2>
+        <p>誠摯地邀請您，用最便宜的價格乘風踏上日本之旅，感受櫻花飛舞的詩意，品味抹茶幽香的情懷，流連於古韻與現代交織的夢幻國度。</p>
+    </div>
+
+    <div class="news-section">
+        <h2 class="news-title">
+            <span class="dot">●</span> 最新日本旅遊資訊
+        </h2>
+        <div class="news-container" id="news-container">
+            <!-- 這裡將由 JavaScript 動態填充 -->
+        </div>
+    </div>
+
+    <!-- 台幣換日圓 -->
+    <div class="exchange-rate-container">
+        <div class="exchange-rate-box">
+            <p class="exchange-title">日幣匯率</p>
+            <p class="exchange-value" id="jpy-rate">載入中...</p>
+            <p class="exchange-time" id="last-updated">更新時間：載入中...</p>
+        </div>
+    </div>
+
+    <!-- Footer 容器，會載入 footer.html -->
+    <div id="footer-container"></div>
+
+    <!-- 幻燈片 JavaScript -->
+    <script>
+    let slideIndex = 0;
+    let slides;
+    let slideInterval;
+
+    function showSlides() {
+        slides = document.querySelectorAll(".slide");
+        if (slides.length === 0) {
+            console.log("找不到幻燈片，請檢查 HTML 結構！");
+            return;
+        }
+        slides.forEach(slide => slide.style.display = "none");
+        if (slideIndex >= slides.length) slideIndex = 0;
+        if (slideIndex < 0) slideIndex = slides.length - 1;
+        slides[slideIndex].style.display = "block";
+    }
+
+    function startSlideShow() {
+        slideInterval = setInterval(() => {
+            slideIndex++;
+            showSlides();
+        }, 5000);
+    }
+
+    function plusSlides(n) {
+        clearInterval(slideInterval);
+        slideIndex += n;
+        showSlides();
+        startSlideShow();
+    }
+
+    window.onload = function () {
+        showSlides();
+        startSlideShow();
+    };
+    </script>
+
+    <!-- 匯率 JavaScript -->
+    <script>
+    async function fetchExchangeRate() {
+        try {
+            const apiKey = "2ccc581afbbdfaf5278942b0";
+            const apiUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/TWD`;
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            if (data.result === "success") {
+                const jpyRate = data.conversion_rates.JPY;
+                const now = new Date();
+                const timeString = now.toLocaleTimeString("zh-TW", { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                document.getElementById("jpy-rate").innerHTML = `1 TWD = <span style="color:#ffeb3b">${jpyRate.toFixed(3)}</span> JPY`;
+                document.getElementById("last-updated").innerHTML = `更新時間：${timeString}`;
+            } else {
+                document.getElementById("jpy-rate").innerHTML = "匯率獲取失敗";
+            }
+        } catch (error) {
+            console.error("獲取匯率時發生錯誤:", error);
+            document.getElementById("jpy-rate").innerHTML = "無法載入匯率";
+        }
+    }
+    fetchExchangeRate();
+    setInterval(fetchExchangeRate, 300000);
+    </script>
+
+    <!-- 自動抓取日本新聞 JavaScript -->
+    <script>
+    async function fetchJapanNews() {
+        try {
+            // 使用 Kyodo News RSS 來源
+            const rssUrl = "https://english.kyodonews.net/rss/news.xml";
+            const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+
+            if (data.status === "ok") {
+                const newsContainer = document.getElementById("news-container");
+                newsContainer.innerHTML = ""; // 清空現有內容
+
+                const newsItems = data.items.slice(0, 2); // 取前 2 則新聞
+                newsItems.forEach(item => {
+                    const newsCard = document.createElement("div");
+                    newsCard.className = "news-card";
+
+                    // 標題
+                    const title = document.createElement("h3");
+                    title.textContent = item.title;
+
+                    // 描述（截斷過長文字）
+                    const description = document.createElement("p");
+                    description.textContent = item.description && item.description.length > 100 
+                        ? item.description.substring(0, 100) + "..." 
+                        : (item.description || "無描述");
+
+                    // 連結
+                    const link = document.createElement("a");
+                    link.href = item.link;
+                    link.textContent = "閱讀更多";
+                    link.target = "_blank";
+
+                    // 圖片（如果有）
+                    if (item.enclosure && item.enclosure.link) {
+                        const img = document.createElement("img");
+                        img.src = item.enclosure.link;
+                        img.alt = item.title;
+                        newsCard.appendChild(img);
+                    } else {
+                        // 如果沒有圖片，使用預設圖片
+                        const img = document.createElement("img");
+                        img.src = "https://source.unsplash.com/400x250/?japan,news";
+                        img.alt = "預設新聞圖片";
+                        newsCard.appendChild(img);
+                    }
+
+                    newsCard.appendChild(title);
+                    newsCard.appendChild(description);
+                    newsCard.appendChild(link);
+                    newsContainer.appendChild(newsCard);
+                });
+            } else {
+                throw new Error("RSS 資料格式錯誤");
+            }
+        } catch (error) {
+            console.error("抓取新聞時發生錯誤:", error);
+            const newsContainer = document.getElementById("news-container");
+            // 使用靜態備用資料
+            newsContainer.innerHTML = `
+                <div class="news-card">
+                    <img src="https://source.unsplash.com/400x250/?japan,travel" alt="京都賞櫻">
+                    <h3>京都賞櫻季來了！最佳花期時間公布</h3>
+                    <p>日本氣象廳近日公布了最新的櫻花前線，京都預計 3 月中旬進入滿開期...</p>
+                    <a href="#">閱讀更多</a>
+                </div>
+                <div class="news-card">
+                    <img src="https://source.unsplash.com/400x250/?sushi,food" alt="東京壽司店">
+                    <h3>東京必吃！2024 年壽司店 TOP 10</h3>
+                    <p>如果你是壽司愛好者，千萬不能錯過這些東京當地人推薦的隱藏美食...</p>
+                    <a href="#">閱讀更多</a>
+                </div>
+            `;
+        }
+    }
+
+    // 初次載入新聞
+    fetchJapanNews();
+    // 每 30 分鐘更新一次
+    setInterval(fetchJapanNews, 1800000);
+    </script>
+
+    <!-- 載入 header 與 footer -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("header-container").innerHTML = data)
+            .catch(error => console.error("載入 header 失敗:", error));
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("footer-container").innerHTML = data)
+            .catch(error => console.error("載入 footer 失敗:", error));
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,346 @@
+/* styles.css - 共用樣式文件 */
+
+/* 重置樣式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f094;
+}
+
+/* 導航列 */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 2px solid #eee;
+    gap: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 60px;
+}
+
+.logo-text {
+    font-size: 40px;
+    font-weight: bold;
+    color: #0799fa;
+    white-space: nowrap;
+}
+
+.menu {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.menu ul li {
+    margin: 0 15px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icons a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.icons img {
+    height: 20px;
+}
+
+.search-icon, .profile-icon {
+    font-size: 18px;
+}
+
+/* 彈窗樣式 */
+.news-item {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 9999;
+    text-align: center;
+    max-width: 90vw;
+    max-height: 90vh;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.news-item:hover .popup {
+    display: flex !important;
+}
+
+.popup img {
+    max-width: 95vw;
+    max-height: 85vh;
+    object-fit: contain;
+    display: block;
+}
+
+.popup p {
+    margin: 5px 0;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.popup a {
+    display: block;
+    color: #0799fa;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.popup a:hover {
+    text-decoration: underline;
+}
+
+/* 幻燈片 */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    height: 500px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+.slide {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+.fade {
+    animation: fadeEffect 1.5s;
+}
+
+@keyframes fadeEffect {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    padding: 10px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* 新聞卡片 */
+.news-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.news-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.news-title .dot {
+    color: #ff0000;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.news-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.news-card {
+    width: 300px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.news-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.news-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.news-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+.news-card a {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #ff5722;
+    font-weight: bold;
+}
+
+/* 匯率顯示區塊 */
+.exchange-rate-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.exchange-rate-box {
+    background: linear-gradient(135deg, #02afff, #0051ff);
+    color: rgb(240, 240, 240);
+    padding: 15px 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 250px;
+}
+
+.exchange-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.exchange-value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.exchange-time {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* 其他共用樣式 */
+.beginning {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.beginning h2 {
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
+.Tour_Highlights {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.Tour_Highlights h1 {
+    font-size: 40px;
+    color: #0799fa;
+    margin-bottom: 15px;
+}
+
+.Tour_Highlights img {
+    width: 800px;
+    height: 600px;
+    border-radius: 15px;
+}
+
+.Tour_Highlights p {
+    max-width: 1000px;
+    margin: 10px auto;
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* 響應式設計：手機適配 */
+@media (max-width: 768px) {
+    .slideshow-container {
+        height: 300px;
+    }
+    .logo-text {
+        font-size: 24px;
+    }
+    .news-card {
+        width: 100%;
+    }
+}
