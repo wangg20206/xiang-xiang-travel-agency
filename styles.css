@@ -16,14 +16,24 @@ body {
 /* 導航列 */
 .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: white;
     border-bottom: 2px solid #eee;
-    gap: 20px;
+    width: 100%; /* 確保佔滿寬度 */
     position: relative;
     z-index: 10;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 65%;
+    width: 100%;
+    margin: 0 auto;
+    gap: 20px;
 }
 
 .logo {
@@ -43,29 +53,6 @@ body {
     white-space: nowrap;
 }
 
-.menu {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.menu ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    padding: 0;
-}
-
-.menu ul li {
-    margin: 0 15px;
-}
-
-.menu ul li a {
-    text-decoration: none;
-    color: black;
-    font-size: 16px;
-}
-
 .icons {
     display: flex;
     align-items: center;
@@ -82,8 +69,60 @@ body {
     height: 20px;
 }
 
-.search-icon, .profile-icon {
+.search-icon,
+.profile-icon {
     font-size: 18px;
+}
+
+/* 選單樣式 */
+.menu {
+    background-color: #fff;
+    width: 100%; /* 確保佔滿寬度 */
+}
+
+.menu-content {
+    max-width: 65%;
+    margin: 0 auto;
+    overflow-x: auto; /* 啟用水平滾動 */
+    -webkit-overflow-scrolling: touch; /* 改善 iOS 滾動 */
+    white-space: nowrap; /* 確保一行顯示 */
+}
+
+.menu-content::-webkit-scrollbar {
+    display: none; /* 隱藏 Chrome/Safari 滾動條 */
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start; /* 左對齊，方便滑動 */
+    padding: 0;
+    background-color: #fff;
+}
+
+.menu ul li {
+    margin: 0 15px;
+    flex: none; /* 按實際內容寬度排列 */
+}
+
+.menu ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    height: 7vh;
+    box-sizing: border-box;
+    max-height: 7vh;
+    white-space: nowrap; /* 防止文字換行 */
+}
+
+.menu ul li a:hover {
+    background-color: #b0b0b0;
+    text-decoration: none;
 }
 
 /* 彈窗樣式 */
@@ -181,7 +220,8 @@ body {
     to { opacity: 1; }
 }
 
-.prev, .next {
+.prev,
+.next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -196,7 +236,8 @@ body {
 .prev { left: 10px; }
 .next { right: 10px; }
 
-.prev:hover, .next:hover {
+.prev:hover,
+.next:hover {
     background: rgba(0, 0, 0, 0.8);
 }
 
@@ -342,5 +383,13 @@ body {
     }
     .news-card {
         width: 100%;
+    }
+    .menu-content {
+        max-width: 100%; /* 手機版適配全寬 */
+    }
+    .menu ul li a {
+        font-size: 14px; /* 縮小文字以適應滑動 */
+        padding: 8px 10px; /* 調整內距 */
+        height: 50px; /* 固定手機版高度 */
     }
 }
