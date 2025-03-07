@@ -11,6 +11,9 @@
       padding: 0;
     }
 
+    body {
+      background-color: rgb(172, 21, 21); /* 整體背景色保持紅色 */
+    }
 
     /* Container 垂直排列 header 與 main */
     .container {
@@ -91,12 +94,19 @@
     .menu-content {
       max-width: 65%;
       margin: 0 auto;
+      overflow-x: auto; /* 啟用水平滾動 */
+      -webkit-overflow-scrolling: touch; /* 改善 iOS 上的滾動體驗 */
+      white-space: nowrap; /* 確保按鈕不換行 */
+    }
+
+    .menu-content::-webkit-scrollbar {
+      display: none; /* 隱藏 Chrome/Safari 滾動條 */
     }
 
     .menu ul {
       list-style: none;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start; /* 左對齊，方便滑動 */
       padding: 0;
       width: 100%;
       background-color: #fff; /* 確保 ul 的背景也是白色 */
@@ -104,7 +114,7 @@
 
     .menu ul li {
       margin: 0;
-      flex: 1;
+      flex: none; /* 移除 flex: 1，讓按鈕按實際內容寬度排列 */
     }
 
     /* 設定白色方格與滑鼠懸停變色 */
@@ -121,6 +131,7 @@
       height: 7vh;
       box-sizing: border-box;
       max-height: 7vh;
+      white-space: nowrap; /* 防止文字換行 */
     }
 
     /* 滑鼠懸停時，背景顏色加深，無底線 */
@@ -206,24 +217,7 @@
 
       .menu-content {
         max-width: 100%;
-        overflow-x: hidden;
-      }
-
-      .menu ul {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
-
-      .menu ul::-webkit-scrollbar {
-        display: none;
-      }
-
-      .menu ul li {
-        flex: none;
-        width: 120px;
+        overflow-x: auto; /* 手機版也啟用水平滾動 */
       }
 
       .menu ul li a {
@@ -231,7 +225,6 @@
         padding: 10px;
         height: 50px;
         max-height: none;
-        white-space: nowrap;
       }
     }
   </style>
