@@ -15,12 +15,15 @@
     body {
       background-color: white; /* 將背景改為白色 */
       min-height: 100vh; /* 確保身體佔滿螢幕高度 */
+      margin: 0;
+      padding: 0;
     }
 
     /* Container 垂直排列 header 與 main */
     .container {
       display: flex;
       flex-direction: column;
+      min-height: 100vh; /* 確保 container 佔滿螢幕 */
       background-color: transparent; /* 移除 container 的背景色 */
     }
 
@@ -44,6 +47,7 @@
       left: 0;
       z-index: 1000; /* 確保 header 在最上層 */
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 可選：添加陰影 */
+      height: 60px; /* 明確設置高度 */
     }
 
     /* 限制 navbar 內容寬度 */
@@ -98,10 +102,12 @@
 
     /* Main 區塊相關 */
     main {
-      padding-top: 80px; /* 預設間距，避開 fixed header */
+      flex: 1; /* 讓 main 填滿剩餘高度 */
+      padding-top: calc(60px + env(safe-area-inset-top, 20px)); /* 動態調整間距，避開 header 和安全區域 */
       width: 100%;
       max-width: 1200px;
       margin: 0 auto; /* 置中 */
+      overflow-y: auto; /* 確保內容可滾動 */
     }
 
     .menu {
@@ -164,6 +170,7 @@
       .navbar {
         padding: 8px 10px;
         gap: 10px;
+        height: 50px; /* 手機端減小高度 */
       }
 
       .navbar-content {
@@ -214,10 +221,34 @@
       }
 
       main {
-        padding-top: 60px; /* 手機端調整間距 */
+        padding-top: calc(50px + env(safe-area-inset-top, 20px)); /* 手機端調整間距 */
       }
     }
   </style>
+  <script>
+    // 動態調整 padding-top 以適應 header 高度
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.querySelector('.navbar');
+      const main = document.querySelector('main');
+      if (header && main) {
+        const headerHeight = header.offsetHeight;
+        const safeAreaInsetTop = window.innerHeight - document.documentElement.clientHeight || 0;
+        main.style.paddingTop = `${headerHeight + safeAreaInsetTop}px`;
+        console.log(`Adjusted padding-top to: ${headerHeight + safeAreaInsetTop}px`);
+      }
+    });
+
+    // 處理窗口大小變化
+    window.addEventListener('resize', () => {
+      const header = document.querySelector('.navbar');
+      const main = document.querySelector('main');
+      if (header && main) {
+        const headerHeight = header.offsetHeight;
+        const safeAreaInsetTop = window.innerHeight - document.documentElement.clientHeight || 0;
+        main.style.paddingTop = `${headerHeight + safeAreaInsetTop}px`;
+      }
+    });
+  </script>
 </head>
 <body>
   <div class="container">
@@ -248,19 +279,19 @@
         <div class="menu-content">
           <ul>
             <li>
-              <a href="index.html">回到首頁</a>
+              <a href="/index.html">回到首頁</a>
             </li>
             <li>
-              <a href="japan-map.html">日本地圖</a>
+              <a href="/japan-map.html">日本地圖</a>
             </li>
             <li>
-              <a href="choose_one.html">暑假四選一</a>
+              <a href="/choose_one.html">暑假四選一</a>
             </li>
             <li>
-              <a href="free-travel.html">自由行</a>
+              <a href="/free-travel.html">自由行</a>
             </li>
             <li>
-              <a href="self-drive-tour.html">自駕遊</a>
+              <a href="/self-drive-tour.html">自駕遊</a>
             </li>
           </ul>
         </div>
