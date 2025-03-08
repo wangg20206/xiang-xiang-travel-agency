@@ -17,6 +17,9 @@
       min-height: 100vh; /* 確保身體佔滿螢幕高度 */
       margin: 0;
       padding: 0;
+      /* 後備安全區域 */
+      padding-top: constant(safe-area-inset-top, 0); /* 兼容舊版 iOS */
+      padding-top: env(safe-area-inset-top, 0); /* 標準安全區域 */
     }
 
     /* Container 垂直排列 header 與 main */
@@ -103,16 +106,18 @@
     /* Main 區塊相關 */
     main {
       flex: 1; /* 讓 main 填滿剩餘高度 */
-      padding-top: calc(60px + env(safe-area-inset-top, 20px)); /* 動態調整間距，避開 header 和安全區域 */
+      padding-top: calc(60px + constant(safe-area-inset-top, 0) + env(safe-area-inset-top, 20px)); /* 動態調整間距 */
       width: 100%;
       max-width: 1200px;
       margin: 0 auto; /* 置中 */
       overflow-y: auto; /* 確保內容可滾動 */
+      min-height: 100vh; /* 確保主內容有足夠高度 */
     }
 
     .menu {
       background-color: #fff; /* 背景整行白色 */
       width: 100%; /* 確保佔滿寬度 */
+      min-height: 100px; /* 最小高度，確保可滾動 */
     }
 
     /* 限制 menu 內容寬度 */
@@ -221,33 +226,43 @@
       }
 
       main {
-        padding-top: calc(50px + env(safe-area-inset-top, 20px)); /* 手機端調整間距 */
+        padding-top: calc(50px + constant(safe-area-inset-top, 0) + env(safe-area-inset-top, 20px)); /* 手機端調整間距 */
       }
     }
   </style>
   <script>
-    // 動態調整 padding-top 以適應 header 高度
+    // 動態調整 padding-top 以適應 header 高度和安全區域
     document.addEventListener('DOMContentLoaded', () => {
       const header = document.querySelector('.navbar');
       const main = document.querySelector('main');
       if (header && main) {
         const headerHeight = header.offsetHeight;
-        const safeAreaInsetTop = window.innerHeight - document.documentElement.clientHeight || 0;
-        main.style.paddingTop = `${headerHeight + safeAreaInsetTop}px`;
-        console.log(`Adjusted padding-top to: ${headerHeight + safeAreaInsetTop}px`);
+        // 估計安全區域高度（簡易方法，基於視口與客戶區高度差）
+        const safeAreaInsetTop = Math.max(0, window.innerHeight - document.documentElement.clientHeight);
+        const paddingTopValue = headerHeight + safeAreaInsetTop;
+        main.style.paddingTop = `${paddingTopValue}px`;
+        console.log(`Adjusted padding-top to: ${paddingTopValue}px (Header: ${headerHeight}px, Safe Area: ${safeAreaInsetTop}px)`);
       }
+
+      // 強制滾動到頂部
+      window.scrollTo(0, 0);
     });
 
-    // 處理窗口大小變化
+    // 監聽滾動和窗口大小變化
     window.addEventListener('resize', () => {
       const header = document.querySelector('.navbar');
       const main = document.querySelector('main');
       if (header && main) {
         const headerHeight = header.offsetHeight;
-        const safeAreaInsetTop = window.innerHeight - document.documentElement.clientHeight || 0;
+        const safeAreaInsetTop = Math.max(0, window.innerHeight - document.documentElement.clientHeight);
         main.style.paddingTop = `${headerHeight + safeAreaInsetTop}px`;
       }
     });
+
+    // 監聽滾動以隱藏地址欄（僅限部分瀏覽器）
+    window.addEventListener('scroll', () => {
+      window.scrollTo(0, 0); // 觸發地址欄隱藏（可能不適用於所有瀏覽器）
+    }, { passive: true });
   </script>
 </head>
 <body>
@@ -296,6 +311,10 @@
           </ul>
         </div>
       </nav>
+      <!-- 添加填充內容以確保可滾動 -->
+      <div style="height: 100vh; background-color: #f0f0f0; text-align: center; padding: 20px;">
+        <p>這是填充內容，確保頁面可滾動以顯示所有元素。</p>
+      </div>
     </main>
   </div>
 </body>
