@@ -338,13 +338,15 @@ body {
     gap: 20px; /* 讓圖片和白色框框之間留空間 */
     max-width: 1000px; /* 限制最大寬度 */
     margin: 20px auto; /* 讓整個區塊置中 */
+    flex-wrap: wrap; /* 確保在小螢幕時可以換行 */
 }
 
 /* 圖片樣式 */
 .container img {
-    width: 65%; /* 圖片占 65% 空間 */
+    width: 60%; /* 圖片占 60% 空間 */
     border-radius: 10px; /* 圓角效果 */
     object-fit: cover;
+    flex-shrink: 0; /* 避免圖片被擠壓 */
 }
 
 /* 右側白色框框 */
@@ -353,9 +355,11 @@ body {
     border-radius: 10px;  /* 圓角 */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  /* 陰影 */
     padding: 20px;  /* 內邊距 */
-    width: 35%;  /* 讓框框與圖片各占空間 */
+    width: 35%;  /* 讓框框與圖片各占一半 */
     text-align: center; /* 讓內容置中 */
+    flex-shrink: 0; /* 避免價格框變形 */
 }
+
 
 /* 價格字體 */
 .price  {
