@@ -454,23 +454,24 @@
 
 
 </body>
-    <style>
-        document.addEventListener("DOMContentLoaded", function() {
-    fetch("header.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("header-container").innerHTML = data;
-        })
-        .catch(error => console.error("無法加載 header.html:", error));
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("header-container").innerHTML = data;
+            })
+            .catch(error => console.error("無法加載 header.html:", error));
 
-    fetch("footer.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("footer-container").innerHTML = data;
-        })
-        .catch(error => console.error("無法加載 footer.html:", error));
-});
-</style>
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer-container").innerHTML = data;
+            })
+            .catch(error => console.error("無法加載 footer.html:", error));
+    });
+</script>
+
 
     
 </html>
