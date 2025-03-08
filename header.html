@@ -13,7 +13,7 @@
     } 
     
     body {
-      background-color: white; /* 將背景改為白色 */
+      background-color: white; /* 背景白色 */
       font-family: Arial, sans-serif;
     }
 
@@ -21,10 +21,10 @@
     .container {
       display: flex;
       flex-direction: column;
-      background-color: transparent; 
+      background-color: transparent;
     }
 
-    /* Header 相關 */
+    /* Header */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -85,22 +85,24 @@
       width: 100%;
       overflow-x: auto; /* 啟用水平滾動 */
       -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+      display: flex;
+      justify-content: center;
     }
 
     .menu-content {
       display: flex;
+      width: 100%;
       justify-content: center;
-      width: max-content; /* 讓選單寬度根據內容自適應 */
-      margin: 0 auto;
+      overflow-x: auto;
       padding: 10px 0;
     }
 
     .menu ul {
       display: flex;
       list-style: none;
-      gap: 15px;
+      gap: 10px;
       padding: 0;
-      white-space: nowrap; /* 避免換行 */
     }
 
     .menu ul li {
@@ -117,6 +119,7 @@
       transition: background-color 0.3s;
       border-radius: 5px;
       border: 1px solid #ccc;
+      white-space: nowrap;
     }
 
     .menu ul li a:hover {
@@ -139,12 +142,14 @@
       }
 
       .menu {
-        overflow-x: auto; /* 確保手機版可滑動 */
-        white-space: nowrap;
+        overflow-x: auto;
+        display: flex;
+        justify-content: flex-start;
+        padding: 10px 0;
       }
 
       .menu ul {
-        gap: 10px;
+        gap: 5px;
         padding: 0 10px;
       }
 
