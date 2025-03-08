@@ -13,16 +13,15 @@ body {
 
 /* 導航欄 */
 .navbar {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px 20px;
     background: white;
     border-bottom: 2px solid #eee;
-    gap: 20px;
-    position: relative;
-    z-index: 10;
 }
+
 
 .navbar-content {
     display: flex;
@@ -39,7 +38,8 @@ body {
 }
 
 .menu-content {
-    max-width: 65%;
+    width: 100%; /* 讓 header 的內容填滿整個寬度 */
+    max-width: 100%; /* 確保它不會被限制 */
     margin: 0 auto;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
