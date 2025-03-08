@@ -1,0 +1,449 @@
+/* 全域樣式 */
+* {
+    margin: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f094;
+}
+
+/* 導航欄 */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background: white;
+    border-bottom: 2px solid #eee;
+    gap: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.menu {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.menu ul li {
+    margin: 0 15px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icons a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.icons img {
+    height: 20px;
+}
+
+.search-icon, .profile-icon {
+    font-size: 18px;
+}
+
+/* 旅行社 LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 60px;
+}
+
+.logo-text {
+    font-size: 40px;
+    font-weight: bold;
+    color: #0799fa;
+    white-space: nowrap;
+}
+
+/* 彈窗 */
+.news-item {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.popup {
+    display: none !important;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 9999;
+    text-align: center;
+    max-width: 90vw;
+    max-height: 90vh;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.news-item:hover .popup {
+    display: flex !important;
+}
+
+.popup img {
+    max-width: 95vw;
+    max-height: 85vh;
+    object-fit: contain;
+    display: block;
+}
+
+.popup p {
+    margin: 5px 0;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.popup a {
+    display: block;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.popup a:hover {
+    text-decoration: underline;
+}
+
+/* 新聞區塊 */
+.news-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.news-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.news-card {
+    width: 300px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.news-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.news-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.news-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+.news-card a {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #0799fa;
+    font-weight: bold;
+}
+
+/* 開頭區塊 */
+.beginning {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.beginning h2 {
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
+.beginning .image-caption-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.beginning .image-caption-container img {
+    width: 720px;
+    height: 480px;
+    display: block;
+    border-radius: 15px;
+}
+
+.beginning .caption {
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+/* 旅遊亮點 */
+.Tour_Highlights {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.Tour_Highlights h1 {
+    font-size: 40px;
+    color: #0799fa;
+    margin-bottom: 15px;
+}
+
+.Tour_Highlights img {
+    width: 800px;
+    height: 600px;
+    border-radius: 15px;
+}
+
+.Tour_Highlights p {
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+    max-width: 1000px;
+    margin: 10px auto;
+}
+
+/* 旅程區塊 */
+.journey {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr auto;
+    gap: 10px;
+}
+
+.journey img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.journey p {
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+    max-width: 100%;
+    padding: 10px;
+}
+
+.journey h1 {
+    font-size: 40px;
+    color: #0799fa;
+}
+
+.journey .main-img {
+    grid-row: span 2;
+}
+
+.journey .extra-images {
+    grid-column: span 2;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.journey .extra-images img {
+    width: calc(25% - 7.5px);
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.journey-text {
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+    max-width: 1000px;
+    padding-top: 15px;
+}
+
+/* 價格區塊 */
+.container {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.container img {
+    width: 65%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.price-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 35%;
+    text-align: center;
+}
+
+.price {
+    font-size: 30px;
+    font-weight: bold;
+    color: #0799fa;
+    margin: 10px 0;
+}
+
+.price-card .footer {
+    background: #f6f6f6;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* 分隔線 */
+.divider-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 40px auto;
+    position: relative;
+}
+
+.divider-line::before,
+.divider-line::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #000000;
+    margin: 0 10px;
+}
+
+.divider-text {
+    font-size: 35px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* 航班資訊 */
+.flight-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.flight-card h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.flight-card .notice {
+    color: #ff6600;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.flight-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.flight-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.flight-table tr:last-child td {
+    border-bottom: none;
+}
+
+.flight-table .flight-time {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.flight-arrow {
+    text-align: center;
+    font-size: 18px;
+    color: #999;
+}
+
+.destination {
+    color: #666;
+    font-size: 14px;
+}
+
+.gray-text {
+    color: #999;
+    font-size: 14px;
+}
+
+/* 間距調整 */
+.space {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.space_15 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* 圖片置中 */
+.abc img {
+    width: 65%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
