@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翔翔旅行社 全台最大日本自由行</title>
+</head>
+
+<style>
+    /* 全域樣式 */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f094;
+        margin: 0;
+    }
+    
+    /* 新聞區塊 */
+    .news-section {
+        text-align: center;
+        margin-top: 0; /* 移除頂部多餘間距，與背景融合 */
+        padding: 10px;
+    }
+    
+    .news-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        max-width: 1280px; /* 增加最大寬度，確保四個卡片可在一排 */
+        margin: 0 auto;
+        padding: 10px;
+    }
+    
+    /* 卡片樣式 */
+    .news-card {
+        width: 280px; /* 稍微減小卡片寬度，考慮間距 */
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    
+    .news-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .news-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+        border-radius: 10px 10px 0 0;
+    }
+    
+    .news-card h3 {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .news-card p {
+        font-size: 14px;
+        color: #666;
+        margin: 0 10px 10px;
+        text-align: center;
+        line-height: 1.5;
+    }
+    
+    .card-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 10px 10px;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .btn {
+        background-color: #ff9900;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 12px;
+        flex: 1;
+        min-width: 80px;
+    }
+    
+    .btn:hover {
+        background-color: #e68a00;
+    }
+    
+    .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #f8f8f8;
+        border-top: 1px solid #eee;
+        border-radius: 0 0 10px 10px;
+    }
+    
+    .date {
+        font-size: 12px;
+        color: #666;
+    }
+    
+    .price {
+        font-size: 16px;
+        font-weight: bold;
+        color: #ff0000;
+    }
+    
+    /* 標題連結樣式 */
+    .title-link {
+        text-decoration: none;
+        color: #333;
+        transition: color 0.3s ease;
+    }
+    
+    .title-link:hover {
+        color: #ff9900;
+    }
+    
+    /* 確保電腦端四個一排 */
+    @media (min-width: 1280px) {
+        .news-container {
+            justify-content: flex-start; /* 強制左對齊 */
+        }
+    
+        .news-card {
+            flex: 0 0 calc(25% - 15px); /* 每卡片佔 25%，減去間距影響 */
+        }
+    }
+    
+    /* 響應式設計 - 手機模式 */
+    @media (max-width: 1279px) {
+        .news-container {
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .news-card {
+            width: 90%;
+            max-width: 350px;
+        }
+    
+        .news-card img {
+            height: 250px;
+        }
+    
+        .card-buttons {
+            flex-direction: row;
+            justify-content: center;
+        }
+    
+        .btn {
+            margin: 5px;
+        }
+    }
+</style>
+
+<body>
+    <section class="news-section">
+        <div class="news-container">
+            <div class="news-card">
+                <img src="https://www.bubu-jp.com/wp-content/uploads/2024/02/pixta_71851928_M.jpg" alt="觀光景點">
+                <h3><a href="關東伊豆深度旅遊.html" class="title-link">深度關東:夢見伊豆X聖地巡禮</a></h3>
+                <p>持之以恆四個字的偉大在這趟旅行得到了驗證，途中的每分每秒都是一次挑戰，唯有堅持到底，才能發現隱藏在山中、雪中、夜色中那令人忘返的美景</p>
+                <div class="card-buttons">
+                    <button class="btn">雪上活動</button>
+                    <button class="btn">冰上釣魚</button>
+                    <button class="btn">溫泉</button>
+                </div>
+                <div class="card-footer">
+                    <span class="date">暫無出發日期</span>
+                    <span class="price">TWD 74,900 起</span>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="main.jpg" alt="觀光景點">
+                <h3><a href="橫跨東瀛_夢見伊豆X聖地巡禮.html" class="title-link">橫跨東瀛:夢見伊豆X聖地巡禮</a></h3>
+                <p>持之以恆四個字的偉大在這趟旅行得到了驗證，途中的每分每秒都是一次挑戰，唯有堅持到底，才能發現隱藏在山中、雪中、夜色中那令人忘返的美景</p>
+                <div class="card-buttons">
+                    <button class="btn">雪上活動</button>
+                    <button class="btn">冰上釣魚</button>
+                    <button class="btn">溫泉</button>
+                </div>
+                <div class="card-footer">
+                    <span class="date">03/14, 03/16, 03/20...</span>
+                    <span class="price">TWD 111,900 起</span>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="https://www.bubu-jp.com/wp-content/uploads/2024/02/pixta_71851928_M.jpg" alt="觀光景點">
+                <h3><a href="踏入關西_大啖近畿.html" class="title-link">踏入關西X大啖近畿</a></h3>
+                <p>持之以恆四個字的偉大在這趟旅行得到了驗證，途中的每分每秒都是一次挑戰，唯有堅持到底，才能發現隱藏在山中、雪中、夜色中那令人忘返的美景</p>
+                <div class="card-buttons">
+                    <button class="btn">雪上活動</button>
+                    <button class="btn">冰上釣魚</button>
+                    <button class="btn">溫泉</button>
+                </div>
+                <div class="card-footer">
+                    <span class="date">暫無出發日期</span>
+                    <span class="price">TWD 96,900 起</span>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="https://www.bubu-jp.com/wp-content/uploads/2024/02/pixta_71851928_M.jpg" alt="觀光景點">
+                <h3><a href="深度四國_聖地巡禮.html" class="title-link">深度四國X聖地巡禮</a></h3>
+                <p>持之以恆四個字的偉大在這趟旅行得到了驗證，途中的每分每秒都是一次挑戰，唯有堅持到底，才能發現隱藏在山中、雪中、夜色中那令人忘返的美景</p>
+                <div class="card-buttons">
+                    <button class="btn">雪上活動</button>
+                    <button class="btn">冰上釣魚</button>
+                    <button class="btn">溫泉</button>
+                </div>
+                <div class="card-footer">
+                    <span class="date">暫無出發日期</span>
+                    <span class="price">TWD 166,900 起</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
