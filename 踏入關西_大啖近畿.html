@@ -443,8 +443,8 @@
         </p> 
     </details>      
     <div class="space"></div>
-           
-    </p>
+
+</p>
 
 
 
@@ -454,4 +454,16 @@
 
 
 </body>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("header-container").innerHTML = data;
+            })
+            .catch(error => console.error("無法加載 header.html:", error));
+    });
+</script>
+
 </html>
