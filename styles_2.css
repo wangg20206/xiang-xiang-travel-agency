@@ -332,20 +332,17 @@ body {
 
 /*try try see*/
 .container {
-    display: flex;
-    align-items: stretch; /* 讓內容垂直置中 */
-    gap: 20px; /* 圖片與白色框框的間距 */
+    display: flex; /* 讓內容排成橫向 */
+    align-items: center; /* 讓圖片和文字內容垂直對齊 */
+    justify-content: center; /* 讓整個區塊置中 */
+    gap: 20px; /* 讓圖片和白色框框之間留空間 */
     max-width: 1000px; /* 限制最大寬度 */
     margin: 20px auto; /* 讓整個區塊置中 */
 }
 
 /* 圖片樣式 */
 .container img {
-    display: flex;
-    justify-content: center;
-    max-width: 1200px;
-    width: 100%;
-    width: 65%; /* 圖片占 50% 空間 */
+    width: 65%; /* 圖片占 65% 空間 */
     border-radius: 10px; /* 圓角效果 */
     object-fit: cover;
 }
@@ -356,7 +353,7 @@ body {
     border-radius: 10px;  /* 圓角 */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  /* 陰影 */
     padding: 20px;  /* 內邊距 */
-    width: 35%;  /* 讓框框與圖片各占一半 */
+    width: 35%;  /* 讓框框與圖片各占空間 */
     text-align: center; /* 讓內容置中 */
 }
 
