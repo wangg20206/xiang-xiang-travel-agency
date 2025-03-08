@@ -9,34 +9,29 @@
     * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     } 
     
-
     body {
       background-color: white; /* 將背景改為白色 */
+      font-family: Arial, sans-serif;
     }
 
-    /* Container 垂直排列 header 與 main */
+    /* 容器 */
     .container {
       display: flex;
       flex-direction: column;
-      background-color: transparent; /* 移除 container 的背景色 */
+      background-color: transparent; 
     }
-    #header-container {
-    width: 100%;
-    max-width: 1200px; /* 限制最大寬度 */
-    margin: 0 auto; /* 讓 header 置中 */
-}
 
-
-    /* Header 相關 CSS */
+    /* Header 相關 */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
-      background-color: white; /* 背景整行白色 */
-      width: 100%; /* 確保佔滿寬度 */
+      background-color: white;
+      width: 100%;
       position: relative;
       z-index: 10;
     }
@@ -46,8 +41,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 65%;
       width: 100%;
+      max-width: 1200px;
       margin: 0 auto;
       gap: 20px;
     }
@@ -59,17 +54,17 @@
     }
 
     .logo img {
-      height: 60px;
+      height: 50px;
     }
 
     .logo-text {
-      font-size: 40px;
+      font-size: 30px;
       font-weight: bold;
       color: #0799fa;
       white-space: nowrap;
     }
 
-    /* Icons 區塊（右側） */
+    /* Icons */
     .icons {
       display: flex;
       align-items: center;
@@ -78,122 +73,61 @@
     .icons a {
       margin-left: 10px;
       text-decoration: none;
-      color: black;
-      font-size: 16px;
     }
 
     .icons img {
       height: 20px;
     }
 
-    .search-icon,
-    .profile-icon {
-      font-size: 18px;
-    }
-
-    /* Main 區塊相關 */
+    /* 選單區 */
     .menu {
-      background-color: #fff; /* 背景整行白色 */
-      width: 100%; /* 確保佔滿寬度 */
-    }
-
-    /* 限制 menu 內容寬度 */
-    .menu-content {
-      max-width: 65%;
-      margin: 0 auto;
+      background-color: #fff;
+      width: 100%;
       overflow-x: auto; /* 啟用水平滾動 */
-      -webkit-overflow-scrolling: touch; /* 改善 iOS 上的滾動體驗 */
-      white-space: nowrap; /* 確保按鈕不換行 */
+      -webkit-overflow-scrolling: touch;
     }
 
-    .menu-content::-webkit-scrollbar {
-      display: none; /* 隱藏 Chrome/Safari 滾動條 */
+    .menu-content {
+      display: flex;
+      justify-content: center;
+      width: max-content; /* 讓選單寬度根據內容自適應 */
+      margin: 0 auto;
+      padding: 10px 0;
     }
 
     .menu ul {
-      list-style: none;
       display: flex;
-      justify-content: center; /* 按鈕居中 */
+      list-style: none;
+      gap: 15px;
       padding: 0;
-      width: 100%;
-      background-color: #fff; /* 確保 ul 的背景也是白色 */
+      white-space: nowrap; /* 避免換行 */
     }
 
     .menu ul li {
-      margin: 0 15px; /* 保留間距 */
-      flex: none; /* 按實際內容寬度排列 */
+      flex: none;
     }
 
-    /* 設定白色方格與滑鼠懸停變色 */
     .menu ul li a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: block;
       padding: 10px 15px;
       background-color: #fff;
       color: black;
-      font-size: 20px;
+      font-size: 18px;
       text-decoration: none;
       transition: background-color 0.3s;
-      height: 7vh;
-      box-sizing: border-box;
-      max-height: 7vh;
-      white-space: nowrap; /* 防止文字換行 */
+      border-radius: 5px;
+      border: 1px solid #ccc;
     }
 
-    /* 滑鼠懸停時，背景顏色加深，無底線 */
     .menu ul li a:hover {
       background-color: #b0b0b0;
-      text-decoration: none;
     }
 
-    /* Popup 相關 */
-    .news-item {
-      position: relative;
-      cursor: pointer;
-    }
-
-    .popup {
-      display: none;
-      position: fixed;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 8px;
-      z-index: 9999;
-      text-align: center;
-      max-width: 80vw;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    /* 當滑鼠移到 .news-item 上時，顯示 .popup */
-    .news-item:hover .popup {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    #unique-image {
-      width: 1200px;
-      height: auto;
-    }
-
-    /* 手機版排版調整（螢幕寬度小於 768px） */
+    /* 手機版調整 */
     @media (max-width: 768px) {
-      .navbar {
-        padding: 8px 10px;
-        gap: 10px;
-      }
-
       .navbar-content {
         max-width: 100%;
         padding: 0 10px;
-      }
-
-      .logo {
-        gap: 5px;
       }
 
       .logo img {
@@ -204,34 +138,19 @@
         font-size: 24px;
       }
 
-      .icons {
-        justify-content: flex-end;
+      .menu {
+        overflow-x: auto; /* 確保手機版可滑動 */
+        white-space: nowrap;
       }
 
-      .icons a {
-        margin-left: 8px;
-        margin-right: 0;
-      }
-
-      .icons img {
-        height: 16px;
-      }
-
-      .search-icon,
-      .profile-icon {
-        font-size: 14px;
-      }
-
-      .menu-content {
-        max-width: 100%;
-        overflow-x: auto; /* 手機版也啟用水平滾動 */
+      .menu ul {
+        gap: 10px;
+        padding: 0 10px;
       }
 
       .menu ul li a {
         font-size: 16px;
-        padding: 10px;
-        height: 50px;
-        max-height: none;
+        padding: 8px 12px;
       }
     }
   </style>
@@ -240,47 +159,37 @@
   <div class="container">
     <header class="navbar">
       <div class="navbar-content">
-        <!-- 左側：logo 及文字 -->
+        <!-- 左側 LOGO -->
         <div class="logo">
           <img src="xiang_logo.png" alt="翔翔旅遊">
           <span class="logo-text">翔翔旅遊</span>
         </div>
-        <!-- 右側：icons 區塊 -->
+        <!-- 右側 ICONS -->
         <div class="icons">
           <a href="https://youtube.com/shorts/SQdDumn-6dY?feature=share">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/640px-Logo_of_YouTube_%282015-2017%29.svg.png" alt="YouTube">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Logo_of_YouTube_%282015-2017%29.svg" alt="YouTube">
           </a>
           <a href="#">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/640px-LINE_logo.svg.png" alt="LINE">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE">
           </a>
           <a href="#" class="search-icon">🔍</a>
           <a href="#" class="profile-icon">👤</a>
         </div>
       </div>
     </header>
-    <main>
-      <nav class="menu">
-        <div class="menu-content">
-          <ul>
-            <li class="news-item">
-              <a href="index.html">回到首頁</a>
-            </li>
-            <li class="news-item">
-              <a href="japan-map.html">日本地圖</a>
-            </li>
-            <li class="news-item">
-              <a href="choose_one.html">暑假四選一</a>
-            </li>
-            <li class="news-item">
-              <a href="free-travel.html">自由行</a>
-            </li>
-            <li class="news-item">
-              <a href="self-drive-tour.html">自駕遊</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </main>
+
+    <!-- 主選單 -->
+    <nav class="menu">
+      <div class="menu-content">
+        <ul>
+          <li><a href="index.html">回到首頁</a></li>
+          <li><a href="japan-map.html">日本地圖</a></li>
+          <li><a href="choose_one.html">暑假四選一</a></li>
+          <li><a href="free-travel.html">自由行</a></li>
+          <li><a href="self-drive-tour.html">自駕遊</a></li>
+        </ul>
+      </div>
+    </nav>
   </div>
 </body>
 </html>
