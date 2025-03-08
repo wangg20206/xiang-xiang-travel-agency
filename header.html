@@ -1,341 +1,271 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>翔翔旅行社 全台最大日本自由行</title>
-    <style>
-        /* 全域樣式 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f094;
-            margin: 0;
-            min-height: 100vh; /* 確保身體佔滿螢幕高度 */
-        }
-        
-        /* Header 樣式 */
-        header {
-            position: fixed; /* 固定在頂部 */
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: white;
-            z-index: 1000; /* 確保 header 在最上層 */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 可選：添加陰影 */
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>翔翔旅遊</title>
+  <style>
+    /* 重設所有元素的 margin 與 padding */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* 假設 header 內有導航欄 */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            height: 60px; /* 明確設置高度 */
-        }
+    body {
+      background-color: white; /* 將背景改為白色 */
+      min-height: 100vh; /* 確保身體佔滿螢幕高度 */
+    }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+    /* Container 垂直排列 header 與 main */
+    .container {
+      display: flex;
+      flex-direction: column;
+      background-color: transparent; /* 移除 container 的背景色 */
+    }
 
-        .logo img {
-            height: 40px; /* 調整 logo 大小 */
-        }
+    #header-container {
+      width: 100%;
+      max-width: 1200px; /* 限制最大寬度 */
+      margin: 0 auto; /* 讓 header 置中 */
+      position: relative; /* 確保子元素定位 */
+    }
 
-        .logo-text {
-            font-size: 24px;
-            font-weight: bold;
-            color: #0799fa;
-            white-space: nowrap;
-        }
+    /* Header 相關 CSS */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: white; /* 背景整行白色 */
+      width: 100%; /* 確保佔滿寬度 */
+      position: fixed; /* 固定在頂部 */
+      top: 0;
+      left: 0;
+      z-index: 1000; /* 確保 header 在最上層 */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 可選：添加陰影 */
+    }
 
-        .menu ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            padding: 0;
-        }
+    /* 限制 navbar 內容寬度 */
+    .navbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 65%;
+      width: 100%;
+      margin: 0 auto;
+      gap: 20px;
+    }
 
-        .menu ul li {
-            margin: 0 15px;
-        }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-        .menu ul li a {
-            text-decoration: none;
-            color: black;
-            font-size: 16px;
-        }
+    .logo img {
+      height: 60px;
+    }
 
-        /* 新聞區塊 */
-        .news-section {
-            text-align: center;
-            padding: 10px;
-            /* 動態調整頂部間距，避開 header 和瀏覽器 UI */
-            padding-top: calc(60px + env(safe-area-inset-top, 20px)); /* header 高度 + 安全區域 */
-        }
-        
-        .news-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            max-width: 1280px; /* 增加最大寬度，確保四個卡片可在一排 */
-            margin: 0 auto;
-            padding: 10px;
-        }
-        
-        /* 卡片樣式 */
-        .news-card {
-            width: 280px; /* 稍微減小卡片寬度，考慮間距 */
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            transition: transform 0.3s ease, background-color 0.3s ease; /* 添加背景色過渡 */
-            cursor: pointer; /* 顯示手型指標 */
-            position: relative; /* 確保子元素定位正確 */
-        }
-        
-        .news-card:hover {
-            transform: translateY(-5px);
-            background-color: #f9f9f9; /* 懸停時輕微改變背景色 */
-        }
-        
-        .news-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-            border-radius: 10px 10px 0 0;
-        }
-        
-        .news-card h3 {
-            font-size: 16px;
-            font-weight: bold;
-            color: #333;
-            margin: 10px;
-            text-align: center;
-        }
-        
-        .news-card p {
-            font-size: 14px;
-            color: #666;
-            margin: 0 10px 10px;
-            text-align: center;
-            line-height: 1.5;
-        }
-        
-        .card-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin: 0 10px 10px;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-        
-        .btn {
-            background-color: #ff9900;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 12px;
-            flex: 1;
-            min-width: 80px;
-            pointer-events: auto; /* 確保按鈕仍可點擊 */
-        }
-        
-        .btn:hover {
-            background-color: #e68a00;
-        }
-        
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            background-color: #f8f8f8;
-            border-top: 1px solid #eee;
-            border-radius: 0 0 10px 10px;
-        }
-        
-        .date {
-            font-size: 12px;
-            color: #666;
-        }
-        
-        .price {
-            font-size: 16px;
-            font-weight: bold;
-            color: #ff0000;
-        }
-        
-        /* 確保電腦端四個一排 */
-        @media (min-width: 1280px) {
-            .news-container {
-                justify-content: flex-start; /* 強制左對齊 */
-            }
-        
-            .news-card {
-                flex: 0 0 calc(25% - 15px); /* 每卡片佔 25%，減去間距影響 */
-            }
-        }
-        
-        /* 響應式設計 - 手機模式 */
-        @media (max-width: 1279px) {
-            .news-container {
-                flex-direction: column;
-                align-items: center;
-            }
-        
-            .news-card {
-                width: 90%;
-                max-width: 350px;
-            }
-        
-            .news-card img {
-                height: 250px;
-            }
-        
-            .card-buttons {
-                flex-direction: row;
-                justify-content: center;
-            }
-        
-            .btn {
-                margin: 5px;
-            }
+    .logo-text {
+      font-size: 40px;
+      font-weight: bold;
+      color: #0799fa;
+      white-space: nowrap;
+    }
 
-            .logo-text {
-                font-size: 20px; /* 手機端縮小字體 */
-            }
+    /* Icons 區塊（右側） */
+    .icons {
+      display: flex;
+      align-items: center;
+    }
 
-            .navbar {
-                height: 50px; /* 手機端減小導航欄高度 */
-            }
+    .icons a {
+      margin-left: 10px;
+      text-decoration: none;
+      color: black;
+      font-size: 16px;
+    }
 
-            .news-section {
-                padding-top: calc(50px + env(safe-area-inset-top, 20px)); /* 調整手機端間距 */
-            }
-        }
-    </style>
-    <script>
-        // 等待 DOM 載入完成
-        document.addEventListener('DOMContentLoaded', () => {
-            // 為每個 .news-card 添加點擊事件
-            const cards = document.querySelectorAll('.news-card');
-            cards.forEach(card => {
-                card.addEventListener('click', (event) => {
-                    // 檢查點擊目標是否為按鈕
-                    if (!event.target.classList.contains('btn')) {
-                        const href = card.getAttribute('data-href');
-                        if (href) {
-                            window.location.href = href;
-                            console.log('Navigating to: ' + href); // 調試用
-                        } else {
-                            console.log('No data-href attribute found'); // 調試用
-                        }
-                    }
-                });
-            });
+    .icons img {
+      height: 20px;
+    }
 
-            // 可選：為按鈕添加事件（僅阻止預設行為）
-            document.querySelectorAll('.btn').forEach(button => {
-                button.addEventListener('click', (event) => {
-                    event.preventDefault(); // 阻止按鈕預設行為
-                    console.log('Button clicked, prevented default'); // 調試用
-                });
-            });
-        });
-    </script>
+    .search-icon,
+    .profile-icon {
+      font-size: 18px;
+    }
+
+    /* Main 區塊相關 */
+    main {
+      padding-top: 80px; /* 預設間距，避開 fixed header */
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto; /* 置中 */
+    }
+
+    .menu {
+      background-color: #fff; /* 背景整行白色 */
+      width: 100%; /* 確保佔滿寬度 */
+    }
+
+    /* 限制 menu 內容寬度 */
+    .menu-content {
+      max-width: 65%;
+      margin: 0 auto;
+      overflow-x: auto; /* 啟用水平滾動 */
+      -webkit-overflow-scrolling: touch; /* 改善 iOS 上的滾動體驗 */
+      white-space: nowrap; /* 確保按鈕不換行 */
+    }
+
+    .menu-content::-webkit-scrollbar {
+      display: none; /* 隱藏 Chrome/Safari 滾動條 */
+    }
+
+    .menu ul {
+      list-style: none;
+      display: flex;
+      justify-content: center; /* 按鈕居中 */
+      padding: 0;
+      width: 100%;
+      background-color: #fff; /* 確保 ul 的背景也是白色 */
+    }
+
+    .menu ul li {
+      margin: 0 15px; /* 保留間距 */
+      flex: none; /* 按實際內容寬度排列 */
+    }
+
+    /* 設定白色方格與滑鼠懸停變色 */
+    .menu ul li a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 15px;
+      background-color: #fff;
+      color: black;
+      font-size: 20px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+      height: 7vh;
+      box-sizing: border-box;
+      max-height: 7vh;
+      white-space: nowrap; /* 防止文字換行 */
+    }
+
+    /* 滑鼠懸停時，背景顏色加深，無底線 */
+    .menu ul li a:hover {
+      background-color: #b0b0b0;
+      text-decoration: none;
+    }
+
+    /* 手機版排版調整（螢幕寬度小於 768px） */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 8px 10px;
+        gap: 10px;
+      }
+
+      .navbar-content {
+        max-width: 100%;
+        padding: 0 10px;
+      }
+
+      .logo {
+        gap: 5px;
+      }
+
+      .logo img {
+        height: 30px;
+      }
+
+      .logo-text {
+        font-size: 24px;
+      }
+
+      .icons {
+        justify-content: flex-end;
+      }
+
+      .icons a {
+        margin-left: 8px;
+        margin-right: 0;
+      }
+
+      .icons img {
+        height: 16px;
+      }
+
+      .search-icon,
+      .profile-icon {
+        font-size: 14px;
+      }
+
+      .menu-content {
+        max-width: 100%;
+        overflow-x: auto; /* 手機版也啟用水平滾動 */
+      }
+
+      .menu ul li a {
+        font-size: 16px;
+        padding: 10px;
+        height: 50px;
+        max-height: none;
+      }
+
+      main {
+        padding-top: 60px; /* 手機端調整間距 */
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <header>
-        <!-- 假設 header 內有一個簡單導航欄 -->
-        <nav class="navbar">
-            <div class="logo">
-                <img src="https://via.placeholder.com/40" alt="Logo">
-                <span class="logo-text">翔翔旅行社</span>
-            </div>
-            <div class="menu">
-                <ul>
-                    <li><a href="#">日本地區</a></li>
-                    <li><a href="#">星際假遊</a></li>
-                    <li><a href="#">自由行</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <section class="news-section">
-        <div class="news-container">
-            <div class="news-card" data-href="關東伊豆深度旅遊.html">
-                <img src="https://www.bubu-jp.com/wp-content/uploads/2024/02/pixta_71851928_M.jpg" alt="觀光景點">
-                <h3>深度關東:夢見伊豆X聖地巡禮</h3>
-                <p>持之以恆四個字的偉大在這趟旅行得到了驗證，途中的每分每秒是一次挑戰，唯有堅持到底，才能發現隱藏在山中、雪中、夜色中那令人忘返的美景</p>
-                <div class="card-buttons">
-                    <button class="btn">雪上活動</button>
-                    <button class="btn">冰上釣魚</button>
-                    <button class="btn">溫泉</button>
-                </div>
-                <div class="card-footer">
-                    <span class="date">暫無出發日期</span>
-                    <span class="price">TWD 74,900 起</span>
-                </div>
-            </div>
-            <div class="news-card" data-href="橫跨東瀛_夢見伊豆X聖地巡禮.html">
-                <img src="https://www.bubu-jp.com/wp-content/uploads/2024/02/pixta_71851928_M.jpg" alt="觀光景點">
-                <h3>橫跨東瀛:夢見伊豆X聖地巡禮</h3>
-                <p>持之以恆四個字的偉大在這趟旅行得到了驗證，途中的每分每秒是一次挑戰，唯有堅持到底，才能發現隱藏在山中、雪中、夜色中那令人忘返的美景</p>
-                <div class="card-buttons">
-                    <button class="btn">雪上活動</button>
-                    <button class="btn">冰上釣魚</button>
-                    <button class="btn">溫泉</button>
-                </div>
-                <div class="card-footer">
-                    <span class="date">03/14, 03/16, 03/20...</span>
-                    <span class="price">TWD 111,900 起</span>
-                </div>
-            </div>
-            <div class="news-card" data-href="踏入關西_大啖近畿.html">
-                <img src="https://www.bubu-jp.com/wp-content/uploads/2024/02/pixta_71851928_M.jpg" alt="觀光景點">
-                <h3>踏入關西X大啖近畿</h3>
-                <p>持之以恆四個字的偉大在這趟旅行得到了驗證，途中的每分每秒是一次挑戰，唯有堅持到底，才能發現隱藏在山中、雪中、夜色中那令人忘返的美景</p>
-                <div class="card-buttons">
-                    <button class="btn">雪上活動</button>
-                    <button class="btn">冰上釣魚</button>
-                    <button class="btn">溫泉</button>
-                </div>
-                <div class="card-footer">
-                    <span class="date">暫無出發日期</span>
-                    <span class="price">TWD 96,900 起</span>
-                </div>
-            </div>
-            <div class="news-card" data-href="深度四國_聖地巡禮.html">
-                <img src="https://www.bubu-jp.com/wp-content/uploads/2024/02/pixta_71851928_M.jpg" alt="觀光景點">
-                <h3>深度四國X聖地巡禮</h3>
-                <p>持之以恆四個字的偉大在這趟旅行得到了驗證，途中的每分每秒是一次挑戰，唯有堅持到底，才能發現隱藏在山中、雪中、夜色中那令人忘返的美景</p>
-                <div class="card-buttons">
-                    <button class="btn">雪上活動</button>
-                    <button class="btn">冰上釣魚</button>
-                    <button class="btn">溫泉</button>
-                </div>
-                <div class="card-footer">
-                    <span class="date">暫無出發日期</span>
-                    <span class="price">TWD 166,900 起</span>
-                </div>
-            </div>
+  <div class="container">
+    <div id="header-container">
+      <header class="navbar">
+        <div class="navbar-content">
+          <!-- 左側：logo 及文字 -->
+          <div class="logo">
+            <img src="xiang_logo.png" alt="翔翔旅遊">
+            <span class="logo-text">翔翔旅遊</span>
+          </div>
+          <!-- 右側：icons 區塊 -->
+          <div class="icons">
+            <a href="https://youtube.com/shorts/SQdDumn-6dY?feature=share">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/640px-Logo_of_YouTube_%282015-2017%29.svg.png" alt="YouTube">
+            </a>
+            <a href="#">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/640px-LINE_logo.svg.png" alt="LINE">
+            </a>
+            <a href="#" class="search-icon">🔍</a>
+            <a href="#" class="profile-icon">👤</a>
+          </div>
         </div>
-    </section>
-    <footer></footer>
+      </header>
+    </div>
+    <main>
+      <nav class="menu">
+        <div class="menu-content">
+          <ul>
+            <li>
+              <a href="index.html">回到首頁</a>
+            </li>
+            <li>
+              <a href="japan-map.html">日本地圖</a>
+            </li>
+            <li>
+              <a href="choose_one.html">暑假四選一</a>
+            </li>
+            <li>
+              <a href="free-travel.html">自由行</a>
+            </li>
+            <li>
+              <a href="self-drive-tour.html">自駕遊</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </main>
+  </div>
 </body>
 </html>
