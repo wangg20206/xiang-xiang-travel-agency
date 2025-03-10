@@ -344,4 +344,11 @@
         width: 100%;
         height: auto;
     }
+    
+    summary {
+    text-align: center;
+}
+
+    
+    
 }
