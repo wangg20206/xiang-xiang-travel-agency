@@ -10,38 +10,34 @@
       margin: 0;
       padding: 0;
     } 
-    
 
     body {
-      background-color: white; /* 將背景改為白色 */
+      background-color: white;
     }
 
-    /* Container 垂直排列 header 與 main */
     .container {
       display: flex;
       flex-direction: column;
-      background-color: transparent; /* 移除 container 的背景色 */
+      background-color: transparent;
     }
+
     #header-container {
-    width: 100%;
-    max-width: 1200px; /* 限制最大寬度 */
-    margin: 0 auto; /* 讓 header 置中 */
-}
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-
-    /* Header 相關 CSS */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
-      background-color: white; /* 背景整行白色 */
-      width: 100%; /* 確保佔滿寬度 */
+      background-color: white;
+      width: 100%;
       position: relative;
       z-index: 10;
     }
 
-    /* 限制 navbar 內容寬度 */
     .navbar-content {
       display: flex;
       justify-content: space-between;
@@ -69,7 +65,6 @@
       white-space: nowrap;
     }
 
-    /* Icons 區塊（右側） */
     .icons {
       display: flex;
       align-items: center;
@@ -91,40 +86,47 @@
       font-size: 18px;
     }
 
-    /* Main 區塊相關 */
     .menu {
-      background-color: #fff; /* 背景整行白色 */
-      width: 100%; /* 確保佔滿寬度 */
+      background-color: #fff;
+      width: 100%;
     }
 
-    /* 限制 menu 內容寬度 */
     .menu-content {
       max-width: 65%;
       margin: 0 auto;
-      overflow-x: auto; /* 啟用水平滾動 */
-      -webkit-overflow-scrolling: touch; /* 改善 iOS 上的滾動體驗 */
-      white-space: nowrap; /* 確保按鈕不換行 */
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+      scroll-behavior: smooth; /* 平滑滾動效果 */
     }
 
     .menu-content::-webkit-scrollbar {
-      display: none; /* 隱藏 Chrome/Safari 滾動條 */
+      height: 8px; /* 顯示細小的滾動條，提供滑軌提示 */
+    }
+
+    .menu-content::-webkit-scrollbar-thumb {
+      background-color: #b0b0b0; /* 滾動條顏色 */
+      border-radius: 4px;
+    }
+
+    .menu-content::-webkit-scrollbar-track {
+      background-color: #f1f1f1; /* 滾動條背景 */
     }
 
     .menu ul {
       list-style: none;
       display: flex;
-      justify-content: center; /* 按鈕居中 */
-      padding: 0;
+      justify-content: center;
+      padding: 10px 0;
       width: 100%;
-      background-color: #fff; /* 確保 ul 的背景也是白色 */
+      background-color: #fff;
     }
 
     .menu ul li {
-      margin: 0 15px; /* 保留間距 */
-      flex: none; /* 按實際內容寬度排列 */
+      margin: 0 15px;
+      flex: none;
     }
 
-    /* 設定白色方格與滑鼠懸停變色 */
     .menu ul li a {
       display: flex;
       align-items: center;
@@ -138,49 +140,18 @@
       height: 7vh;
       box-sizing: border-box;
       max-height: 7vh;
-      white-space: nowrap; /* 防止文字換行 */
+      white-space: nowrap;
     }
 
-    /* 滑鼠懸停時，背景顏色加深，無底線 */
-    .menu ul li a:hover {
-      background-color: #b0b0b0;
-      text-decoration: none;
+    /* 電腦版 hover 變色 */
+    @media (min-width: 769px) {
+      .menu ul li a:hover {
+        background-color: #b0b0b0;
+        text-decoration: none;
+      }
     }
 
-    /* Popup 相關 */
-    .news-item {
-      position: relative;
-      cursor: pointer;
-    }
-
-    .popup {
-      display: none;
-      position: fixed;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 8px;
-      z-index: 9999;
-      text-align: center;
-      max-width: 80vw;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    /* 當滑鼠移到 .news-item 上時，顯示 .popup */
-    .news-item:hover .popup {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    #unique-image {
-      width: 1200px;
-      height: auto;
-    }
-
-    /* 手機版排版調整（螢幕寬度小於 768px） */
+    /* 手機版調整 */
     @media (max-width: 768px) {
       .navbar {
         padding: 8px 10px;
@@ -224,14 +195,30 @@
 
       .menu-content {
         max-width: 100%;
-        overflow-x: auto; /* 手機版也啟用水平滾動 */
+        overflow-x: auto;
+        padding: 0 10px;
+        scroll-behavior: smooth;
+      }
+
+      .menu ul {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start; /* 從左側開始 */
+        padding: 10px 0;
       }
 
       .menu ul li a {
-        font-size: 16px;
-        padding: 10px;
-        height: 50px;
-        max-height: none;
+        font-size: 14px;
+        padding: 8px 12px;
+        height: auto;
+        min-width: 80px;
+        border-radius: 4px;
+        background-color: #fff; /* 手機版按鈕強制白色 */
+        color: black;
+      }
+
+      .menu ul li a:hover {
+        background-color: #fff; /* 手機版按鈕 hover 仍然保持白色 */
       }
     }
   </style>
@@ -262,21 +249,11 @@
       <nav class="menu">
         <div class="menu-content">
           <ul>
-            <li class="news-item">
-              <a href="index.html">回到首頁</a>
-            </li>
-            <li class="news-item">
-              <a href="https://www.e-japannavi.com/syuyu/japanmap.shtml">日本地圖</a>
-            </li>
-            <li class="news-item">
-              <a href="choose_one.html">暑假四選一</a>
-            </li>
-            <li class="news-item">
-              <a href="七天六夜走斷腿行程.html">自由行回顧</a>
-            </li>
-            <li class="news-item">
-              <a href="七天六夜走斷腿行程.html">自駕遊</a>
-            </li>
+            <li><a href="index.html">回到首頁</a></li>
+            <li><a href="https://www.e-japannavi.com/syuyu/japanmap.shtml">日本地圖</a></li>
+            <li><a href="choose_one.html">暑假四選一</a></li>
+            <li><a href="七天六夜走斷腿行程.html">自由行回顧</a></li>
+            <li><a href="七天六夜走斷腿行程.html">自駕遊</a></li>
           </ul>
         </div>
       </nav>
