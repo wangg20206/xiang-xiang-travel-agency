@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>翔翔旅行社 全台最大日本自由行</title>
     <link rel="stylesheet" href="try.css">
-</head>
-        <style>
+    <style>
         summary {
             text-align: center;
         }
     </style>
+</head>
+
     
 <body>
     <div id="header-container"></div>
@@ -439,21 +440,26 @@
             📌 夏天來這裡划船、吹海風、住舟屋，感受最靜謐、詩意的日本海灣風情！ ⛵✨
         </p> 
     </details>      
+<div style="height: 50px;"></div>
+<div class="space"></div>
+<div id="footer-container"></div>
+    <div id="footer-container"></div>
+    <div id="footer-container"></div>
+
     <div class="space"></div>
-    <div id="header-container"></div>
-           
-    </p>
+    <div id="footer-container"></div>
 
-
-
-    <div class="space"></div> <!-- 這是一個隱形空白區塊 -->
-
-    
-
-
-</body>
-
-
-
-    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("header.html")
+                .then(response => response.text())
+                .then(data => document.getElementById("header-container").innerHTML = data)
+                .catch(error => console.error("載入 header 失敗:", error));
+            fetch("footer.html")
+                .then(response => response.text())
+                .then(data => document.getElementById("footer-container").innerHTML = data)
+                .catch(error => console.error("載入 footer 失敗:", error));
+        });
+    </script>
+</body>   
 </html>
