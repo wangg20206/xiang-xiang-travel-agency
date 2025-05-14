@@ -274,6 +274,21 @@ body {
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     text-align: left;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.news-card .content {
+    flex: 1;
+}
+
+.news-card .action {
+    margin-top: auto;
+    color: #ff4d00;
+    font-weight: bold;
 }
 
 .news-card img {
@@ -298,6 +313,8 @@ body {
     color: #ff5722;
     font-weight: bold;
 }
+
+
 
 /* 匯率顯示區塊 */
 .exchange-rate-container {
