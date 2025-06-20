@@ -1,0 +1,263 @@
+/* 設定整體網頁的字體、背景與基本樣式 */
+body {
+    font-family: 'Noto Sans TC', sans-serif; /* 使用思源黑體字型 */
+    margin: 0; /* 移除頁面邊界 */
+    padding: 0;
+    background: #f8f8f8; /* 淺灰色背景 */
+    color: #333; /* 文字顏色為深灰 */
+}
+
+/* 頁首橫幅樣式設定 */
+header.banner {
+    background-image: url('https://cdn.discordapp.com/attachments/1330890655039225927/1377502656318144622/IMG20250116101544.jpg?ex=68411bd2&is=683fca52&hm=2af2a34592d3565a0b3644541f334e3c43939d8cee35f5c105e087731db7bbd7&');
+    background-size: cover; /* 圖片填滿區塊 */
+    background-position: center; /* 圖片置中 */
+    text-align: center; /* 文字置中 */
+    color: white; /* 標題與文字為白色 */
+    padding: 120px 20px; /* 上下60px、左右20px 內距 */
+}
+
+/* 橫幅標題樣式（主標題 h1） */
+header.banner h1 {
+    font-size: 2.5em; /* 放大字體 */
+    margin-bottom: 10px; /* 下方留白 */
+}
+
+/* 橫幅副標題樣式（p 標籤） */
+header.banner p {
+    font-size: 1.2em; /* 稍大字體 */
+}
+
+/* 行程摘要與詳細行程區塊的外觀設定 */
+section.summary, section.itinerary {
+    padding: 30px 20px; /* 內距 */
+    background: white; /* 白底 */
+    margin: 20px auto; /* 上下留白，自動置中 */
+    max-width: 900px; /* 最大寬度 */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* 淡淡陰影效果 */
+}
+
+/* 行程區塊標題（h2）的樣式 */
+section.summary h2, section.itinerary h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+/* 行程摘要中的項目列表設定 */
+section.summary ul {
+    list-style: none; /* 移除項目前方的圓點 */
+    padding: 0;
+}
+
+/* 每一項摘要列表項目的間距 */
+section.summary li {
+    margin: 5px 0; /* 上下間距5px */
+}
+
+/* 每日行程標題區塊的外觀 */
+.day {
+    margin-top: 20px; /* 與上一段落間隔 */
+}
+
+
+
+
+/* 外框卡片 */
+.info-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  max-width: 960px;
+  margin: 40px auto;
+}
+
+/* 左右並排 */
+.info-section {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* 一組圖示+多行文字 */
+.meal-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* 單一圖示 */
+.icon {
+  font-size: 24px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* 三行餐點 or 飯店資訊 */
+.meal-text {
+  font-size: 17px;
+  color: #444;
+  line-height: 1.8;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 6px;
+  color: #9a6d38;
+}
+
+/* 內文標題：藍色方塊＋粗體 */
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007fae;
+  margin-top: 40px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.section-title::before {
+  content: '■';
+  color: #00a0c6;
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+/* 內文段落 */
+.section-text {
+  font-size: 17px;
+  line-height: 1.9;
+  color: #333;
+  text-align: justify;
+  margin-bottom: 30px;
+}
+
+
+
+
+
+
+
+/* ★ 按鈕列間距變小 */
+.day-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 10px 0 20px; /* 調整上下空間：原來太大 */
+  flex-wrap: wrap;
+}
+
+/* ★ 按鈕變大（高度、字體、內距） */
+.day-nav button {
+  background-color: #eee;
+  border: none;
+  padding: 12px 30px; /* 原本 8px 16px → 變大更好點 */
+  font-weight: bold;
+  font-size: 16px;    /* 原本 14px → 提升可視性 */
+  color: #333;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 微陰影更有層次 */
+}
+
+.day-nav button:hover {
+  background-color: #ccc;
+}
+
+.day-nav button.active {
+  background-color: #4a4a4a;
+  color: white;
+}
+
+/* ★ 各日介紹區塊內文：上方間距變小、內部更緊湊 */
+.day-section {
+  padding: 5px ; /* 原本 40px → 更精緻緊湊 */
+  margin-top: 0px;
+  border-bottom: 1px solid #ddd;
+  scroll-margin-top: 60px;
+}
+
+
+
+.trip-header {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 25px;
+}
+
+.trip-header h2 {
+  font-size: 26px;
+  font-weight: bold;
+  color: #333;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+/* 黑底下劃線裝飾條 */
+.trip-header h2::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 3px;
+  background-color: #444;
+  bottom: 0;
+  left: 25%;
+  border-radius: 3px;
+}
+
+
+
+.day-description {
+  font-family: "FangSong", serif;  /* 微軟正黑體 */
+  font-size: 24px;
+  font-weight: bold; /* 加粗 */
+  color: #333;
+  text-align: center;
+  max-width: 960px;
+  margin: 15px auto 25px;
+  padding: 0 20px;
+  line-height: 1.8;
+}
+
+
+/* 右下角固定按鈕樣式 */
+#backToTopBtn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 99;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 14px 18px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+
+#backToTopBtn:hover {
+  background-color: #666;
+}
+
+.day-nav.fixed {
+  position: fixed;
+  top: -8;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 1000;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
