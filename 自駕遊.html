@@ -6,12 +6,22 @@
   <link rel="stylesheet" href="styles_8150.css">
 </head>
 
+<script>
+  // 載入 header.html 並插入到 header-container 中
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-container').innerHTML = data;
+    })
+    .catch(error => {
+      console.error('載入 header.html 失敗:', error);
+    });
+</script>
 
 
 <body>
+  
   <header class="banner">
-  <div id="header-container"></div>
-
     <h1 style="color: blue;">縱橫日本七日遊</h1>
     <p>「First Time」</p>
   </header>
