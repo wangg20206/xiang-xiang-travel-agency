@@ -9,7 +9,7 @@ body {
 
 /* 頁首橫幅樣式設定 */
 header.banner {
-    background-image: url('https://cdn.discordapp.com/attachments/1330890655039225927/1377502656318144622/IMG20250116101544.jpg?ex=68411bd2&is=683fca52&hm=2af2a34592d3565a0b3644541f334e3c43939d8cee35f5c105e087731db7bbd7&');
+    background-image: url('https://lh3.googleusercontent.com/d/1STMk5ZSWqPy-vLQGKd4JggepT2nois8u');
     background-size: cover; /* 圖片填滿區塊 */
     background-position: center; /* 圖片置中 */
     text-align: center; /* 文字置中 */
