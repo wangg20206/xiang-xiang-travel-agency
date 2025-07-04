@@ -15,6 +15,8 @@
       background-color: #0072DD; /* 藍屏底色 */
       overflow: hidden;
       position: relative;
+        font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 100;  /* 載入時就有的細字 */
     }
 
     /* 整個 BSOD 外框，用來一次控制位置、寬高 */
@@ -30,7 +32,7 @@
     .bsod-text {
       position: absolute;
       top:   -200px;     /* ← 微調文字區垂直偏移 */
-      left:  39px;    /* ← 微調文字區水平偏移 */
+      left:  0px;    /* ← 微調文字區水平偏移 */
       width: 1500px;   /* ← 文字區寬度，自動換行 */
     }
     .sad-face {
@@ -38,6 +40,7 @@
       font-family: "Segoe UI", Tahoma, sans-serif;
       font-size: 200px;  /* ← 調整 “:(” 大小 */
       line-height: 1;
+      font-weight: 100;    /* 數值越大越粗，範圍 100–900 */
       color: white;
     }
     .message {
@@ -50,7 +53,7 @@
     .percentage {
       margin-top: 50px;   /* ← “20% complete” 與上行的距離 */
       font-size: 40px;   /* ← 百分比文字大小 */
-      font-weight: 300; 
+      font-weight: 100;    /* 數值越大越粗，範圍 100–900 */
       color: white;
     }
 
@@ -58,7 +61,7 @@
     .qr-block {
       position: absolute;
       bottom: 0px;      /* ← 調整這裡上下移動整個 QR 區塊 */
-      left:   35px;      /* ← 調整這裡左右移動整個 QR 區塊 */
+      left:  0px;      /* ← 調整這裡左右移動整個 QR 區塊 */
       display: flex;
       align-items: flex-start;
     }
@@ -69,9 +72,9 @@
     }
     .qr-block .info {
       margin-left: 16px; /* ← 調整這裡改變說明文字與 QR 圖的間距 */
-      font-size: 20px;   /* ← 調整這裡改變說明文字大小 */
-      line-height: 1.5;  /* ← 調整這裡改變說明文字行高 */
-      font-weight: 300; 
+      font-size: 15px;   /* ← 調整這裡改變說明文字大小 */
+      line-height: 2.05;  /* ← 調整這裡改變說明文字行高 */
+      font-weight: 100;    /* 數值越大越粗，範圍 100–900 */
       color: white;
       white-space: nowrap;
     }
