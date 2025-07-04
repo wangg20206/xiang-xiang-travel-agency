@@ -16,6 +16,34 @@
       console.error('載入 header.html 失敗:', error);
     });
 </script>
+<style>
+/* 桌機版：只露出背景圖的下半部 (原圖 16:9 的一半) */
+header.banner {
+  width: 100%;                                    /* 滿版寬度 */
+  aspect-ratio: 32/9;                             /* 原 16:9 ，高 ÷ 2 => 16:(9/2) = 32/9 */
+  max-width: 65%;                                 /* 保留你原本的 max-width 設定 */
+  margin: 0 auto;
+
+  background-image: url('https://asset.japan.travel/image/upload/v1674121589/kagawa/Kagawa_t_id220_1.jpg');
+  background-size: cover;                         /* 填滿並維持比例，超出自動裁切 */
+  background-position: center bottom;             /* 圖片底部對齊容器底部 */
+  background-repeat: no-repeat;
+
+  color: white;
+  text-align: center;
+}
+
+/* 手機版：整張圖用 9:16 比例顯示（上下置中）*/
+@media (max-width: 768px) {
+  header.banner {
+    aspect-ratio: 9/16;                            /* 直幅顯示整張圖 */
+    background-position: center center;            /* 圖片上下左右置中 */
+  }
+}
+
+
+</style>
+
 </head>
 
 
@@ -24,8 +52,6 @@
 <body>
   <div id="header-container"></div>
   <header class="banner">
-    <h1 style="color: black;">瀨戶萬博快閃</h1>
-    <p>「First Time」</p>
   </header>
 
   <button id="backToTopBtn" title="回到最上層">↑</button>
@@ -53,21 +79,20 @@
 </div>
 <!-- 導覽按鈕列 -->
 <div class="day-nav">
-  <button onclick="scrollToDay('day1')" class="active">DAY 1</button>
-  <button onclick="scrollToDay('day2')">DAY 2</button>
-  <button onclick="scrollToDay('day3')">DAY 3</button>
-  <button onclick="scrollToDay('day4')">DAY 4</button>
-  <button onclick="scrollToDay('day5')">DAY 5</button>
-  <button onclick="scrollToDay('day6')">DAY 6</button>
-  <button onclick="scrollToDay('day7')">DAY 7</button>
+  <button onclick="scrollToDay('day1')" class="active">DAY 0</button>
+  <button onclick="scrollToDay('day2')">DAY 1</button>
+  <button onclick="scrollToDay('day3')">DAY 2</button>
+  <button onclick="scrollToDay('day4')">DAY 3</button>
+  <button onclick="scrollToDay('day5')">DAY 4</button>
+  <button onclick="scrollToDay('day6')">DAY 5</button>
+  <button onclick="scrollToDay('day7')">DAY 6</button>
 </div>
 
 <!-- 各日區塊（需給 ID） -->
 <div id="day1" class="day-section">
 <div class="day-description">
-    Day1<br>
-    台北(桃園國際機場)／日本關西(關西空港) → 洛哈斯JR奈良站天然溫泉超級飯店 <br>
-    → 奈良公園 → 春日大社 → 志津香釜飯(爆滿) → 回飯店享受天然溫泉 
+    Day0<br>
+    台北(桃園國際機場)／日本關西(關西空港) → 洛哈斯JR奈良站天然溫泉超級飯店 <br> 
 </div>
     <div class="info-card">
     <div class="info-section">
@@ -76,8 +101,47 @@
         <div class="meal-group">
           <div class="icon">🍽️</div>
           <div class="meal-text">
-            <div><span class="label">早餐</span>高空餐點</div>
-            <div><span class="label">午餐</span>釜飯</div>
+            <div><span class="label">早餐</span>自理</div>
+            <div><span class="label">午餐</span>自理</div>
+            <div><span class="label">晚餐</span>高空餐點</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右欄：飯店住宿資訊 -->
+      <div class="info-item">
+        <div class="meal-group">
+          <div class="icon">🏨</div>
+          <div class="meal-text">
+            <span class="label">飯店住宿</span>
+            OMO 關西機場 by 星野集團
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">OMO 關西機場 by 星野集團</div>
+    <p class="section-text">
+      OMO關西機場是一家讓您在旅途中更加方便，更加愉快的酒店。從關西國際機場旁邊的臨空城站步行僅1分鐘的好地段。我們的網站最適合預約。
+    </p>
+  </div>
+</div>
+
+
+<div id="day2" class="day-section">
+<div class="day-description">
+    Day1<br>
+    OMO 關西機場 → 岡山 → 直島 → 高松  <br>
+</div>
+    <div class="info-card">
+    <div class="info-section">
+      <!-- 左欄：一個圖示搭配三餐資訊 -->
+      <div class="info-item">
+        <div class="meal-group">
+          <div class="icon">🍽️</div>
+          <div class="meal-text">
+            <div><span class="label">早餐</span>飯店自助</div>
+            <div><span class="label">午餐</span>自理</div>
             <div><span class="label">晚餐</span>自理</div>
           </div>
         </div>
@@ -89,7 +153,96 @@
           <div class="icon">🏨</div>
           <div class="meal-text">
             <span class="label">飯店住宿</span>
-            洛哈斯JR奈良站天然溫泉超級飯店
+            大阪橋樑酒店心齋橋
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">直島</div>
+    <p class="section-text">
+      此地以保留涵蓋「直島女文樂」等珍貴的文化資產，且擁有製鍊所的城鎮發展至今。現在則是高品質藝術作品和建築薈萃的「現代藝術聖地」，備受日本國內外矚目。
+    </p>
+
+    <div class="section-title">高松</div>
+    <p class="section-text">
+      春日大社為奈良最具代表性的神社，創建於西元768年，以鮮紅的柱子與數千座石燈籠聞名。
+      每逢春秋萬燈會，整座神社燈火通明，充滿莊嚴神聖氛圍，亦是觀光客與信眾參拜的重要景點。
+    </p>
+  </div>
+</div>
+
+
+</div>
+<div id="day3" class="day-section"><div class="day-description">
+    Day2<br>
+    高松 → 女木島 → 鬼島大洞窟 → 鷲峰展望台 
+     → 瀨戶內藝術節作品 → ｢男木島之魂」/Jaume Plensa → 吃午餐、外帶餐點 → 豐玉姬神社 → 男木島燈塔 → 男木港 → 高松港 → 小豆島  <br>
+</div>
+    <div class="info-card">
+    <div class="info-section">
+      <!-- 左欄：一個圖示搭配三餐資訊 -->
+      <div class="info-item">
+        <div class="meal-group">
+          <div class="icon">🍽️</div>
+          <div class="meal-text">
+            <div><span class="label">早餐</span>自理</div>
+            <div><span class="label">午餐</span>自理</div>
+            <div><span class="label">晚餐</span>自理</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右欄：飯店住宿資訊 -->
+      <div class="info-item">
+        <div class="meal-group">
+          <div class="icon">🏨</div>
+          <div class="meal-text">
+            <span class="label">飯店住宿</span>
+            大阪橋樑酒店心齋橋
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">女木島</div>
+    <p class="section-text">
+      女木島的通稱是「鬼島」。由於1914年發現的洞窟與桃太郎傳說的鬼之巢穴有所淵源，這裡便開始被稱為鬼島。現在，「鬼島大洞窟」已然成為觀光景點，可以遇見獨特的鬼怪。參觀完洞窟後，就前往鷲峰展望台。360度的瀨戶內海和海島絕景，非常推薦。沿著海灘，有Gusethouse和商店櫛比鱗差，讓度假的感覺更濃了。
+    </p>
+
+    <div class="section-title">男木島</div>
+    <p class="section-text">
+      男木島的特色是山上的斜坡村落，可感受到這座島獨特的歷史和生活。一邊在巷弄中散步，一邊發現咖啡廳和店家，也是樂趣之一。招牌料理章魚燉飯、豐盛的自家栽培蔬菜午餐等男木島才有的美食，也很吸引人。吃飽之後，就走上綠意環繞的小徑，去男木島燈塔看看吧。
+    </p>
+  </div>
+</div>
+
+
+<div id="day4" class="day-section"><div class="day-description">
+    Day3<br>
+    小豆島 → 神戶 
+</div>
+    <div class="info-card">
+    <div class="info-section">
+      <!-- 左欄：一個圖示搭配三餐資訊 -->
+      <div class="info-item">
+        <div class="meal-group">
+          <div class="icon">🍽️</div>
+          <div class="meal-text">
+            <div><span class="label">早餐</span>自理</div>
+            <div><span class="label">午餐</span>自理</div>
+            <div><span class="label">晚餐</span>自理</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右欄：飯店住宿資訊 -->
+      <div class="info-item">
+        <div class="meal-group">
+          <div class="icon">🏨</div>
+          <div class="meal-text">
+            <span class="label">飯店住宿</span>
+            大阪橋樑酒店心齋橋
           </div>
         </div>
       </div>
@@ -109,9 +262,8 @@
 </div>
 
 
-<div id="day2" class="day-section">
-<div class="day-description">
-    Day2<br>
+<div id="day5" class="day-section"><div class="day-description">
+    Day4<br>
     大阪橋樑酒店心齋橋 → 通天閣 → 新世界本通商店街 <br>
      → 阿倍野展望台 → 道頓堀水上觀光船 → 橋梁飯店宵夜拉麵吃到飽 
 </div>
@@ -155,10 +307,6 @@
 </div>
 
 
-</div>
-<div id="day3" class="day-section">DAY 3 介紹區塊</div>
-<div id="day4" class="day-section">DAY 4 介紹區塊</div>
-<div id="day5" class="day-section">DAY 5 介紹區塊</div>
 <div id="day6" class="day-section">DAY 6 介紹區塊</div>
 <div id="day7" class="day-section">DAY 7 介紹區塊</div>
 
