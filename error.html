@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+  <title>error_e04</title>
+  <style>
+    /* 全頁藍底 */
+    html, body {
+      margin: 0;
+      font-family: 'Noto Sans TC', sans-serif; /*細體字*/
+      padding: 0;
+      width: 100%; 
+      height: 100%;
+      background-color: #0072DD; /* 藍屏底色 */
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* 整個 BSOD 外框，用來一次控制位置、寬高 */
+    .bsod-wrapper {
+      position: absolute;
+      top:    350px;   /* ← 調整這裡移動 BSOD 群組到頁面垂直位置 */
+      left:   206px;   /* ← 調整這裡移動 BSOD 群組到頁面水平位置 */
+      width: 0px;   /* ← 調整這裡改變 BSOD 群組的寬度 */
+      height:500px;   /* ← 調整這裡改變 BSOD 群組的高度 */
+    }
+
+    /* 上半部文字區 */
+    .bsod-text {
+      position: absolute;
+      top:   -200px;     /* ← 微調文字區垂直偏移 */
+      left:  39px;    /* ← 微調文字區水平偏移 */
+      width: 1500px;   /* ← 文字區寬度，自動換行 */
+    }
+    .sad-face {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      font-size: 200px;  /* ← 調整 “:(” 大小 */
+      line-height: 1;
+      color: white;
+    }
+    .message {
+      margin-top: 30px;   /* ← 訊息與 “:(” 之間距離 */
+      font-size: 45px;   /* ← 訊息文字大小 */
+      font-weight: 100; 
+      line-height: 1.4;  /* ← 訊息行高 */
+      color: white;
+    }
+    .percentage {
+      margin-top: 50px;   /* ← “20% complete” 與上行的距離 */
+      font-size: 40px;   /* ← 百分比文字大小 */
+      font-weight: 300; 
+      color: white;
+    }
+
+    /* 下半部 QR + 說明 區塊 */
+    .qr-block {
+      position: absolute;
+      bottom: 0px;      /* ← 調整這裡上下移動整個 QR 區塊 */
+      left:   35px;      /* ← 調整這裡左右移動整個 QR 區塊 */
+      display: flex;
+      align-items: flex-start;
+    }
+    .qr-block img {
+      width: 120px;     /* ← 調整這裡改變 QR 圖片寬度 */
+      height: 120px;    /* ← 調整這裡改變 QR 圖片高度 */
+      flex-shrink: 0;
+    }
+    .qr-block .info {
+      margin-left: 16px; /* ← 調整這裡改變說明文字與 QR 圖的間距 */
+      font-size: 20px;   /* ← 調整這裡改變說明文字大小 */
+      line-height: 1.5;  /* ← 調整這裡改變說明文字行高 */
+      font-weight: 300; 
+      color: white;
+      white-space: nowrap;
+    }
+    .qr-block .info a {
+      color: white;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="bsod-wrapper">
+    <!-- 上半：文字區 -->
+    <div class="bsod-text">
+      <div class="sad-face">:(</div>
+      <div class="message">
+        Your PC ran into a problem and needs to restart. We're <br>
+        just collecting some error info,and then we'll restart for <br>you.
+      </div>
+      <div class="percentage">20% complete</div>
+    </div>
+
+    <!-- 下半：QR + 說明 -->
+    <div class="qr-block">
+      <img src="無題.jpeg" alt="QR Code">
+      <div class="info">
+        For more information about this issue and possible fixes, visit<a href="https://wangg20206.github.io/xiang-xiang-travel-agency/" target="_blank">https://www.windows.com/stopcode</a><br><br>
+        If you call a support person, give them this info:<br>
+        <strong>STOP CODE: CRITICAL_PROCESS_DIED</strong>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
