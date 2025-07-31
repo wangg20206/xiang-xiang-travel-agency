@@ -1,48 +1,54 @@
 <html lang="zh-Hant">
+
 <head>
   <meta charset="UTF-8">
-      <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>瀨戶萬博快閃｜翔翔旅遊社</title>
   <link rel="stylesheet" href="styles_8150.css">
   <script>
-  // 載入 header.html 並插入到 header-container 中
-  fetch('header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('header-container').innerHTML = data;
-    })
-    .catch(error => {
-      console.error('載入 header.html 失敗:', error);
-    });
-</script>
-<style>
-/* 桌機版：只露出背景圖的下半部 (原圖 16:9 的一半) */
-header.banner {
-  width: 100%;                                    /* 滿版寬度 */
-  aspect-ratio: 32/9;                             /* 原 16:9 ，高 ÷ 2 => 16:(9/2) = 32/9 */
-  max-width: 65%;                                 /* 保留你原本的 max-width 設定 */
-  margin: 0 auto;
+    // 載入 header.html 並插入到 header-container 中
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('載入 header.html 失敗:', error);
+      });
+  </script>
+  <style>
+    /* 桌機版：只露出背景圖的下半部 (原圖 16:9 的一半) */
+    header.banner {
+      width: 100%;
+      /* 滿版寬度 */
+      aspect-ratio: 32/9;
+      /* 原 16:9 ，高 ÷ 2 => 16:(9/2) = 32/9 */
+      max-width: 65%;
+      /* 保留你原本的 max-width 設定 */
+      margin: 0 auto;
 
-  background-image: url('https://asset.japan.travel/image/upload/v1674121589/kagawa/Kagawa_t_id220_1.jpg');
-  background-size: cover;                         /* 填滿並維持比例，超出自動裁切 */
-  background-position: center bottom;             /* 圖片底部對齊容器底部 */
-  background-repeat: no-repeat;
+      background-image: url('https://asset.japan.travel/image/upload/v1674121589/kagawa/Kagawa_t_id220_1.jpg');
+      background-size: cover;
+      /* 填滿並維持比例，超出自動裁切 */
+      background-position: center bottom;
+      /* 圖片底部對齊容器底部 */
+      background-repeat: no-repeat;
 
-  color: white;
-  text-align: center;
-}
+      color: white;
+      text-align: center;
+    }
 
-/* 手機版：整張圖用 9:16 比例顯示（上下置中）*/
-@media (max-width: 768px) {
-  header.banner {
-    aspect-ratio: 9/16;                            /* 直幅顯示整張圖 */
-    background-position: center center;            /* 圖片上下左右置中 */
-  }
-}
-
-
-</style>
+    /* 手機版：整張圖用 9:16 比例顯示（上下置中）*/
+    @media (max-width: 768px) {
+      header.banner {
+        aspect-ratio: 9/16;
+        /* 直幅顯示整張圖 */
+        background-position: center center;
+        /* 圖片上下左右置中 */
+      }
+    }
+  </style>
 
 </head>
 
@@ -59,383 +65,506 @@ header.banner {
   <section class="summary">
     <div class="summary-banner"></div>
     <h2>行程亮點</h2>
-    <p><strong>瀨戶內國際藝術祭：</strong><br>以瀨戶內群島為舞台，每3年舉辦一次的現代藝術的祭典。2010年首次舉辦，為期約100天的展期分為春、夏、秋3個季節，可體驗瀨戶內在各個季節的魅力。展期中吸引了來自日本國內外約100萬名遊客造訪，是日本具有代表性的國際藝術祭。<br>
+    <p>
+      <strong>瀨戶內國際藝術祭：</strong><br>以瀨戶內群島為舞台，每3年舉辦一次的現代藝術的祭典。2010年首次舉辦，為期約100天的展期分為春、夏、秋3個季節，可體驗瀨戶內在各個季節的魅力。展期中吸引了來自日本國內外約100萬名遊客造訪，是日本具有代表性的國際藝術祭。<br>
 
       <strong>大阪：</strong><br>體驗道頓堀水上觀光船，逛心齋橋商店街，登通天閣，享受阿倍野展望台的夜景。<br>
 
       <strong>2025年日本國際博覽會</strong><br>在日本大阪府大阪市舉辦的世界博覽會，為國際展覽局認可的第44屆綜合型世界博覽會，會期6個月，會場位於大阪灣岸的人工島夢洲，主題是「讓生命更光輝的未來社會藍圖」。本次是大阪繼1970年之後第2次承辦綜合型世界博覽會，亦是日本第3次舉辦綜合型世界博覽會；除了主辦國日本之外，共有海外159個國家及地區、9個國際組織參展。<br>
 
-      <strong>直島</strong><br>直島是廣為人知的藝術之島，藝術融入島上每個角落。由全球知名建築家安藤忠雄經手設計的「地中美術館」、「Benesse House美術館」，活用村落閑置空屋，做為展示藝術作品空間的『藝術「家」計畫』，都是必看景點。<br>
+      <strong>直島</strong><br>直島是廣為人知的藝術之島，藝術融入島上每個角落。由全球知名建築家安藤忠雄經手設計的「地中美術館」、「Benesse
+      House美術館」，活用村落閑置空屋，做為展示藝術作品空間的『藝術「家」計畫』，都是必看景點。<br>
 
       <strong>小豆島</strong><br>小豆島是瀨戶內海第2大島，全年氣候溫暖，被稱為「日本地中海」，也是日本國內栽培橄欖之發祥地。用木桶釀造的醬油、日曬的麵線等，擁有400多年歷史的傳統作工仍持續著，還有許多活用此素材而衍生出的美食。<br>
 
       <strong>高松</strong><br>雖只為旅行的過度之地，但高松市依然是四國文化與經濟中心，其中栗林公園更是日本最大規模的庭院，特別是松樹之美受到高度評價，被《米其林綠色指南・日本篇》選為評分最高的三星級庭園。<br>
 
-      <div class="trip-header">
-        <h2 style="font-size: 35px; color:rgb(0, 0, 0);">瀨戶內藝術季－直島</h2>
-    </div> 
+    <div class="trip-header">
+      <h2 style="font-size: 35px; color:rgb(0, 0, 0);">瀨戶內藝術季－直島</h2>
+    </div>
 
     <div class="journey">
-        <img src="https://asset.japan.travel/image/upload/v1674121589/kagawa/Kagawa_t_id220_1.jpg" alt="主圖片" class="main-img">
-        <img src="https://gojapan.com.tw/wp-content/uploads/2024/11/setouchi-artfest-1600x1141.jpg" alt="右上圖片">
-        <img src="https://static.gltjp.com/glt/data/article/21000/20101/20210228_013340_ccd90cf9_w1920.webp" alt="右下圖片">
-        <div class="extra-images">
-            <img src="https://hips.hearstapps.com/hmg-prod/images/%E7%9B%B4%E5%B3%B6%E5%B1%95%E8%A6%BD%E9%A4%A8-68183c889c20c.jpg?crop=1xw:1xh;center,top&resize=980:*" alt="Extra Image 1">
-            <img src="https://www.wowlavie.com/files/article/a1/15038/atl_m_190015038_650.jpg" alt="Extra Image 2">
-            <img src="https://cdn.flipermag.com/flipermag/wp-content/uploads/2025/02/flipermag-2025-02-07_05-21-56_069684-900x500.png" alt="Extra Image 3">
-            <img src="https://static.gltjp.com/glt/data/article/21000/20101/20210221_044606_88f8355f_w1920.webp" alt="Extra Image 4">
-        </div>
-    </div> 
-    <p class="journey-text"><strong>瀨戶內藝術季－直島</strong>此地以保留涵蓋「直島女文樂」等珍貴的文化資產，且擁有製鍊所的城鎮發展至今。現在則是高品質藝術作品和建築薈萃的「現代藝術聖地」，備受日本國內外矚目。
+      <img src="https://asset.japan.travel/image/upload/v1674121589/kagawa/Kagawa_t_id220_1.jpg" alt="主圖片"
+        class="main-img">
+      <img src="https://gojapan.com.tw/wp-content/uploads/2024/11/setouchi-artfest-1600x1141.jpg" alt="右上圖片">
+      <img src="https://static.gltjp.com/glt/data/article/21000/20101/20210228_013340_ccd90cf9_w1920.webp" alt="右下圖片">
+      <div class="extra-images">
+        <img
+          src="https://hips.hearstapps.com/hmg-prod/images/%E7%9B%B4%E5%B3%B6%E5%B1%95%E8%A6%BD%E9%A4%A8-68183c889c20c.jpg?crop=1xw:1xh;center,top&resize=980:*"
+          alt="Extra Image 1">
+        <img src="https://www.wowlavie.com/files/article/a1/15038/atl_m_190015038_650.jpg" alt="Extra Image 2">
+        <img
+          src="https://cdn.flipermag.com/flipermag/wp-content/uploads/2025/02/flipermag-2025-02-07_05-21-56_069684-900x500.png"
+          alt="Extra Image 3">
+        <img src="https://static.gltjp.com/glt/data/article/21000/20101/20210221_044606_88f8355f_w1920.webp"
+          alt="Extra Image 4">
+      </div>
+    </div>
+    <p class="journey-text">
+      <strong>直島: </strong>此處以保留涵蓋「直島女文樂」等珍貴的文化資產，且擁有製鍊所的城鎮發展至今。現在則是高品質藝術作品和建築薈萃的「現代藝術聖地」，備受日本國內外矚目。
 
-全球知名的建築家安藤忠雄設計了島嶼南部的住宿設施「倍樂生之家」和「地中美術館」等。</p>
+      全球知名的建築家安藤忠雄設計了島嶼南部的住宿設施「倍樂生之家」和「地中美術館」等。
+    </p>
     <details>
-        <summary><span style="cursor: pointer;font-size: 15px;color: rgb(0, 38, 255);text-align: center;text-decoration: underline;">詳細介紹</span></summary>
+      <summary><span
+          style="cursor: pointer;font-size: 15px;color: rgb(0, 38, 255);text-align: center;text-decoration: underline;">詳細介紹</span>
+      </summary>
 
-        <p class="journey-text">
-            <strong>赤南瓜</strong><br>
-            當渡輪靠近港口時，見到著名地標：「草間彌生的赤南瓜 赤かぼちゃ」，就知道已經抵達直島看著大大的紅南瓜慢慢接近，在一片綠地的港口處歡迎你時不管什麼天氣什麼心情瞬間都會豁然開朗！草間彌生：「追尋太陽的紅光到宇宙盡頭，幻化成直島海岸邊的紅色南瓜」
-        </p>
-        <p class="journey-text">
-            <strong>黃南瓜</strong><br>
-            前往倍樂生之家周邊，是草間彌生的另一個南瓜作品，一顆黃色的南瓜靜靜坐落在海邊，讓這平靜的港口添加了一股藝術的氣息。
-        </p>
-        <p class="journey-text">
-            <strong>直島錢湯「I♥湯」</strong><br>
-           是由藝術家大竹伸郎設計的藝術設施。不僅能參觀美術作品還能入浴。是島民和來自世界各地旅客的交流平台。錢湯的外觀裝潢充分表現了大竹伸郎藝術風格和獨具匠心的藝術魅力。大師用拼畫的方式讓浴場的各種元素都變得既時尚又富有藝術感。
-        </p>
-        <p class="journey-text">
-            <strong>直島展覽館</strong><br>
-           繼《海邊驛站「直島」》、《紅南瓜》後，在直島海運門戶-宮浦港周邊設置嶄新地標。作品理念是在27座島嶼構成的直島外發現「第28座島」，靈感來自海面上的海市蜃樓「浮島現象」，特徵則是輕快且充滿浮游感的形狀。
-        </p>
+      <p class="journey-text">
+        <strong>赤南瓜</strong><br>
+        當渡輪靠近港口時，見到著名地標：「草間彌生的赤南瓜
+        赤かぼちゃ」，就知道已經抵達直島看著大大的紅南瓜慢慢接近，在一片綠地的港口處歡迎你時不管什麼天氣什麼心情瞬間都會豁然開朗！草間彌生：「追尋太陽的紅光到宇宙盡頭，幻化成直島海岸邊的紅色南瓜」
+      </p>
+      <p class="journey-text">
+        <strong>黃南瓜</strong><br>
+        前往倍樂生之家周邊，是草間彌生的另一個南瓜作品，一顆黃色的南瓜靜靜坐落在海邊，讓這平靜的港口添加了一股藝術的氣息。
+      </p>
+      <p class="journey-text">
+        <strong>直島錢湯「I♥湯」</strong><br>
+        是由藝術家大竹伸郎設計的藝術設施。不僅能參觀美術作品還能入浴。是島民和來自世界各地旅客的交流平台。錢湯的外觀裝潢充分表現了大竹伸郎藝術風格和獨具匠心的藝術魅力。大師用拼畫的方式讓浴場的各種元素都變得既時尚又富有藝術感。
+      </p>
+      <p class="journey-text">
+        <strong>直島展覽館</strong><br>
+        繼《海邊驛站「直島」》、《紅南瓜》後，在直島海運門戶-宮浦港周邊設置嶄新地標。作品理念是在27座島嶼構成的直島外發現「第28座島」，靈感來自海面上的海市蜃樓「浮島現象」，特徵則是輕快且充滿浮游感的形狀。
+      </p>
     </details>
 
-      <div class="trip-header">
-        <h2 style="font-size: 35px; color:rgb(0, 0, 0);">瀨戶內藝術季－小豆島</h2>
-    </div> 
+    <div class="trip-header">
+      <h2 style="font-size: 35px; color:rgb(0, 0, 0);">瀨戶內藝術季－小豆島</h2>
+    </div>
 
     <div class="journey">
-        <img src="https://tw.matsuyama-sightseeing.com/wp-content/uploads/2019/09/87-4-1_2311-1.jpg" alt="主圖片" class="main-img">
-        <img src="https://image.cdn-eztravel.com.tw/5nMr5yvLONHbVJLFIySZhrnTPpiaFUKkY2Ly0IkDn_U/rs:fill:600:315:1/g:ce/aHR0cHM6Ly92YWNhdGlvbi5jZG4tZXp0cmF2ZWwuY29tLnR3L2ltZy9WRFIvSlBfMTY3OTQzMzQ5MC5qcGc.jpg" alt="右上圖片">
-        <img src="https://tw.wamazing.com/media/wp-content/uploads/sites/4/2019/07/Shodoshima_5.jpg.webp" alt="右下圖片">
-        <div class="extra-images">
-            <img src="https://setouchi-artfest.jp/files/ArtworkImages/a6e32058-14b5-4431-85d5-55dd46f194d2/value01/2441cbf9ee3c7378c660750459d9d221_l.jpg" alt="Extra Image 1">
-            <img src="https://assets.everydayobject.us/wp-content/uploads/2022/09/0824shodoshima02_1312_Easy-Resize.com_-1024x683.jpg" alt="Extra Image 2">
-            <img src="https://setouchi-artfest.jp/files/ArtworkImages/2ce7eeb0-6d5a-45b4-a6a4-3d666e3a3e4b/value01/ad90f5d78f64640ab68cc821b62bde9b_l.jpg" alt="Extra Image 3">
-            <img src="https://d3ff0u7gkaoc8q.cloudfront.net/files/ArtworkImages/fffeab86-379b-47db-9341-f3ccd20dac8e/value01/95a966b968a641d0875eb45507dfc830_l.jpg" alt="Extra Image 4">
-        </div>
-    </div> 
-    <p class="journey-text"><strong>瀨戶內藝術季－小豆島</strong>此地以保留涵蓋「直島女文樂」等珍貴的文化資產，且擁有製鍊所的城鎮發展至今。現在則是高品質藝術作品和建築薈萃的「現代藝術聖地」，備受日本國內外矚目。
+      <img src="https://tw.matsuyama-sightseeing.com/wp-content/uploads/2019/09/87-4-1_2311-1.jpg" alt="主圖片"
+        class="main-img">
+      <img
+        src="https://image.cdn-eztravel.com.tw/5nMr5yvLONHbVJLFIySZhrnTPpiaFUKkY2Ly0IkDn_U/rs:fill:600:315:1/g:ce/aHR0cHM6Ly92YWNhdGlvbi5jZG4tZXp0cmF2ZWwuY29tLnR3L2ltZy9WRFIvSlBfMTY3OTQzMzQ5MC5qcGc.jpg"
+        alt="右上圖片">
+      <img src="https://tw.wamazing.com/media/wp-content/uploads/sites/4/2019/07/Shodoshima_5.jpg.webp" alt="右下圖片">
+      <div class="extra-images">
+        <img
+          src="https://setouchi-artfest.jp/files/ArtworkImages/a6e32058-14b5-4431-85d5-55dd46f194d2/value01/2441cbf9ee3c7378c660750459d9d221_l.jpg"
+          alt="Extra Image 1">
+        <img
+          src="https://assets.everydayobject.us/wp-content/uploads/2022/09/0824shodoshima02_1312_Easy-Resize.com_-1024x683.jpg"
+          alt="Extra Image 2">
+        <img
+          src="https://setouchi-artfest.jp/files/ArtworkImages/2ce7eeb0-6d5a-45b4-a6a4-3d666e3a3e4b/value01/ad90f5d78f64640ab68cc821b62bde9b_l.jpg"
+          alt="Extra Image 3">
+        <img
+          src="https://image.cdn-eztravel.com.tw/5nMr5yvLONHbVJLFIySZhrnTPpiaFUKkY2Ly0IkDn_U/rs:fill:600:315:1/g:ce/aHR0cHM6Ly92YWNhdGlvbi5jZG4tZXp0cmF2ZWwuY29tLnR3L2ltZy9WRFIvSlBfMTY3OTQzMzQ5MC5qcGc.jpg"
+          alt="Extra Image 4">
+      </div>
+    </div>
+    <p class="journey-text">
+      <strong>小豆島: </strong>此地以保留涵蓋「直島女文樂」等珍貴的文化資產，且擁有製鍊所的城鎮發展至今。現在則是高品質藝術作品和建築薈萃的「現代藝術聖地」，備受日本國內外矚目。
 
-全球知名的建築家安藤忠雄設計了島嶼南部的住宿設施「倍樂生之家」和「地中美術館」等。</p>
+      全球知名的建築家安藤忠雄設計了島嶼南部的住宿設施「倍樂生之家」和「地中美術館」等。
+    </p>
     <details>
-<summary><span style="cursor: pointer;font-size: 15px;color: rgb(0, 38, 255);text-align: center;text-decoration: underline;">詳細介紹</span></summary>
+      <summary><span
+          style="cursor: pointer;font-size: 15px;color: rgb(0, 38, 255);text-align: center;text-decoration: underline;">詳細介紹</span>
+      </summary>
 
-        <p class="journey-text">
-            <strong>赤南瓜</strong><br>
-            當渡輪靠近港口時，見到著名地標：「草間彌生的赤南瓜 赤かぼちゃ」，就知道已經抵達直島看著大大的紅南瓜慢慢接近，在一片綠地的港口處歡迎你時不管什麼天氣什麼心情瞬間都會豁然開朗！草間彌生：「追尋太陽的紅光到宇宙盡頭，幻化成直島海岸邊的紅色南瓜」
-        </p>
-        <p class="journey-text">
-            <strong>黃南瓜</strong><br>
-            前往倍樂生之家周邊，是草間彌生的另一個南瓜作品，一顆黃色的南瓜靜靜坐落在海邊，讓這平靜的港口添加了一股藝術的氣息。
-        </p>
-        <p class="journey-text">
-            <strong>直島錢湯「I♥湯」</strong><br>
-           是由藝術家大竹伸郎設計的藝術設施。不僅能參觀美術作品還能入浴。是島民和來自世界各地旅客的交流平台。錢湯的外觀裝潢充分表現了大竹伸郎藝術風格和獨具匠心的藝術魅力。大師用拼畫的方式讓浴場的各種元素都變得既時尚又富有藝術感。
-        </p>
-        <p class="journey-text">
-            <strong>直島展覽館</strong><br>
-           繼《海邊驛站「直島」》、《紅南瓜》後，在直島海運門戶-宮浦港周邊設置嶄新地標。作品理念是在27座島嶼構成的直島外發現「第28座島」，靈感來自海面上的海市蜃樓「浮島現象」，特徵則是輕快且充滿浮游感的形狀。
-        </p>
+      <p class="journey-text">
+        <strong>太陽的贈禮</strong><br>
+        閃閃發亮的橄欖王冠 在因橄欖而聞名的海島玄關，設置把橄欖葉製成王冠形狀的雕刻。從閃金光的圓環可眺望大海。
+      </p>
+      <p class="journey-text">
+        <strong>小瀬石鎚神社</strong><br>
+        小瀬石矛神社的神體是巨大的重疊岩，坐落在山頂上。 它位於小豆島的最西端小瀬，保持著絕妙的平衡，至今人們仍然無法確定它是人造物還是自然形成的。 從它的威力中可以感受到強大的能量，因此被認為是小豆島的能量點之一。
+      </p>
+      <p class="journey-text">
+        <strong>樹齢千年のオリーヴ大樹</strong><br>
+        樹齢千年のオリーヴ大樹の故郷は、スペイン南部のアンダルシア。この地方は典型的な地中海性気候で、降雨量が少なく日照時間が長く乾燥しています。また、スペイン全体の約80％のオリーブオイルがここアンダルシアで生産されています。古代の野生のオリーブの化石が発掘されるなど、幾千年もの歴史がいまも息づいている場所なのです。
+      </p>
+      <p class="journey-text">
+        <strong>鹿島明神社</strong><br>
+        祐徳稲荷が鎮座する山体とは川を挟んで相対する山体を利用した公園です。先日祐徳稲荷に参拝したついでに訪れてみましたが、案の定何もない！真夏に来る公園ではない！というのが正直なところ。ただし、汗まみれになりながら東屋付近まで登ったご褒美的に、祐徳稲荷神社の全体像を、しかもほぼ同じ標高から眺めることができました。ラッキー！
+      </p>
+      <p class="journey-text">
+        <strong>中山千枚田</strong><br>
+        中山千枚田位於小豆島中央的中山地區，以中山農村歌舞伎舞台而聞名。海拔150～250公尺的斜坡地上，遍佈大大小小約800片梯田的景觀令人驚歎。1999年經農林水產省認定為「日本梯田百選」。
+
+        梯田裡在春夏期間有翠綠的稻作，秋時梯田裡佈滿金色的稻穗，隨著四季變化展現出不同風貌。7月上旬舉行「蟲送」也是必看的亮點。人們手持著名為「火手」的火把，依序走在梯田間的小徑裡趨趕害蟲的傳統活動。
+
+      </p>
+      <p class="journey-text">
+        <strong>擁抱小豆島</strong><br>
+        睽違3年造訪小豆島的作家表示，感受到島嶼以雙手環抱著他。本作品中融入期盼全球的民眾都能來到小豆島的心願，反映出島嶼多元的魅力。觀眾將在作品中感受身體與心靈和自然調和的體驗。
+      </p>
+      <p class="journey-text">
+        <strong>富丘八幡神社</strong><br>
+        人氣動畫「#擅長捉弄人的高木同學」的著名場景之一，喜歡動畫的粉絲們絕對要到此一遊😍
+        萬里無雲的天氣，整個瀨戶內海及島嶼都能盡收眼底，坐在台階上悠閒欣賞壯麗風光，享受小豆島的旅途吧
+
+      </p>
     </details>
 
 
-    <div style="height: 50px;"></div> 
+    <div class="trip-header">
+      <h2 style="font-size: 35px; color:rgb(0, 0, 0);">擁日本第一名城－姬路</h2>
+    </div>
+
+    <div class="journey">
+      <img src="https://cn.bing.com/th?id=OHR.CastleDay_ZH-CN8752542375_1920x1080.jpg" alt="主圖片" class="main-img">
+      <img src="https://visit-himeji.com/wp/wp-content/uploads/2022/12/8ec6a9c9f17f674d2b5aa83ddff080e1.jpg" alt="右上圖片">
+      <img src="https://static.gltjp.com/glt/data/directory/13000/12587/20220120_100009_365c161d_w1920.webp" alt="右下圖片">
+    </div>
+    <p class="journey-text">
+      <strong>姬路:
+      </strong>姬路市是位於日本近畿地方西部、兵庫縣西南部（播磨地方）的都市，也是播磨地方的經濟、文化及教育中心。人口超過53萬，是兵庫縣內次於神戶市的第二大城市，同時也是日本首批中核市。姬路市和周圍的城市共同組成了人口超過70萬人的姬路都市圏。
+    </p>
+    <details>
+      <summary>
+        <span
+          style="cursor: pointer;font-size: 15px;color: rgb(0, 38, 255);text-align: center;text-decoration: underline;">詳細介紹</span>
+      </summary>
+
+      <p class="journey-text">
+        <strong>姬路城</strong><br>
+        作為日本最具象徵意義，且保留度最為完整的城堡，姬路城是日本政府指定的國寶及國家特別史跡，也是日本首批世界文化遺產之一。為日本100名城之一。由於其保存度相當完好，也被稱為「日本第一名城」。許多時代劇和電影也在這裡進行拍攝，或以姬路城作為江戶城的象徵。
+      </p>
+      <p class="journey-text">
+        <strong>書寫山</strong><br>
+        圓教寺（えんぎょうじ）是位在日本兵庫縣姬路市的寺院，天台宗別格本山。山號「書寫山」（しょしゃざん）。本尊如意輪觀音、開基（創立者）為性空。別稱「西之比叡山」，是西國三十三箇所中最大規模之寺院，和比叡山、大山並稱天台之三大道場。受到皇族、貴族的信仰。
+      </p>
+    </details>
+
+    <div class="trip-header">
+      <h2 style="font-size: 35px; color:rgb(0, 0, 0);">天下的廚房－大阪</h2>
+    </div>
+
+    <div class="journey">
+      <img src="https://d1grca2t3zpuug.cloudfront.net/2025/04/IMG_4702-2000x1124-1744267072-1744267129.webp" alt="主圖片"
+        class="main-img">
+      <img src="https://static.gltjp.com/glt/data/article/21000/20340/20230721_161251_3e1c08a0_w1920.webp" alt="右上圖片">
+      <img src="https://oreo.blog/wp-content/uploads/2023/04/20230401185552_43.jpg" alt="右下圖片">
+      <div class="extra-images">
+        <img src="https://kenji.life/wp-content/uploads/20230716145855_53.jpg" alt="Extra Image 1">
+        <img src="https://static.gltjp.com/glt/data/article/21000/20757/20240729_130406_1dafefcc_w1920.webp"
+          alt="Extra Image 2">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhcYHaaxnqhcStUMHWSiTITaG5IyD1RDTRoA&s"
+          alt="Extra Image 3">
+        <img
+          src="https://www.welcometw.com/wp-content/uploads/2024/08/%E5%A4%A7%E9%98%AA%E5%BA%9C%E5%A4%A7%E9%98%AA%E5%B8%82_%E5%A4%A7%E9%98%AA%E5%A4%A9%E6%BB%BF%E5%AE%AE_@wusiai2-850x851.jpg"
+          alt="Extra Image 4">
+      </div>
+    </div>
+
+
+    <p class="journey-text">
+      <strong>大阪:
+      </strong>姬路市是位於日本近畿地方西部、兵庫縣西南部（播磨地方）的都市，也是播磨地方的經濟、文化及教育中心。人口超過53萬，是兵庫縣內次於神戶市的第二大城市，同時也是日本首批中核市。姬路市和周圍的城市共同組成了人口超過70萬人的姬路都市圏。
+    </p>
+    <details>
+      <summary><span
+          style="cursor: pointer;font-size: 15px;color: rgb(0, 38, 255);text-align: center;text-decoration: underline;">詳細介紹</span>
+      </summary>
+
+      <p class="journey-text">
+        <strong>2025年日本國際博覽會</strong><br>
+        簡稱大阪·關西世博或大阪·關西萬博。是2025年4月13日至10月13日（預定）在日本大阪府大阪市舉辦的世界博覽會，為國際展覽局認可的第44屆綜合型世界博覽會，會期6個月，會場位於大阪灣岸的人工島夢洲，主題是「讓生命更光輝的未來社會藍圖」（いのち輝く未来社会のデザイン）
+      </p>
+      <p class="journey-text">
+        <strong>新世界本通商店街</strong><br>
+        新世界有著能夠深度體驗大阪的滿滿景點。
+        不光能在可感受歷史氛圍的餐飲店品嚐大阪美食，還有著許多體感大阪文化的喫茶店和伴手禮店、雜貨店和電子遊樂場等設施。
+        保留著大阪文化與街道往昔風情的大阪象徵・通天閣也佇立於此，新世界是造訪大阪不可錯過的觀光景點。
+      </p>
+    </details>
+
+
+    <div style="height: 50px;"></div>
 
 
     <ul>
       <li>出發日：2025/8/29</li>
       <li>天數：5天6夜</li>
     </ul>
+
   </section>
 
 
-<div class="trip-header">
-  <h2>每日行程</h2>
-</div>
-<!-- 導覽按鈕列 -->
-<div class="day-nav">
-  <button onclick="scrollToDay('day1')" class="active">DAY 0</button>
-  <button onclick="scrollToDay('day2')">DAY 1</button>
-  <button onclick="scrollToDay('day3')">DAY 2</button>
-  <button onclick="scrollToDay('day4')">DAY 3</button>
-  <button onclick="scrollToDay('day5')">DAY 4</button>
-  <button onclick="scrollToDay('day6')">DAY 5</button>
-  <button onclick="scrollToDay('day7')">END</button>
-</div>
-
-<!-- 各日區塊（需給 ID） -->
-<div id="day1" class="day-section">
-<div class="day-description">
-    Day0<br>
-    台北(桃園國際機場)／日本關西(關西空港) → スーパーホテル加古川駅前 <br> 
-</div>
-    <div class="info-card">
-    <div class="info-section">
-      <!-- 左欄：一個圖示搭配三餐資訊 -->
-      <div class="info-item">
-        <div class="meal-group">
-          <div class="icon">🍽️</div>
-          <div class="meal-text">
-            <div><span class="label">早餐</span>自理</div>
-            <div><span class="label">午餐</span>自理</div>
-            <div><span class="label">晚餐</span>餓肚子</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 右欄：飯店住宿資訊 -->
-      <div class="info-item">
-        <div class="meal-group">
-          <div class="icon">🏨</div>
-          <div class="meal-text">
-            <span class="label">飯店住宿</span>
-            スーパーホテル加古川駅前
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-title">スーパーホテル加古川駅前</div>
-    <p class="section-text">
-      2019年11月23日盛大開幕！ 從JR加古川站南口步行3分鐘。 步行5分鐘即可到達餐廳和便利商店！ 該飯店是商務旅行和觀光的便利基地。 從地下1000公尺處噴湧而出的天然溫泉，溫和呵護肌膚，具有放鬆身心的功效。
-    </p>
+  <div class="trip-header">
+    <h2>每日行程</h2>
   </div>
-</div>
-
-
-<div id="day2" class="day-section">
-<div class="day-description">
-    Day1<br>
-   岡山 → 藝術之島「直島」 →  鐵馬環島之旅 →赤かぼちゃ「紅南瓜」→ 草間彌生「黃南瓜」→ 高松  <br>
-</div>
-    <div class="info-card">
-    <div class="info-section">
-      <!-- 左欄：一個圖示搭配三餐資訊 -->
-      <div class="info-item">
-        <div class="meal-group">
-          <div class="icon">🍽️</div>
-          <div class="meal-text">
-            <div><span class="label">早餐</span>飯店自助</div>
-            <div><span class="label">午餐</span>自理</div>
-            <div><span class="label">晚餐</span>自理</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 右欄：飯店住宿資訊 -->
-      <div class="info-item">
-        <div class="meal-group">
-          <div class="icon">🏨</div>
-          <div class="meal-text">
-            <span class="label">飯店住宿</span>
-            Hostel JAQ 高松
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-title">直島</div>
-    <p class="section-text">
-      此地以保留涵蓋「直島女文樂」等珍貴的文化資產，且擁有製鍊所的城鎮發展至今。現在則是高品質藝術作品和建築薈萃的「現代藝術聖地」，備受日本國內外矚目。
-    </p>
-
-    <div class="section-title">高松</div>
-    <p class="section-text">
-
-    </p>
+  <!-- 導覽按鈕列 -->
+  <div class="day-nav">
+    <button onclick="scrollToDay('day1')" class="active">DAY 0</button>
+    <button onclick="scrollToDay('day2')">DAY 1</button>
+    <button onclick="scrollToDay('day3')">DAY 2</button>
+    <button onclick="scrollToDay('day4')">DAY 3</button>
+    <button onclick="scrollToDay('day5')">DAY 4</button>
+    <button onclick="scrollToDay('day6')">DAY 5</button>
+    <button onclick="scrollToDay('day7')">END</button>
   </div>
-</div>
 
-
-</div>
-<div id="day3" class="day-section"><div class="day-description">
-    Day2<br>
-    小豆島守護神《鹿島明神社》→ 日本最窄海峽《土渕海峽》 → 三年一期《瀨戶內藝術季》→ 《魔女宅急便》小豆島橄欖公園 → SEASiON海景餐廳 → 丸金醬油紀念館 → 富秋八潘神社巡禮   <br>
-</div>
-    <div class="info-card">
-    <div class="info-section">
-      <!-- 左欄：一個圖示搭配三餐資訊 -->
-      <div class="info-item">
-        <div class="meal-group">
-          <div class="icon">🍽️</div>
-          <div class="meal-text">
-            <div><span class="label">早餐</span>飯店自助</div>
-            <div><span class="label">午餐</span>SEASiON海景餐廳</div>
-            <div><span class="label">晚餐</span>自理</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 右欄：飯店住宿資訊 -->
-      <div class="info-item">
-        <div class="meal-group">
-          <div class="icon">🏨</div>
-          <div class="meal-text">
-            <span class="label">飯店住宿</span>
-            小豆島海虎島酒店-超級景觀 
-          </div>
-        </div>
-      </div>
+  <!-- 各日區塊（需給 ID） -->
+  <div id="day1" class="day-section">
+    <div class="day-description">
+      Day0<br>
+      台北(桃園國際機場)／日本關西(關西空港) → スーパーホテル加古川駅前 <br>
     </div>
-
-    <div class="section-title">女木島</div>
-    <p class="section-text">
-      女木島的通稱是「鬼島」。由於1914年發現的洞窟與桃太郎傳說的鬼之巢穴有所淵源，這裡便開始被稱為鬼島。現在，「鬼島大洞窟」已然成為觀光景點，可以遇見獨特的鬼怪。參觀完洞窟後，就前往鷲峰展望台。360度的瀨戶內海和海島絕景，非常推薦。沿著海灘，有Gusethouse和商店櫛比鱗差，讓度假的感覺更濃了。
-    </p>
-
-    <div class="section-title">男木島</div>
-    <p class="section-text">
-      男木島的特色是山上的斜坡村落，可感受到這座島獨特的歷史和生活。一邊在巷弄中散步，一邊發現咖啡廳和店家，也是樂趣之一。招牌料理章魚燉飯、豐盛的自家栽培蔬菜午餐等男木島才有的美食，也很吸引人。吃飽之後，就走上綠意環繞的小徑，去男木島燈塔看看吧。
-    </p>
-  </div>
-</div>
-
-
-<div id="day4" class="day-section"><div class="day-description">
-    Day3<br>
-    小豆島 → 神戶 
-</div>
     <div class="info-card">
-    <div class="info-section">
-      <!-- 左欄：一個圖示搭配三餐資訊 -->
-      <div class="info-item">
-        <div class="meal-group">
-          <div class="icon">🍽️</div>
-          <div class="meal-text">
-            <div><span class="label">早餐</span>自理</div>
-            <div><span class="label">午餐</span>自理</div>
-            <div><span class="label">晚餐</span>自理</div>
+      <div class="info-section">
+        <!-- 左欄：一個圖示搭配三餐資訊 -->
+        <div class="info-item">
+          <div class="meal-group">
+            <div class="icon">🍽️</div>
+            <div class="meal-text">
+              <div><span class="label">早餐</span>自理</div>
+              <div><span class="label">午餐</span>自理</div>
+              <div><span class="label">晚餐</span>餓肚子</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右欄：飯店住宿資訊 -->
+        <div class="info-item">
+          <div class="meal-group">
+            <div class="icon">🏨</div>
+            <div class="meal-text">
+              <span class="label">飯店住宿</span>
+              スーパーホテル加古川駅前
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 右欄：飯店住宿資訊 -->
-      <div class="info-item">
-        <div class="meal-group">
-          <div class="icon">🏨</div>
-          <div class="meal-text">
-            <span class="label">飯店住宿</span>
-            大阪橋樑酒店心齋橋
-          </div>
-        </div>
-      </div>
+      <div class="section-title">Hostel JAQ 高松</div>
+      <p class="section-text">
+        2019年11月23日盛大開幕！ 從JR加古川站南口步行3分鐘。 步行5分鐘即可到達餐廳和便利商店！ 該飯店是商務旅行和觀光的便利基地。 從地下1000公尺處噴湧而出的天然溫泉，溫和呵護肌膚，具有放鬆身心的功效。
+      </p>
     </div>
-
-    <div class="section-title">奈良公園</div>
-    <p class="section-text">
-      奈良公園是日本最古老的公園之一，以成群結隊悠閒散步的梅花鹿聞名。園內還有東大寺、興福寺與春日大社等文化遺產，是體驗古都風情與自然生態的絕佳地點。
-    </p>
-
-    <div class="section-title">春日大社</div>
-    <p class="section-text">
-      春日大社為奈良最具代表性的神社，創建於西元768年，以鮮紅的柱子與數千座石燈籠聞名。
-      每逢春秋萬燈會，整座神社燈火通明，充滿莊嚴神聖氛圍，亦是觀光客與信眾參拜的重要景點。
-    </p>
   </div>
-</div>
 
 
-<div id="day5" class="day-section"><div class="day-description">
-    Day5<br>
-    大阪萬博  <br>
-     </div>
+  <div id="day2" class="day-section">
+    <div class="day-description">
+      Day1<br>
+      岡山 → 藝術之島「直島」 → 鐵馬環島之旅 →赤かぼちゃ「紅南瓜」→ 草間彌生「黃南瓜」→ 高松 <br>
+    </div>
     <div class="info-card">
-    <div class="info-section">
-      <!-- 左欄：一個圖示搭配三餐資訊 -->
-      <div class="info-item">
-        <div class="meal-group">
-          <div class="icon">🍽️</div>
-          <div class="meal-text">
-            <div><span class="label">早餐</span>自理</div>
-            <div><span class="label">午餐</span>自理</div>
-            <div><span class="label">晚餐</span>自理</div>
+      <div class="info-section">
+        <!-- 左欄：一個圖示搭配三餐資訊 -->
+        <div class="info-item">
+          <div class="meal-group">
+            <div class="icon">🍽️</div>
+            <div class="meal-text">
+              <div><span class="label">早餐</span>飯店自助</div>
+              <div><span class="label">午餐</span>自理</div>
+              <div><span class="label">晚餐</span>自理</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右欄：飯店住宿資訊 -->
+        <div class="info-item">
+          <div class="meal-group">
+            <div class="icon">🏨</div>
+            <div class="meal-text">
+              <span class="label">飯店住宿</span>
+              Hostel JAQ 高松
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 右欄：飯店住宿資訊 -->
-      <div class="info-item">
-        <div class="meal-group">
-          <div class="icon">🏨</div>
-          <div class="meal-text">
-            <span class="label">飯店住宿</span>
-            大阪橋樑酒店心齋橋
-          </div>
-        </div>
-      </div>
+      <div class="section-title">直島</div>
+      <p class="section-text">
+        此地以保留涵蓋「直島女文樂」等珍貴的文化資產，且擁有製鍊所的城鎮發展至今。現在則是高品質藝術作品和建築薈萃的「現代藝術聖地」，備受日本國內外矚目。
+      </p>
+
+      <div class="section-title">高松</div>
+      <p class="section-text">
+
+      </p>
     </div>
-
-    <div class="section-title">奈良公園</div>
-    <p class="section-text">
-      奈良公園是日本最古老的公園之一，以成群結隊悠閒散步的梅花鹿聞名。園內還有東大寺、興福寺與春日大社等文化遺產，是體驗古都風情與自然生態的絕佳地點。
-    </p>
-
-    <div class="section-title">春日大社</div>
-    <p class="section-text">
-      春日大社為奈良最具代表性的神社，創建於西元768年，以鮮紅的柱子與數千座石燈籠聞名。
-      每逢春秋萬燈會，整座神社燈火通明，充滿莊嚴神聖氛圍，亦是觀光客與信眾參拜的重要景點。
-    </p>
   </div>
-</div>
 
 
-<div id="day6" class="day-section">DAY 6 介紹區塊</div>
-<div id="day7" class="day-section">DAY 7 介紹區塊</div>
+  </div>
+  <div id="day3" class="day-section">
+    <div class="day-description">
+      Day2<br>
+      小豆島守護神《鹿島明神社》→ 日本最窄海峽《土渕海峽》 → 三年一期《瀨戶內藝術季》→ 《魔女宅急便》小豆島橄欖公園 → SEASiON海景餐廳 → 丸金醬油紀念館 → 富秋八潘神社巡禮 <br>
+    </div>
+    <div class="info-card">
+      <div class="info-section">
+        <!-- 左欄：一個圖示搭配三餐資訊 -->
+        <div class="info-item">
+          <div class="meal-group">
+            <div class="icon">🍽️</div>
+            <div class="meal-text">
+              <div><span class="label">早餐</span>飯店自助</div>
+              <div><span class="label">午餐</span>SEASiON海景餐廳</div>
+              <div><span class="label">晚餐</span>自理</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右欄：飯店住宿資訊 -->
+        <div class="info-item">
+          <div class="meal-group">
+            <div class="icon">🏨</div>
+            <div class="meal-text">
+              <span class="label">飯店住宿</span>
+              小豆島海虎島酒店-超級景觀
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">女木島</div>
+      <p class="section-text">
+        女木島的通稱是「鬼島」。由於1914年發現的洞窟與桃太郎傳說的鬼之巢穴有所淵源，這裡便開始被稱為鬼島。現在，「鬼島大洞窟」已然成為觀光景點，可以遇見獨特的鬼怪。參觀完洞窟後，就前往鷲峰展望台。360度的瀨戶內海和海島絕景，非常推薦。沿著海灘，有Gusethouse和商店櫛比鱗差，讓度假的感覺更濃了。
+      </p>
+
+      <div class="section-title">男木島</div>
+      <p class="section-text">
+        男木島的特色是山上的斜坡村落，可感受到這座島獨特的歷史和生活。一邊在巷弄中散步，一邊發現咖啡廳和店家，也是樂趣之一。招牌料理章魚燉飯、豐盛的自家栽培蔬菜午餐等男木島才有的美食，也很吸引人。吃飽之後，就走上綠意環繞的小徑，去男木島燈塔看看吧。
+      </p>
+    </div>
+  </div>
 
 
-<script>
-  // 滾動到頂部功能
-  document.getElementById("backToTopBtn").addEventListener("click", function() {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
+  <div id="day4" class="day-section">
+    <div class="day-description">
+      Day3<br>
+      小豆島 → 神戶
+    </div>
+    <div class="info-card">
+      <div class="info-section">
+        <!-- 左欄：一個圖示搭配三餐資訊 -->
+        <div class="info-item">
+          <div class="meal-group">
+            <div class="icon">🍽️</div>
+            <div class="meal-text">
+              <div><span class="label">早餐</span>自理</div>
+              <div><span class="label">午餐</span>自理</div>
+              <div><span class="label">晚餐</span>自理</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右欄：飯店住宿資訊 -->
+        <div class="info-item">
+          <div class="meal-group">
+            <div class="icon">🏨</div>
+            <div class="meal-text">
+              <span class="label">飯店住宿</span>
+              大阪橋樑酒店心齋橋
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">奈良公園</div>
+      <p class="section-text">
+        奈良公園是日本最古老的公園之一，以成群結隊悠閒散步的梅花鹿聞名。園內還有東大寺、興福寺與春日大社等文化遺產，是體驗古都風情與自然生態的絕佳地點。
+      </p>
+
+      <div class="section-title">春日大社</div>
+      <p class="section-text">
+        春日大社為奈良最具代表性的神社，創建於西元768年，以鮮紅的柱子與數千座石燈籠聞名。
+        每逢春秋萬燈會，整座神社燈火通明，充滿莊嚴神聖氛圍，亦是觀光客與信眾參拜的重要景點。
+      </p>
+    </div>
+  </div>
+
+
+  <div id="day5" class="day-section">
+    <div class="day-description">
+      Day5<br>
+      大阪萬博 <br>
+    </div>
+    <div class="info-card">
+      <div class="info-section">
+        <!-- 左欄：一個圖示搭配三餐資訊 -->
+        <div class="info-item">
+          <div class="meal-group">
+            <div class="icon">🍽️</div>
+            <div class="meal-text">
+              <div><span class="label">早餐</span>自理</div>
+              <div><span class="label">午餐</span>自理</div>
+              <div><span class="label">晚餐</span>自理</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右欄：飯店住宿資訊 -->
+        <div class="info-item">
+          <div class="meal-group">
+            <div class="icon">🏨</div>
+            <div class="meal-text">
+              <span class="label">飯店住宿</span>
+              大阪橋樑酒店心齋橋
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">奈良公園</div>
+      <p class="section-text">
+        奈良公園是日本最古老的公園之一，以成群結隊悠閒散步的梅花鹿聞名。園內還有東大寺、興福寺與春日大社等文化遺產，是體驗古都風情與自然生態的絕佳地點。
+      </p>
+
+      <div class="section-title">春日大社</div>
+      <p class="section-text">
+        春日大社為奈良最具代表性的神社，創建於西元768年，以鮮紅的柱子與數千座石燈籠聞名。
+        每逢春秋萬燈會，整座神社燈火通明，充滿莊嚴神聖氛圍，亦是觀光客與信眾參拜的重要景點。
+      </p>
+    </div>
+  </div>
+
+
+  <div id="day6" class="day-section">DAY 6 介紹區塊</div>
+  <div id="day7" class="day-section">DAY 7 介紹區塊</div>
+
+
+  <script>
+    // 滾動到頂部功能
+    document.getElementById("backToTopBtn").addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     });
-  });
 
-  function scrollToDay(dayId) {
-    // 清除所有按鈕的 active 狀態
-    document.querySelectorAll(".day-nav button").forEach(btn => btn.classList.remove("active"));
+    function scrollToDay(dayId) {
+      // 清除所有按鈕的 active 狀態
+      document.querySelectorAll(".day-nav button").forEach(btn => btn.classList.remove("active"));
 
-    // 加上目前這個 active
-    const currentBtn = [...document.querySelectorAll(".day-nav button")]
-      .find(btn => btn.textContent.includes(dayId.toUpperCase()));
-    if (currentBtn) currentBtn.classList.add("active");
+      // 加上目前這個 active
+      const currentBtn = [...document.querySelectorAll(".day-nav button")]
+        .find(btn => btn.textContent.includes(dayId.toUpperCase()));
+      if (currentBtn) currentBtn.classList.add("active");
 
-    // 捲動到指定區塊
-    const target = document.getElementById(dayId);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+      // 捲動到指定區塊
+      const target = document.getElementById(dayId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
     }
-  }
-</script>
+  </script>
 
-<script>
-  const dayNav = document.querySelector(".day-nav");
-  const navOffsetTop = dayNav.offsetTop;
+  <script>
+    const dayNav = document.querySelector(".day-nav");
+    const navOffsetTop = dayNav.offsetTop;
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY >= navOffsetTop) {
-      dayNav.classList.add("fixed");
-    } else {
-      dayNav.classList.remove("fixed");
-    }
-  });
-</script>
+    window.addEventListener("scroll", () => {
+      if (window.scrollY >= navOffsetTop) {
+        dayNav.classList.add("fixed");
+      } else {
+        dayNav.classList.remove("fixed");
+      }
+    });
+  </script>
 
 
-<footer>
-  <p>© 2025 翔翔旅遊社</p>
-</footer>
+  <footer>
+    <p>© 2025 翔翔旅遊社</p>
+  </footer>
 </body>
+
 </html>
