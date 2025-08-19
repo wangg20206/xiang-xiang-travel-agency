@@ -1,100 +1,116 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>翔翔旅行社 全台最大日本自由行</title>
+    <title>想翔旅遊 全台最大日本自由行</title>
 </head>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f094;
-        }
-        .news-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            max-width: 1280px;
-            margin: 20px auto;
-        }
-        .news-card {
-            display: block;
-            width: 280px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            cursor: pointer;
-            position: relative;
-        }
-        .news-card:hover {
-            transform: translateY(-5px);
-            background-color: #f9f9f9;
-        }
-        .news-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .news-card h3, .news-card p {
-            padding: 10px;
-            text-align: center;
-        }
-        .card-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin: 10px;
-            gap: 5px;
-        }
-        .btn {
-            background-color: #ff9900;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            flex: 1;
-            min-width: 80px;
-            cursor: pointer;
-            position: relative;
-            z-index: 10;
-        }
-        .btn:hover {
-            background-color: #e68a00;
-        }
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            background-color: #f8f8f8;
-            border-top: 1px solid #eee;
-        }
-        .date {
-            font-size: 12px;
-            color: #666;
-        }
-        .price {
-            font-size: 16px;
-            font-weight: bold;
-            color: #ff0000;
-        }
-    </style>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f094;
+    }
+
+    .news-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        max-width: 1280px;
+        margin: 20px auto;
+    }
+
+    .news-card {
+        display: block;
+        width: 280px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .news-card:hover {
+        transform: translateY(-5px);
+        background-color: #f9f9f9;
+    }
+
+    .news-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .news-card h3,
+    .news-card p {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .card-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        gap: 5px;
+    }
+
+    .btn {
+        background-color: #ff9900;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        flex: 1;
+        min-width: 80px;
+        cursor: pointer;
+        position: relative;
+        z-index: 10;
+    }
+
+    .btn:hover {
+        background-color: #e68a00;
+    }
+
+    .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #f8f8f8;
+        border-top: 1px solid #eee;
+    }
+
+    .date {
+        font-size: 12px;
+        color: #666;
+    }
+
+    .price {
+        font-size: 16px;
+        font-weight: bold;
+        color: #ff0000;
+    }
+</style>
+
 <body>
     <div id="header-container"></div>
     <div class="news-container">
-        <div class="news-card" data-href="https://ticket.settour.com.tw/product/TKN0000003167">
-            <img src="https://wovn.global.ssl.fastly.net/ImageValue/production/5d8438afb4546364387be243/zh-CHT/5d8438afb4546364387be243.img.1709025896683.png" alt="觀光景點">
+        <div class="news-card" data-href="https://ticket.settour.com.tw/product/TKN0000003167" target="_blank">
+            <img src="https://wovn.global.ssl.fastly.net/ImageValue/production/5d8438afb4546364387be243/zh-CHT/5d8438afb4546364387be243.img.1709025896683.png"
+                alt="觀光景點">
             <h3>JR東日本鐵路周遊券（東北地區）</h3>
             <p>持之以恆四個字的偉大在這趟旅行得到了驗證，途中的每分每秒是一次挑戰，唯有堅持到底，才能發現隱藏在山中、雪中、夜色中那令人忘返的美景</p>
             <div class="card-buttons">
@@ -104,11 +120,12 @@
             </div>
             <div class="card-footer">
                 <span class="date">暫無出發日期</span>
-                <span class="price">TWD 36,675 起</span>
+                <span class="price">TWD 暫無預期金額 起</span>
             </div>
         </div>
-        <div class="news-card" data-href="https://ticket.settour.com.tw/product/TKN0000003088">
-            <img src="https://www.westjr.co.jp/travel-information/tc/assets/img/tickets-passes/other/img_pass_03.webp" alt="觀光景點">
+        <div class="news-card" data-href="https://ticket.settour.com.tw/product/TKN0000003088" target="_blank">
+            <img src="https://www.westjr.co.jp/travel-information/tc/assets/img/tickets-passes/other/img_pass_03.webp"
+                alt="觀光景點">
             <h3>JR北陸拱型鐵路周遊券</h3>
             <p>持之以恆四個字的偉大在這趟旅行得到了驗證，途中的每分每秒是一次挑戰，唯有堅持到底，才能發現隱藏在山中、雪中、夜色中那令人忘返的美景</p>
             <div class="card-buttons">
@@ -117,13 +134,14 @@
                 <button class="btn">溫泉</button>
             </div>
             <div class="card-footer">
-                <span class="date">03/14, 03/16, 03/20...</span>
-                <span class="price">TWD 40,425 起</span>
+                <span class="date">暫無出發日期</span>
+                <span class="price">TWD 暫無預期金額 起</span>
             </div>
         </div>
 
-                <div class="news-card" data-href="https://ticket.settour.com.tw/product/TKN0000003897">
-            <img src="https://www.westjr.co.jp/travel-information/tc/assets/img/tickets-passes/other/img_pass_02.webp" alt="觀光景點">
+        <div class="news-card" data-href="https://ticket.settour.com.tw/product/TKN0000003897" target="_blank">
+            <img src="https://www.westjr.co.jp/travel-information/tc/assets/img/tickets-passes/other/img_pass_02.webp"
+                alt="觀光景點">
             <h3>JR山陽＆山陰＆北九州地區鐵路周遊券</h3>
             <p>持之以恆四個字的偉大在這趟旅行得到了驗證，途中的每分每秒是一次挑戰，唯有堅持到底，才能發現隱藏在山中、雪中、夜色中那令人忘返的美景</p>
             <div class="card-buttons">
@@ -132,13 +150,14 @@
                 <button class="btn">溫泉</button>
             </div>
             <div class="card-footer">
-                <span class="date">03/14, 03/16, 03/20...</span>
-                <span class="price">TWD 36,170 起</span>
+                <span class="date">暫無出發日期</span>
+                <span class="price">TWD 暫無預期金額 起</span>
             </div>
         </div>
 
-                <div class="news-card" data-href="https://ticket.settour.com.tw/product/TKN0000003168">
-            <img src="https://wovn.global.ssl.fastly.net/ImageValue/production/5d8438afb4546364387be243/zh-CHT/5d8438afb4546364387be243.img.1709026324902.png" alt="觀光景點">
+        <div class="news-card" data-href="https://ticket.settour.com.tw/product/TKN0000003168" target="_blank">
+            <img src="https://wovn.global.ssl.fastly.net/ImageValue/production/5d8438afb4546364387be243/zh-CHT/5d8438afb4546364387be243.img.1709026324902.png"
+                alt="觀光景點">
             <h3>JR東日本鐵路周遊券（長野、新潟地區）</h3>
             <p>持之以恆四個字的偉大在這趟旅行得到了驗證，途中的每分每秒是一次挑戰，唯有堅持到底，才能發現隱藏在山中、雪中、夜色中那令人忘返的美景</p>
             <div class="card-buttons">
@@ -147,22 +166,22 @@
                 <button class="btn">溫泉</button>
             </div>
             <div class="card-footer">
-                <span class="date">03/14, 03/16, 03/20...</span>
-                <span class="price">TWD 36,141 起</span>
+                <span class="date">暫無出發日期</span>
+                <span class="price">TWD 暫無預期金額 起</span>
             </div>
         </div>
-        
+
     </div>
     <div id="footer-container"></div>
     <script>
         document.querySelectorAll('.news-card').forEach(card => {
-            card.addEventListener('click', function(event) {
+            card.addEventListener('click', function (event) {
                 if (!event.target.classList.contains('btn')) {
                     window.location.href = card.getAttribute('data-href');
                 }
             });
         });
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             fetch("header.html")
                 .then(response => response.text())
                 .then(data => {
@@ -177,5 +196,8 @@
                 .catch(error => console.error("無法加載 footer.html:", error));
         });
     </script>
+
+0000
 </body>
+
 </html>

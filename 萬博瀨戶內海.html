@@ -4,52 +4,8 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>瀨戶萬博快閃｜翔翔旅遊社</title>
+  <title>瀨戶萬博快閃｜想翔旅遊社</title>
   <link rel="stylesheet" href="styles_8150.css">
-  <script>
-    // 載入 header.html 並插入到 header-container 中
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header-container').innerHTML = data;
-      })
-      .catch(error => {
-        console.error('載入 header.html 失敗:', error);
-      });
-  </script>
-  <style>
-    /* 桌機版：只露出背景圖的下半部 (原圖 16:9 的一半) */
-    header.banner {
-      width: 100%;
-      /* 滿版寬度 */
-      aspect-ratio: 32/9;
-      /* 原 16:9 ，高 ÷ 2 => 16:(9/2) = 32/9 */
-      max-width: 65%;
-      /* 保留你原本的 max-width 設定 */
-      margin: 0 auto;
-
-      background-image: url('https://asset.japan.travel/image/upload/v1674121589/kagawa/Kagawa_t_id220_1.jpg');
-      background-size: cover;
-      /* 填滿並維持比例，超出自動裁切 */
-      background-position: center bottom;
-      /* 圖片底部對齊容器底部 */
-      background-repeat: no-repeat;
-
-      color: white;
-      text-align: center;
-    }
-
-    /* 手機版：整張圖用 9:16 比例顯示（上下置中）*/
-    @media (max-width: 768px) {
-      header.banner {
-        aspect-ratio: 9/16;
-        /* 直幅顯示整張圖 */
-        background-position: center center;
-        /* 圖片上下左右置中 */
-      }
-    }
-  </style>
-
 </head>
 
 
@@ -61,6 +17,57 @@
   </header>
 
   <button id="backToTopBtn" title="回到最上層">↑</button>
+
+  <section id="kx">
+  <div class="kx-beginning">
+    <h1>
+      大阪萬博 X
+      <span title="哞~~~~ ">瀨戶內藝術季</span>
+    </h1>
+    <h2> 2025年日本國際博覽會 小豆島 直島 姬路城 書寫山圓覺寺 梅田藍天大廈 通天閣</h2>
+    <div class="kx-hero">
+      <img src="https://asset.japan.travel/image/upload/v1674121589/kagawa/Kagawa_t_id220_1.jpg" alt="新倉山淺間公園" class="kx-main-img">
+
+      <div class="kx-price-card">
+        <p class="kx-price-text">NT$18,440.34起 (含早餐)</p>
+        <p class="kx-info-text">成團人數:4人</p>
+        <p class="kx-info-text">旅遊方式:自由行</p>
+        <p class="kx-info-text">去程 2025/08/29</p>
+        <p class="kx-info-text">回程 2025/09/04</p>
+        <p class="kx-info-text">城市:高松、直島、小豆島、姬路、神戶、京都、大阪</p>
+        <p class="kx-disclaimer-text">想翔旅遊保留最終解釋權</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="kx-flight-card">
+    <h2>✈ 本次航班</h2>
+    <p class="kx-notice"></p>
+    <table class="kx-flight-table">
+      <tr>
+        <td>去程</td>
+        <td>虎航<br><span class="kx-gray-text">IT212</span></td>
+        <td class="kx-gray-text">2025/8/29 (二)</td>
+        <td class="kx-flight-time">15:15</td>
+        <td class="kx-destination">TPE 桃園國際機場</td>
+        <td class="kx-flight-arrow">→</td>
+        <td class="kx-flight-time">19:00</td>
+        <td class="kx-destination">KIX 大阪關西國際機場</td>
+      </tr>
+      <tr>
+        <td>回程</td>
+        <td>泰獅<br><span class="kx-gray-text">GK55</span></td>
+        <td class="kx-gray-text">2025/09/04 (六)</td>
+        <td class="kx-flight-time">15:05</td>
+        <td class="kx-destination">KIX 大阪關西國際機場</td>
+        <td class="kx-flight-arrow">→</td>
+        <td class="kx-flight-time">17:05</td>
+        <td class="kx-destination">TPE 桃園國際機場</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
 
   <section class="summary">
     <div class="summary-banner"></div>
@@ -399,7 +406,7 @@
 
       <div class="section-title">高松</div>
       <p class="section-text">
-
+        市中心地區是「四國的門戶」，同時也是「高松的代表」。不只購物和美食，連高松的歷史和文化、藝術等各式各樣的魅力，都在這個地區集結。
       </p>
     </div>
   </div>
@@ -543,7 +550,7 @@
         姬路城是日本政府指定的國寶及國家特別史跡，也是日本首批世界文化遺產之一。為日本100名城之一。由於其保存度相當完好，也被稱為「日本第一名城」。
       </p>
 
-      <div class="section-title">書寫山</div>
+      <div class="section-title">書寫山圓教寺</div>
       <p class="section-text">
         圓教寺（えんぎょうじ）是位在日本兵庫縣姬路市的寺院，天台宗別格本山。山號「書寫山」（しょしゃざん）。
         本尊如意輪觀音、開基（創立者）為性空。別稱「西之比叡山」，是西國三十三箇所中最大規模之寺院，和比叡山、大山並稱天台之三大道場。受到皇族、貴族的信仰。
@@ -678,10 +685,23 @@
       });
     </script>
 
+        <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("header-container").innerHTML = data)
+            .catch(error => console.error("載入 header 失敗:", error));
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("footer-container").innerHTML = data)
+            .catch(error => console.error("載入 footer 失敗:", error));
+    });
+    </script>
 
-    <footer>
-      <p>© 2025 翔翔旅遊社</p>
-    </footer>
+
+
+  <div id="footer-container"></div>
+
 </body>
 
 </html>
