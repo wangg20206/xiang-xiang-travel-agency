@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="大溪地政.ico">
+    <title>權利人／義務人資料輸入</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+
+        .page-content {
+            width: 70%;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        @media (max-width: 1024px) {
+            .page-content {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page-content {
+                width: 100%;
+                padding: 16px;
+            }
+        }
+
+        h1 {
+            margin-top: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 12px;
+            background: #fff;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 6px;
+            text-align: left;
+        }
+
+        th {
+            background: #e0e0e0;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 4px;
+            font-size: 14px;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            margin-right: 8px;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .btn-add {
+            background: #4caf50;
+        }
+
+        .btn-del {
+            background: #f44336;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header 容器，會載入 header.html -->
+    <div id="header-container"></div>
+
+    <div class="page-content">
+        <h1>權利人／義務人資料輸入</h1>
+        <!-- <button type="button" class="btn btn-del" onclick="showStoredLandDetails()">顯示 localStorage 土地資料</button> -->
+
+        <!-- 權利人/義務人表單 -->
+        <form id="ownerForm">
+            <table id="ownerTable">
+                <thead>
+                    <tr>
+                        <th>角色</th>
+                        <th>姓名／名稱</th>
+                        <th>出生年月日 (民國)</th>
+                        <th>統一編號</th>
+                        <th>住址</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="role[]" placeholder="權利人 或 義務人" /></td>
+                        <td><input type="text" name="name[]" placeholder="姓名／名稱" /></td>
+                        <td>
+                            <span style="white-space:nowrap;">民國&nbsp;</span>
+                            <input type="text" name="dob[]" placeholder="66.1.1" pattern="\d{1,3}\.\d{1,2}\.\d{1,2}"
+                                title="格式：年.月.日，例如 66.1.1" style="width:70px; box-sizing:border-box;" />
+                        </td>
+                        <td><input type="text" name="idNo[]" placeholder="統一編號" /></td>
+                        <td><input type="text" name="address[]" placeholder="住址" /></td>
+                        <td><button type="button" class="btn btn-del">刪除</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button type="button" id="addRowBtn" class="btn btn-add">＋ 新增一筆</button><br />
+        </form>
+
+        <!-- 代理人資料輸入（放在 form 外也能讀到） -->
+        <h2 style="margin: 16px 0 8px;">代理人資料輸入</h2>
+        <table id="agentTable">
+            <thead>
+                <tr>
+                    <th>姓名／名稱</th>
+                    <th>出生年月日 (民國)</th>
+                    <th>統一編號</th>
+                    <th>住址</th>
+                    <th>連絡電話</th>
+                    <th>傳真電話</th>
+                    <th>電子郵件信箱</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="agent_name" placeholder="姓名／名稱" /></td>
+                    <td>
+                        <span style="white-space:nowrap;">民國&nbsp;</span>
+                        <input type="text" name="agent_dob" placeholder="66.1.1" pattern="\d{1,3}\.\d{1,2}\.\d{1,2}"
+                            title="格式：年.月.日，例如 66.1.1" />
+                    </td>
+                    <td><input type="text" name="agent_idNo" placeholder="統一編號" /></td>
+                    <td><input type="text" name="agent_address" placeholder="住址" /></td>
+                    <td><input type="tel" name="agent_phone" placeholder="電話" /></td>
+                    <td><input type="tel" name="agent_fax" placeholder="例如：02-12345679" /></td>
+                    <td><input type="email" name="agent_email" placeholder="name@example.com" /></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="button" id="exportDocx" class="btn btn-add">匯出 Word 報告</button>
+    </div>
+
+    <!-- 依賴庫 -->
+    <script src="https://unpkg.com/pizzip@3.0.5/dist/pizzip.min.js"></script>
+    <script src="https://unpkg.com/docxtemplater@3.27.0/build/docxtemplater.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    <script>
+        // 動態新增／刪除列
+        const ownerTbody = document.querySelector('#ownerTable tbody');
+        document.getElementById('addRowBtn').addEventListener('click', () => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+        <td><input type="text" name="role[]" placeholder="權利人 或 義務人"/></td>
+        <td><input type="text" name="name[]" placeholder="姓名／名稱"/></td>
+        <td>
+          <span style="white-space:nowrap;">民國&nbsp;</span>
+          <input
+            type="text"
+            name="dob[]"
+            placeholder="66.1.1"
+            pattern="\\d{1,3}\\.\\d{1,2}\\.\\d{1,2}"
+            title="格式：年.月.日，例如 66.1.1"
+            style="width:70px; box-sizing:border-box;"
+          />
+        </td>
+        <td><input type="text" name="idNo[]" placeholder="統一編號"/></td>
+        <td><input type="text" name="address[]" placeholder="住址"/></td>
+        <td><button type="button" class="btn btn-del">刪除</button></td>
+      `;
+            ownerTbody.appendChild(tr);
+        });
+        ownerTbody.addEventListener('click', e => {
+            if (e.target.matches('.btn-del') && ownerTbody.rows.length > 1) {
+                e.target.closest('tr').remove();
+            }
+        });
+
+        // 按 Enter 自動跳下一格
+        document.getElementById('ownerTable').addEventListener('keydown', e => {
+            if (e.target.tagName === 'INPUT' && e.key === 'Enter') {
+                e.preventDefault();
+                const inputs = Array.from(document.querySelectorAll('#ownerTable input'));
+                const idx = inputs.indexOf(e.target);
+                if (idx > -1 && idx < inputs.length - 1) inputs[idx + 1].focus();
+            }
+        });
+
+        // 匯出
+        document.getElementById('exportDocx').addEventListener('click', async () => {
+            let arrayBuffer;
+            try {
+                // 1) 依 localStorage pre 筆數與 owner 欄位數選擇範本
+                let preCount = 0;
+                const landRawForTpl = localStorage.getItem('landDetails');
+                if (landRawForTpl) {
+                    try {
+                        const parsed = JSON.parse(landRawForTpl);
+                        preCount = parsed.pre?.length || 0;
+                    } catch (e) { console.error('解析土地資料錯誤', e); }
+                }
+
+                const xCount = document.querySelectorAll('input[name="idNo[]"]').length;
+                const yCount = preCount;
+
+                const templateConditions = [
+                    { x: 5, y: 2, file: '共有物分割格式_x6y2.docx' },
+                    { x: 5, y: 4, file: '共有物分割格式_x6y4.docx' },
+                    { x: 5, y: 10, file: '共有物分割格式_x6y10.docx' },
+                    { x: 5, y: 20, file: '共有物分割格式_x6y20.docx' },
+                    { x: 5, y: 30, file: '共有物分割格式_x6y30.docx' },
+                    { x: 5, y: 40, file: '共有物分割格式_x6y40.docx' },
+                    { x: 5, y: 50, file: '共有物分割格式_x6y50.docx' },
+                    { x: 11, y: 10, file: '共有物分割格式_x12y10.docx' },
+                    { x: 11, y: 20, file: '共有物分割格式_x12y20.docx' },
+                    { x: 11, y: 30, file: '共有物分割格式_x12y30.docx' },
+                    { x: 11, y: 40, file: '共有物分割格式_x12y40.docx' },
+                    { x: 11, y: 50, file: '共有物分割格式_x12y50.docx' },
+                    { x: 11, y: 60, file: '共有物分割格式_x12y60.docx' },
+                    { x: 17, y: 10, file: '共有物分割格式_x18y10.docx' },
+                    { x: 17, y: 20, file: '共有物分割格式_x18y20.docx' },
+                    { x: 17, y: 30, file: '共有物分割格式_x18y30.docx' },
+                    { x: 17, y: 40, file: '共有物分割格式_x18y40.docx' },
+                    { x: 17, y: 50, file: '共有物分割格式_x18y50.docx' },
+                    { x: 17, y: 60, file: '共有物分割格式_x18y60.docx' },
+                    { x: 17, y: 70, file: '共有物分割格式_x18y70.docx' },
+                    { x: 17, y: 80, file: '共有物分割格式_x18y80.docx' },
+                    { x: 17, y: 90, file: '共有物分割格式_x18y90.docx' }, // 預設
+                ];
+                let templateFile = templateConditions[templateConditions.length - 1].file;
+                for (const c of templateConditions) {
+                    if (xCount <= c.x && yCount <= c.y) { templateFile = c.file; break; }
+                }
+                const resp = await fetch(templateFile);
+                if (!resp.ok) throw new Error(resp.statusText);
+                arrayBuffer = await resp.arrayBuffer();
+            } catch (err) {
+                return alert('載入範本失敗：' + err.message);
+            }
+
+            // 2) Docxtemplater
+            const zip = new PizZip(arrayBuffer);
+            const doc = new window.docxtemplater(zip, {
+                paragraphLoop: true,
+                linebreaks: true,
+                nullGetter: () => ''
+            });
+
+            // 3) 讀取 owners（form 內）
+            const fm = new FormData(document.getElementById('ownerForm'));
+            const roles = fm.getAll('role[]');
+            const names = fm.getAll('name[]');
+            const dobs = fm.getAll('dob[]');
+            const idNos = fm.getAll('idNo[]');
+            const addresses = fm.getAll('address[]');
+
+            // 4) 讀取代理人（form 外也能讀）
+            const getVal = (sel) => (document.querySelector(sel)?.value || '').trim();
+            const agentName = getVal('input[name="agent_name"]');
+            const agentDob = getVal('input[name="agent_dob"]');
+            const agentIdNo = getVal('input[name="agent_idNo"]');
+            const agentAddress = getVal('input[name="agent_address"]');
+            const agentPhone = getVal('input[name="agent_phone"]');
+            const agentFax = getVal('input[name="agent_fax"]');
+            const agentEmail = getVal('input[name="agent_email"]');
+
+            // 5) 準備 data
+            const data = {};
+
+            // 5-1) 土地資料 pre/post
+            (function fillLandDetails() {
+                const raw = localStorage.getItem('landDetails');
+                if (!raw) return;
+                try {
+                    const parsed = JSON.parse(raw);
+                    parsed.pre.forEach((item, i) => {
+                        const k = i + 1;
+                        data[`pre_${k}_a`] = item.a;
+                        data[`pre_${k}_b`] = item.b;
+                        data[`pre_${k}_c`] = item.c;
+                        data[`pre_${k}_d`] = item.d;
+                        data[`pre_${k}_e`] = item.e;
+                        data[`pre_${k}_f`] = item.f;
+                        data[`pre_${k}_g`] = item.g;
+                        data[`pre_${k}_h`] = item.h;
+                        data[`pre_${k}_i`] = Math.round(item.i || 0);
+                    });
+                    parsed.post.forEach((item, i) => {
+                        const k = i + 1;
+                        data[`post_${k}_a`] = item.a;
+                        data[`post_${k}_b`] = item.b;
+                        data[`post_${k}_c`] = item.c;
+                        data[`post_${k}_d`] = item.d;
+                        data[`post_${k}_e`] = item.e;
+                        data[`post_${k}_f`] = item.f;
+                        data[`post_${k}_g`] = item.g;
+                        data[`post_${k}_h`] = item.h;
+                        data[`post_${k}_i`] = Math.round(item.i || 0);
+                    });
+                } catch (e) { console.error('土地資料讀取失敗：', e); }
+            })();
+
+            // 5-2) 先把 owners 全寫入
+            roles.forEach((_, i) => {
+                const k = i + 1;
+                const role = (roles[i] || '').trim();
+                const name = (names[i] || '').trim();
+                const dob = (dobs[i] || '').trim();
+                const idNo = (idNos[i] || '').trim();
+                const addr = (addresses[i] || '').trim();
+
+                if (role) data[`owner${k}_role`] = role;
+                if (name) data[`owner${k}_name`] = name;
+                if (dob) data[`owner${k}_dob`] = dob;
+                if (idNo) data[`owner${k}_idNo`] = idNo;
+                if (addr) data[`owner${k}_address`] = addr;
+            });
+
+            // 5-3) 再把代理人塞進 owner6/12/18 的第一個「空 role」槽
+            (function assignAgentToOwnerSlots() {
+                if (!agentName && !agentDob && !agentIdNo && !agentAddress &&
+                    !agentPhone && !agentFax && !agentEmail) return;
+
+                const slots = [6, 12, 18];
+                let placed = false;
+
+                for (const n of slots) {
+                    const roleKey = `owner${n}_role`;
+                    if (!data[roleKey] || String(data[roleKey]).trim() === '') {
+                        data[`owner${n}_role`] = '代理人';
+                        data[`owner${n}_name`] = agentName || '';
+                        data[`owner${n}_dob`] = agentDob || '';
+                        data[`owner${n}_idNo`] = agentIdNo || '';
+                        data[`owner${n}_address`] = agentAddress || ''; // 保持純粹的住址，不混電話/傳真/Email
+                        placed = true;
+                        break;
+                    }
+                }
+
+                if (!placed) {
+                    alert('代理人欄位已滿（owner6/12/18 均已有角色），此次未寫入。');
+                }
+            })();
+
+
+
+            // === 讓模板可同時吃「底線版」與「空白版」鍵名 ===
+            // 先把讀到的代理人值放入 data（底線版）
+            data.agent_name = agentName;
+            data.agent_dob = agentDob;
+            data.agent_idNo = agentIdNo;
+            data.agent_address = agentAddress;
+            data.agent_phone = agentPhone;
+            data.agent_fax = agentFax;
+            data.agent_email = agentEmail;
+
+
+            // 5-4) 今天日期（民國年）
+            const now = new Date();
+            data.today_roc_year = (now.getFullYear() - 1911).toString();
+            data.today_month = (now.getMonth() + 1).toString();
+            data.today_day = now.getDate().toString();
+
+            // 6) 一次 setData + render
+            try {
+                doc.setData(data);
+                doc.render();
+            } catch (err) {
+                console.error('❌ doc.render() 出錯:', err);
+                if (err.properties && err.properties.errors) {
+                    alert('Word 模板錯誤：\n' + err.properties.errors.map(e => e.properties.explanation || e.message).join('\n'));
+                } else {
+                    alert('doc.render() 發生未知錯誤：' + err.message);
+                }
+                return;
+            }
+
+            // 7) 下載
+            const outBlob = doc.getZip().generate({ type: 'blob' });
+            saveAs(outBlob, '共有物分割登記及土地申請書契約書.docx');
+        });
+
+        // 顯示 localStorage 土地資料
+        function showStoredLandDetails() {
+            const raw = localStorage.getItem('landDetails');
+            if (!raw) return alert('尚未儲存土地資料');
+            try {
+                const parsed = JSON.parse(raw);
+                console.log('✅ 分割前：', parsed.pre);
+                console.log('✅ 分割後：', parsed.post);
+                alert('已印出資料到 Console，請打開 F12 → Console 查看。');
+            } catch (e) {
+                alert('資料解析失敗');
+                console.error(e);
+            }
+        }
+
+        // 載入 header
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("header.html")
+                .then(response => response.text())
+                .then(html => document.getElementById("header-container").innerHTML = html)
+                .catch(error => console.error("載入 header 失敗:", error));
+        });
+    </script>
+</body>
+
+</html>
+
+

@@ -1,253 +1,266 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="大溪地政.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xxiang 全台最大日本自由行</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>地政小程式</title>
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", sans-serif;
+            margin: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* logo 置左，放大 */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            padding: 16px 32px;
+            background-color: white;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .logo-container img {
+            height: 80px;
+            max-width: 100%;
+        }
+
+        /* header 預留位置（放 header.html） */
+        .header {
+            background-color: white;
+            box-shadow: none;
+        }
+
+        /* 下方導覽列 */
+        .nav-bar {
+            background-color: #ffcc66;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 12px 0;
+            box-shadow: inset 0 -1px #d2a743;
+        }
+
+        .nav-bar a {
+            margin: 0 16px;
+            text-decoration: none;
+            color: #222;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .nav-bar a:hover {
+            color: #c00;
+        }
+
+        .main-content {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 24px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 16px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* 幻燈片容器 */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            height: 500px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+        }
+
+        /* 單張幻燈片 */
+        .slide {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 幻燈片圖片 */
+        .slide img {
+            aspect-ratio: 32 / 9;
+            /* 適合寬橫圖（你原本就是 32:9） */
+            max-width: 65%;
+            /* 可依需求改成 100% 滿版 */
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+        }
+
+        /* 淡入動畫 */
+        .fade {
+            animation: fadeEffect 1.5s;
+        }
+
+        @keyframes fadeEffect {
+            from {
+                opacity: 0.4;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* 左右箭頭按鈕 */
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            padding: 10px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        /* 響應式設計（手機高度調整） */
+        @media (max-width: 768px) {
+            .slideshow-container {
+                height: 300px;
+            }
+
+            .slide img {
+                max-width: 100%;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
-    <!-- Header 容器，會載入 header.html -->
+
+
+
+    <!-- Header（使用你自己的 header.html） -->
+    <div id="header-container" class="header"></div>
     <div id="header-container"></div>
-  
+
     <div class="slideshow-container">
         <div class="slide fade">
-            <img src="https://www.pdtravel.com.tw/material-alias/%E5%BD%AD%E5%A4%A7%E6%97%85%E9%81%8A%E9%A0%81/%E4%BC%81%E5%8A%83%E9%A0%81-%E6%B2%96%E7%B9%A9/%E5%BD%AD%E5%A4%A7%E6%97%85%E9%81%8A-%E4%BC%81%E5%8A%83%E9%A0%81-%E6%B2%96%E7%B9%A9.jpg" alt="沖繩">
+            <img src="bnr.jpg   "
+                alt="沖繩">
         </div>
         <div class="slide fade">
-            <img src="https://static.lifetour.info/eWeb_lifetour/IMGDB/003462/003520/003528/003543/003565/00113570.WEBP" alt="四國/中國">
+            <img src="https://travel.tycg.gov.tw/content/images/attractions/34278/1024x768_attractions-image-gxgu1k6ihu-97flxnoiaya.jpg"
+                alt="四國/中國">
         </div>
 
         <div class="slide fade">
-            <img src="https://media.wwpkg.com.hk/live/Resources/Tour/20230626/0aa687ab-3f8c-44f1-964f-b5ab84a0b8b7.webp" alt="九州">
-        </div>
-        <div class="slide fade">
-            <img src="https://hiyoritravel.com/wp-content/uploads/event_0316%E4%B8%AD%E9%83%A8%E5%8C%97%E9%99%B8%E8%AC%9B%E5%BA%A7.png" alt="中部">
-        </div>
-        <div class="slide fade">
-            <img src="https://www.worldwide.com.tw/material-alias/EDM/JP20240130/banner-kanto.jpg" alt="關東">
-        </div>
-        <div class="slide fade">
-            <img src="https://www.flyttour.com.tw/eWeb_flyt/IMGDB/000001/000130/000230/000231/00003979.JPG" alt="四過秘境">
-        </div>
-        <div class="slide fade">
-            <img src="https://static.lifetour.info/eWeb_lifetour/IMGDB/003462/003520/003528/003540/003559/00113567.WEBP" alt="北海道">
+            <img src="https://cdn.esence.travel/2024/01/%E6%9C%AC%E8%B3%AA%E6%97%85%E8%A1%8C-%E6%95%85%E4%BA%8B%E6%96%87%E7%AB%A0%E9%A6%96%E5%9C%96-1200737-1.jpg"
+                alt="九州">
         </div>
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
     </div>
+    <!-- 主內容區 -->
+    <main class="main-content">
+        <h2>地政小程式</h2>
+        <p>歡迎使用地政小程式，請透過上方導覽列選擇功能。</p>
+    </main>
 
-    <div>
-        <h2>想翔旅遊</h2>
-        <p>誠摯地邀請您，用最便宜的價格乘風踏上日本之旅，感受櫻花飛舞的詩意，品味抹茶幽香的情懷，流連於古韻與現代交織的夢幻國度。</p>
-    </div>
 
-    <div class="news-section">
-        <h2 class="news-title">
-            <span class="dot">●</span> 日本旅遊資訊介紹
-        </h2>
-        <div class="news-container" id="news-container">
-            <!-- 這裡將由 JavaScript 動態填充 -->
-        </div>
-    </div>
+    <!-- 載入 header/footer -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("header.html")
+                .then(response => response.text())
+                .then(data => document.getElementById("header-container").innerHTML = data)
+                .catch(error => console.error("載入 header 失敗:", error));
 
-    <!-- 台幣換日圓 -->
-    <div class="exchange-rate-container">
-        <div class="exchange-rate-box">
-            <p class="exchange-title">日幣匯率</p>
-            <p class="exchange-value" id="jpy-rate">載入中...</p>
-            <p class="exchange-time" id="last-updated">更新時間：載入中...</p>
-        </div>
-    </div>
-
-    <!-- Footer 容器，會載入 footer.html -->
-    <div id="footer-container"></div>
-
+            fetch("footer.html")
+                .then(response => response.text())
+                .then(data => document.getElementById("footer-container").innerHTML = data)
+                .catch(error => console.error("載入 footer 失敗:", error));
+        });
+    </script>
     <!-- 幻燈片 JavaScript -->
     <script>
-    let slideIndex = 0;
-    let slides;
-    let slideInterval;
+        let slideIndex = 0;
+        let slides;
+        let slideInterval;
 
-    function showSlides() {
-        slides = document.querySelectorAll(".slide");
-        if (slides.length === 0) {
-            console.log("找不到幻燈片，請檢查 HTML 結構！");
-            return;
+        function showSlides() {
+            slides = document.querySelectorAll(".slide");
+            if (slides.length === 0) {
+                console.log("找不到幻燈片，請檢查 HTML 結構！");
+                return;
+            }
+            slides.forEach(slide => slide.style.display = "none");
+            if (slideIndex >= slides.length) slideIndex = 0;
+            if (slideIndex < 0) slideIndex = slides.length - 1;
+            slides[slideIndex].style.display = "block";
         }
-        slides.forEach(slide => slide.style.display = "none");
-        if (slideIndex >= slides.length) slideIndex = 0;
-        if (slideIndex < 0) slideIndex = slides.length - 1;
-        slides[slideIndex].style.display = "block";
-    }
 
-    function startSlideShow() {
-        slideInterval = setInterval(() => {
-            slideIndex++;
+        function startSlideShow() {
+            slideInterval = setInterval(() => {
+                slideIndex++;
+                showSlides();
+            }, 5000);
+        }
+
+        function plusSlides(n) {
+            clearInterval(slideInterval);
+            slideIndex += n;
             showSlides();
-        }, 5000);
-    }
-
-    function plusSlides(n) {
-        clearInterval(slideInterval);
-        slideIndex += n;
-        showSlides();
-        startSlideShow();
-    }
-
-    window.onload = function () {
-        showSlides();
-        startSlideShow();
-    };
-    </script>
-
-    <!-- 匯率 JavaScript -->
-    <script>
-    async function fetchExchangeRate() {
-        try {
-            const apiKey = "2ccc581afbbdfaf5278942b0";
-            const apiUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/TWD`;
-            const response = await fetch(apiUrl);
-            const data = await response.json();
-            if (data.result === "success") {
-                const jpyRate = data.conversion_rates.JPY;
-                const now = new Date();
-                const timeString = now.toLocaleTimeString("zh-TW", { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-                document.getElementById("jpy-rate").innerHTML = `1 TWD = <span style="color:#ffeb3b">${jpyRate.toFixed(3)}</span> JPY`;
-                document.getElementById("last-updated").innerHTML = `更新時間：${timeString}`;
-            } else {
-                document.getElementById("jpy-rate").innerHTML = "匯率獲取失敗";
-            }
-        } catch (error) {
-            console.error("獲取匯率時發生錯誤:", error);
-            document.getElementById("jpy-rate").innerHTML = "無法載入匯率";
+            startSlideShow();
         }
-    }
-    fetchExchangeRate();
-    setInterval(fetchExchangeRate, 300000);
+
+        window.onload = function () {
+            showSlides();
+            startSlideShow();
+        };
     </script>
 
-    <!-- 自動抓取日本新聞 JavaScript -->
-    <script>
-    async function fetchJapanNews() {
-        try {
-            // 使用 Kyodo News RSS 來源
-            const rssUrl = "https://english.kyodonews.net/rss/news.xml";
-            const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
-            const response = await fetch(apiUrl);
-            const data = await response.json();
-
-            if (data.status === "ok") {
-                const newsContainer = document.getElementById("news-container");
-                newsContainer.innerHTML = ""; // 清空現有內容
-
-                const newsItems = data.items.slice(0, 2); // 取前 2 則新聞
-                newsItems.forEach(item => {
-                    const newsCard = document.createElement("div");
-                    newsCard.className = "news-card";
-
-                    // 標題
-                    const title = document.createElement("h3");
-                    title.textContent = item.title;
-
-                    // 描述（截斷過長文字）
-                    const description = document.createElement("p");
-                    description.textContent = item.description && item.description.length > 100 
-                        ? item.description.substring(0, 100) + "..." 
-                        : (item.description || "無描述");
-
-                    // 連結
-                    const link = document.createElement("a");
-                    link.href = item.link;
-                    link.textContent = "閱讀更多";
-                    link.target = "_blank";
-
-                    // 圖片（如果有）
-                    if (item.enclosure && item.enclosure.link) {
-                        const img = document.createElement("img");
-                        img.src = item.enclosure.link;
-                        img.alt = item.title;
-                        newsCard.appendChild(img);
-                    } else {
-                        // 如果沒有圖片，使用預設圖片
-                        const img = document.createElement("img");
-                        img.src = "https://source.unsplash.com/400x250/?japan,news";
-                        img.alt = "預設新聞圖片";
-                        newsCard.appendChild(img);
-                    }
-
-                    newsCard.appendChild(title);
-                    newsCard.appendChild(description);
-                    newsCard.appendChild(link);
-                    newsContainer.appendChild(newsCard);
-                });
-            } else {
-                throw new Error("RSS 資料格式錯誤");
-            }
-        } catch (error) {
-            console.error("抓取新聞時發生錯誤:", error);
-            const newsContainer = document.getElementById("news-container");
-            // 使用靜態備用資料
-            newsContainer.innerHTML = `
-                <div class="news-card">
-                    <img src="https://i.ytimg.com/vi/0gYoV9Byug4/hqdefault.jpg?sqp=-oaymwEmCKgBEF5IWvKriqkDGQgBFQAAiEIYAdgBAeIBCggYEAIYBjgBQAE=&rs=AOn4CLCI2KCf50PdDFAjvnN3TtzVK981dQ" alt="工頭堅YT">
-                    <h3>日本溫泉大解密！13分鐘認識日本名湯 日本溫泉飯店推薦</h3>
-                    <p>溫泉，早已是日本文化的一部分，更是旅客
-                       規劃行程的重要元素與體驗。本集將為各位
-                       介紹日本溫泉簡史，以及各家雜誌選出的最
-                       新溫泉旅遊資訊，不僅今年適用，年年都適
-                       用！</p>
-                    
-                    <a href="https://www.youtube.com/watch?v=0gYoV9Byug4&list=LL&index=23">
-                        <div class="action">前往觀看此影片</div>
-                    </a>
-                </div>
-                <div class="news-card">
-                    <img src="index_introduce.png" alt="冷水">
-                    <h3>全網獨家！深入探訪日本收入最低的村莊</h3>
-                    <p>山裡的生活究竟如何？聽聽當地老人的真實
-                       回答…深入探訪日本群馬縣南牧村，透過實
-                       地走訪與當地老人的訪談，展現村民樸實生
-                       活、資源匱乏與年輕人口流失的現況，同時
-                       也呈現山村中的自然景致與人情溫暖</p>
-                    
-                    <a href="https://youtu.be/JbYxFIz_dO0?si=7SLTFdJRrGkaYc5u">
-                        <div class="action">前往觀看此影片</div>
-                    </a>
-                </div>
-                <div class="news-card">
-                    <img src="https://i.ytimg.com/vi/7t71LxGjVX8/hqdefault.jpg?sqp=-oaymwFACKgBEF5IWvKriqkDMwgBFQAAiEIYAdgBAeIBCggYEAIYBjgBQAHwAQH4AbYIgAKAD4oCDAgAEAEYciBUKD0wDw==&rs=AOn4CLDLppzBvbXFFTTJPiIGPaM-KUp58Q" alt="Ken">
-                    <h3>東京必吃，超濃巧克力泡芙！東京必吃東京必吃東京必吃</h3>
-                    <p>東京銀座 Patisserie Ten& #東京旅行東京銀座 Patisserie Ten& #東京旅行東京銀座 Patisserie Ten& #東京旅行東京銀座 Patisserie Ten& #東京旅行京旅行東京銀座 Patisserie Ten& #</p>
-                    
-                    <a href="https://www.youtube.com/watch?v=7t71LxGjVX8&list=LL&index=71">
-                        <div class="action">前往觀看此短片</div>
-                    </a>
-                </div>
-            `;
-        }
-    }
-
-    // 初次載入新聞
-    fetchJapanNews();
-    // 每 30 分鐘更新一次
-    setInterval(fetchJapanNews, 1800000);
-    </script>
-
-    <!-- 載入 header 與 footer -->
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => document.getElementById("header-container").innerHTML = data)
-            .catch(error => console.error("載入 header 失敗:", error));
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => document.getElementById("footer-container").innerHTML = data)
-            .catch(error => console.error("載入 footer 失敗:", error));
-    });
-    </script>
 </body>
+
 </html>

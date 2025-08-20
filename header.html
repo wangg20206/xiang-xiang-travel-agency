@@ -1,264 +1,167 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="大溪地政.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>想翔旅遊</title>
+  <title>地政小程式</title>
   <style>
-    /* 重設所有元素的 margin 與 padding */
     * {
       margin: 0;
       padding: 0;
-    } 
+      box-sizing: border-box;
+    }
 
     body {
-      background-color: white;
+      font-family: "Microsoft JhengHei", sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
     }
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      background-color: transparent;
-    }
-
-    #header-container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background-color: white;
-      width: 100%;
-      position: relative;
-      z-index: 10;
-    }
-
-    .navbar-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 65%;
-      width: 100%;
-      margin: 0 auto;
-      gap: 20px;
-    }
-
-    .logo {
+    /* ⬆️ Logo + Title 區 */
+    .logo-bar {
       display: flex;
       align-items: center;
-      gap: 10px;
+      padding: 16px 32px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #ccc;
+      width: 100%;
     }
 
-    .logo img {
-      height: 60px;
+    .logo-bar img {
+      height: 6vw;
+      max-height: 80px;
+      width: auto;
+      margin-right: 2vw;
     }
 
-    .logo-text {
-      font-size: 40px;
-      font-weight: bold;
-      color: #0799fa;
+    .logo-text h1 {
+      font-size: 2vw;
+      color: #4b2c0d;
+      margin-bottom: 4px;
       white-space: nowrap;
     }
 
-    .icons {
-      display: flex;
-      align-items: center;
+    .logo-text p {
+      font-size: 1vw;
+      color: #666;
+      white-space: nowrap;
     }
 
-    .icons a {
-      margin-left: 10px;
-      text-decoration: none;
-      color: black;
-      font-size: 16px;
-    }
-
-    .icons img {
-      height: 20px;
-    }
-
-    .search-icon,
-    .profile-icon {
-      font-size: 18px;
-    }
-
-    .menu {
-      background-color: #fff;
+    /* ⬆️ 導覽列 */
+    .custom-header-menu {
+      width: 100%;
+      background-color: #ffcc66;
+      border-bottom: 1px solid #d2a743;
       width: 100%;
     }
 
-    .menu-content {
-      max-width: 100%;
-      margin: 0 auto;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      white-space: nowrap;
-      scroll-behavior: smooth; /* 平滑滾動效果 */
-    }
-
-    .menu-content::-webkit-scrollbar {
-      height: 8px; /* 顯示細小的滾動條，提供滑軌提示 */
-    }
-
-    .menu-content::-webkit-scrollbar-thumb {
-      background-color: #b0b0b0; /* 滾動條顏色 */
-      border-radius: 4px;
-    }
-
-    .menu-content::-webkit-scrollbar-track {
-      background-color: #f1f1f1; /* 滾動條背景 */
-    }
-
-    .menu ul {
+    .custom-header-menu ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       list-style: none;
-      display: flex;
-      justify-content: center;
-      padding: 10px 0;
-      width: 100%;
-      background-color: #fff;
+      padding: 12px 0;
+      margin: 0;
+      flex-wrap: wrap;
     }
 
-    .menu ul li {
-      margin: 0 15px;
-      flex: none;
+    .custom-header-menu ul li {
+      margin: 0 24px;
     }
 
-    .menu ul li a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 15px;
-      background-color: #fff;
-      color: black;
-      font-size: 20px;
+    .custom-header-menu ul li a {
       text-decoration: none;
-      transition: background-color 0.3s;
-      height: 7vh;
-      box-sizing: border-box;
-      max-height: 7vh;
-      white-space: nowrap;
+      color: #333;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #ffcc66;
+      padding: 8px 16px;
+      transition: background-color 0.3s, color 0.3s;
     }
 
-    /* 電腦版 hover 變色 */
-    @media (min-width: 769px) {
-      .menu ul li a:hover {
-        background-color: #b0b0b0;
-        text-decoration: none;
-      }
+    .custom-header-menu ul li a:hover {
+      background-color: #884400;
+      color: #fff;
+
     }
 
-    /* 手機版調整 */
     @media (max-width: 768px) {
-      .navbar {
-        padding: 8px 10px;
-        gap: 10px;
+      .logo-bar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
       }
 
-      .navbar-content {
-        max-width: 100%;
-        padding: 0 10px;
+      .logo-bar img {
+        height: 60px;
+        margin: 0 0 8px 0;
       }
 
-      .logo {
-        gap: 5px;
+      .logo-text h1 {
+        font-size: 20px;
       }
 
-      .logo img {
-        height: 30px;
+      .logo-text p {
+        font-size: 12px;
       }
 
-      .logo-text {
-        font-size: 24px;
+      .custom-header-menu ul {
+        flex-direction: column;
       }
 
-      .icons {
-        justify-content: flex-end;
+      .custom-header-menu ul li {
+        margin: 6px 0;
       }
+    }
 
-      .icons a {
-        margin-left: 8px;
-        margin-right: 0;
-      }
+    /* ⬇️ 主內容 */
+    .main-content {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 24px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      text-align: center;
+    }
 
-      .icons img {
-        height: 16px;
-      }
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 16px;
+    }
 
-      .search-icon,
-      .profile-icon {
-        font-size: 14px;
-      }
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
 
-      .menu-content {
-        max-width: 100%;
-        overflow-x: auto;
-        padding: 0 10px;
-        scroll-behavior: smooth;
-      }
-
-      .menu ul {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: flex-start; /* 從左側開始 */
-        padding: 10px 0;
-      }
-
-      .menu ul li a {
-        font-size: 14px;
-        padding: 8px 12px;
-        height: auto;
-        min-width: 80px;
-        border-radius: 4px;
-        background-color: #fff; /* 手機版按鈕強制白色 */
-        color: black;
-      }
-
-      .menu ul li a:hover {
-        background-color: #fff; /* 手機版按鈕 hover 仍然保持白色 */
-      }
+    .footer {
+      text-align: center;
+      padding: 16px;
+      font-size: 14px;
+      color: #888;
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <header class="navbar">
-      <div class="navbar-content">
-        <!-- 左側：logo 及文字 -->
-        <div class="logo">
-          <img src="xiang_logo.png" alt="想翔旅遊">
-          <span class="logo-text">想翔旅遊</span>
-        </div>
-        <!-- 右側：icons 區塊 -->
-        <div class="icons">
-          <a href="https://youtube.com/shorts/SQdDumn-6dY?feature=share">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/640px-Logo_of_YouTube_%282015-2017%29.svg.png" alt="YouTube">
-          </a>
-          <a href="#">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/640px-LINE_logo.svg.png" alt="LINE">
-          </a>
-          <a href="#" class="search-icon">🔍</a>
-          <a href="#" class="profile-icon">👤</a>
-        </div>
-      </div>
-    </header>
-    <main>
-      <nav class="menu">
-        <div class="menu-content">
-          <ul>
-            <li><a href="index.html">回到首頁</a></li>
-            <li><a href="https://www.e-japannavi.com/syuyu/japanmap.shtml" target="_blank">日本地圖</a></li>
-            <li><a href="choose_one.html">暑假四選一</a></li>
-            <li><a href="萬博瀨戶內海.html">大阪萬博X瀨戶內藝術季</a></li>
-            <li><a href="七天六夜走斷腿行程.html">自由行回顧</a></li>
-            <li><a href="JR_PASS_choose.html">JR PASS 鐵道旅</a></li>
-          </ul>
-        </div>
-      </nav>
-    </main>
+  <div class="logo-bar">
+    <img src="大溪地政.png" alt="LOGO">
+    <div class="logo-text">
+    </div>
   </div>
+  <!-- ⬆️ 導覽列 -->
+  <nav class="custom-header-menu">
+    <ul>
+      <li><a href="index.html">回到首頁</a></li>
+      <li><a href="共有物分割前後差額計算.html">共有物分割前後差額計算</a></li>
+      <li><a href="權利人資料輸入.html">權利人資料輸入</a></li>
+    </ul>
+  </nav>
+
+
 </body>
+
 </html>
