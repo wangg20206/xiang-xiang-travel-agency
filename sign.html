@@ -1,5 +1,16 @@
 <!doctype html>
 <html lang="zh-Hant">
+  <script>
+    // 載入 header.html 並插入到 header-container 中
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('載入 header.html 失敗:', error);
+      });
+  </script>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -97,3 +108,4 @@
   <script type="module" src="./auth.js"></script>
 </body>
 </html>
+
