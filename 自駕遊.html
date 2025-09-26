@@ -6,26 +6,26 @@
   <title>深度關東｜想翔旅遊社</title>
   <link rel="stylesheet" href="styles_8150.css">
   <script>
-  // 載入 header.html 並插入到 header-container 中
-  fetch('header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('header-container').innerHTML = data;
-    })
-    .catch(error => {
-      console.error('載入 header.html 失敗:', error);
-    });
-</script>
-<style>
-  header.banner {
-    background-image: url('https://lh3.googleusercontent.com/d/1STMk5ZSWqPy-vLQGKd4JggepT2nois8u');
-    background-size: cover; /* 圖片填滿區塊 */
-    background-position: center; /* 圖片置中 */
-    text-align: center; /* 文字置中 */
-    color: white; /* 標題與文字為白色 */
-    padding: 120px 20px; /* 上下60px、左右20px 內距 */
-  }
-</style>
+    // 載入 header.html 並插入到 header-container 中
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('載入 header.html 失敗:', error);
+      });
+  </script>
+  <style>
+    header.banner {
+      background-image: url('https://lh3.googleusercontent.com/d/1STMk5ZSWqPy-vLQGKd4JggepT2nois8u');
+      background-size: cover; /* 圖片填滿區塊 */
+      background-position: center; /* 圖片置中 */
+      text-align: center; /* 文字置中 */
+      color: white; /* 標題與文字為白色 */
+      padding: 120px 20px; /* 上下60px、左右20px 內距 */
+    }
+  </style>
 </head>
 
 
@@ -220,3 +220,4 @@
 </footer>
 </body>
 </html>
+
