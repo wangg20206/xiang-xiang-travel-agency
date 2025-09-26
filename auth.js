@@ -1,7 +1,5 @@
-// auth.js － Firebase v12（CDN/ESM）完整版
-// 功能：Google 登入/登出、狀態監聽、基本資料表單寫入 Firestore、popup→redirect 後備、持久化
+// auth.js － Firebase v12（CDN/ESM）完整版＋重新填入口
 
-// --- Imports（CDN 模組） ---
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
 import {
   getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect,
@@ -11,31 +9,26 @@ import {
 import {
   getFirestore, doc, getDoc, setDoc, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
-// （可選）Analytics：有 measurementId 才會成功，沒開也不影響
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-analytics.js";
 
-// --- Firebase 設定（請確認 storageBucket 為 *.appspot.com） ---
 const firebaseConfig = {
   apiKey: "AIzaSyAFfSE-jujXp_gs-Exy8ZscUd75KLLTnUI",
   authDomain: "trip0-682b0.firebaseapp.com",
   projectId: "trip0-682b0",
-  storageBucket: "trip0-682b0.appspot.com",        // ← 修正為 appspot.com
+  storageBucket: "trip0-682b0.appspot.com",
   messagingSenderId: "364871344899",
   appId: "1:364871344899:web:60baf6935ac7f80f883f36",
-  measurementId: "G-7E6FS8K0KJ"                     // 沒開 Analytics 可刪這行與 import
+  measurementId: "G-7E6FS8K0KJ"
 };
 
-// --- 初始化 ---
 const app = initializeApp(firebaseConfig);
-// Analytics 非必需：HTTPS + measurementId 才能用
-try { getAnalytics(app); } catch { /* ignore if not available */ }
+try { getAnalytics(app); } catch {}
 
 const auth = getAuth(app);
-await setPersistence(auth, browserLocalPersistence);  // 重整後仍維持登入
+await setPersistence(auth, browserLocalPersistence);
 const db = getFirestore(app);
 const provider = new GoogleAuthProvider();
 
-// --- 抓取頁面元素（不存在就為 null；本檔可在多頁共用） ---
 const $ = (sel) => document.querySelector(sel);
 const loginBtn   = $('#loginBtn');
 const logoutBtn  = $('#logoutBtn');
@@ -45,7 +38,6 @@ const nameEl     = $('#name');
 const emailEl    = $('#email');
 const photoEl    = $('#photo');
 
-// 基本資料表單（登入頁才會有）
 const form       = $('#profileForm');
 const msg        = $('#pf_msg');
 const nameInput  = $('#pf_name');
@@ -53,9 +45,12 @@ const phoneInput = $('#pf_phone');
 const bdayInput  = $('#pf_birthday');
 const noteInput  = $('#pf_note');
 
-let hasProfileDoc = false; // 用來決定是否第一次寫入
+const editBtn    = $('#editProfileBtn');
+const cancelBtn  = $('#cancelEditBtn');
 
-// --- UI 更新 ---
+let hasProfileDoc = false;
+let cachedProfile = null; // 快取已存資料，編輯/取消用
+
 function renderSignedIn(user) {
   if (statusEl) statusEl.textContent = '你已成功登入';
   if (loginBtn)  loginBtn.style.display  = 'none';
@@ -75,40 +70,47 @@ function renderSignedOut() {
   if (photoEl)   photoEl.removeAttribute?.('src');
   if (form)      form.style.display = 'none';
   if (msg)       msg.style.display  = 'none';
+  if (editBtn)   editBtn.style.display = 'none';
+  if (cancelBtn) cancelBtn.style.display = 'none';
   hasProfileDoc = false;
+  cachedProfile = null;
 }
 
-// --- 監聽登入狀態 ---
+function fillFormWith(data, user) {
+  nameInput && (nameInput.value  = (data?.name ?? user?.displayName ?? ''));
+  phoneInput && (phoneInput.value = data?.phone ?? '');
+  bdayInput && (bdayInput.value  = data?.birthday ?? '');
+  noteInput && (noteInput.value  = data?.note ?? '');
+}
+
 onAuthStateChanged(auth, async (user) => {
   if (!user) { renderSignedOut(); return; }
   renderSignedIn(user);
 
-  // 讀取 Firestore：users/{uid}
-  if (!db) return;
   try {
     const ref = doc(db, 'users', user.uid);
     const snap = await getDoc(ref);
     hasProfileDoc = snap.exists();
 
     if (snap.exists()) {
-      const data = snap.data();
-      if (nameInput)  nameInput.value  = (data.name ?? user.displayName ?? '');
-      if (phoneInput) phoneInput.value = data.phone ?? '';
-      if (bdayInput)  bdayInput.value  = data.birthday ?? '';
-      if (noteInput)  noteInput.value  = data.note ?? '';
-      // 預設：已填過就不顯示表單（想允許修改可改成顯示）
+      cachedProfile = snap.data();
+      fillFormWith(cachedProfile, user);
+      // 預設：已填過先隱藏表單，顯示「重新填資料」
       if (form) form.style.display = 'none';
+      if (editBtn) editBtn.style.display = 'inline';
+      if (cancelBtn) cancelBtn.style.display = 'none';
     } else {
-      // 第一次登入：預填姓名並顯示表單
-      if (nameInput) nameInput.value = user.displayName ?? '';
+      cachedProfile = null;
+      fillFormWith(null, user);
       if (form) form.style.display = 'block';
+      if (editBtn) editBtn.style.display = 'none';
+      if (cancelBtn) cancelBtn.style.display = 'none';
     }
   } catch (err) {
     console.error('讀取使用者文件失敗：', err);
   }
 });
 
-// --- 登入：先用 popup，被擋再改 redirect ---
 loginBtn?.addEventListener('click', async () => {
   try {
     await signInWithPopup(auth, provider);
@@ -121,10 +123,8 @@ loginBtn?.addEventListener('click', async () => {
     }
   }
 });
-// 讓 redirect 回來後完成登入（忽略錯誤即可）
 getRedirectResult(auth).catch(() => {});
 
-// --- 登出 ---
 logoutBtn?.addEventListener('click', async () => {
   try { await signOut(auth); }
   catch (err) {
@@ -133,30 +133,57 @@ logoutBtn?.addEventListener('click', async () => {
   }
 });
 
-// --- 基本資料表單提交 → 寫入 Firestore ---
+// 重新填入口：顯示表單、預填目前資料
+editBtn?.addEventListener('click', async () => {
+  const user = auth.currentUser;
+  if (!user) return;
+  // 以快取為主，再嘗試重新抓（避免舊資料）
+  try {
+    const ref = doc(db, 'users', user.uid);
+    const snap = await getDoc(ref);
+    if (snap.exists()) cachedProfile = snap.data();
+  } catch {}
+  fillFormWith(cachedProfile, user);
+  if (form) form.style.display = 'block';
+  if (editBtn) editBtn.style.display = 'none';
+  if (cancelBtn) cancelBtn.style.display = 'inline';
+  if (msg) msg.style.display = 'none';
+});
+
+// 取消編輯：收起表單、還原按鈕
+cancelBtn?.addEventListener('click', () => {
+  if (form) form.style.display = 'none';
+  if (editBtn) editBtn.style.display = 'inline';
+  if (cancelBtn) cancelBtn.style.display = 'none';
+  if (msg) msg.style.display = 'none';
+});
+
+// 送出表單 → Firestore
 form?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const user = auth.currentUser;
-  if (!user || !db) return;
+  if (!user) return;
 
-  // 準備 payload
   const payload = {
     uid: user.uid,
     email: user.email ?? '',
     name: (nameInput?.value || '').trim(),
     phone: (phoneInput?.value || '').trim(),
-    birthday: bdayInput?.value || null, // yyyy-mm-dd
+    birthday: bdayInput?.value || null,
     note: (noteInput?.value || '').trim(),
     updatedAt: serverTimestamp(),
   };
-  // 第一次寫入才加 createdAt
   if (!hasProfileDoc) payload.createdAt = serverTimestamp();
 
   try {
     await setDoc(doc(db, 'users', user.uid), payload, { merge: true });
-    if (msg)  { msg.textContent = '已儲存！'; msg.style.display = 'block'; }
-    if (form) form.style.display = 'none';
     hasProfileDoc = true;
+    cachedProfile = { ...cachedProfile, ...payload };
+
+    if (msg) { msg.textContent = '已儲存！'; msg.style.display = 'block'; }
+    if (form) form.style.display = 'none';
+    if (editBtn) editBtn.style.display = 'inline';
+    if (cancelBtn) cancelBtn.style.display = 'none';
   } catch (err) {
     alert('儲存失敗：' + (err?.message || err));
     console.error(err);
