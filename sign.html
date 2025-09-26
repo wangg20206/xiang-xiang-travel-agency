@@ -13,16 +13,14 @@
     body.auth-page{
       background:#fff;
       display:grid;
-      grid-template-rows:auto 1fr auto; /* header / content / footer */
+      grid-template-rows:auto 1fr auto;
       min-height:100vh;
       font-family: Arial, sans-serif;
     }
 
-    /* 版心與首頁一致（桌機 65%，平板 88%） */
     .container-65{ max-width:65%; width:100%; margin:0 auto; }
     @media (max-width:1024px){ .container-65{ max-width:88%; } }
 
-    /* 區塊節奏 */
     .section{ padding:28px 0 80px; }
     .section h2{
       font-size:20px; font-weight:700; color:#1f2937;
@@ -32,7 +30,6 @@
       margin:0 0 20px; color:#6b7280; text-align:center; font-size:14px; line-height:1.6;
     }
 
-    /* 卡片 */
     .auth-card{
       max-width:680px; margin:0 auto;
       background:#fff; border:1px solid #eee; border-radius:14px;
@@ -41,10 +38,8 @@
     }
     .auth-inner{ max-width:620px; margin:0 auto; }
 
-    /* 動作列（登入） */
     .actions{ display:flex; justify-content:center; margin-bottom:8px; }
 
-    /* 按鈕 */
     .btn-primary{
       display:inline-flex; align-items:center; gap:10px;
       padding:10px 16px; border-radius:10px;
@@ -64,7 +59,13 @@
     }
     .btn-secondary.small{ padding:6px 10px; font-size:13px; }
 
-    /* 頭像列 */
+    /* 文字型按鈕（重新填/取消） */
+    .link-btn{
+      appearance:none; border:none; background:transparent; cursor:pointer;
+      color:#0799fa; font-weight:700; font-size:13px; padding:2px 4px; margin-left:8px;
+    }
+    .link-btn:hover{ text-decoration:underline; }
+
     .profile-head{ display:flex; align-items:center; gap:14px; }
     .avatar{ width:56px;height:56px;border-radius:50%;border:1px solid #e5e7eb;object-fit:cover; }
     .email{ color:#666; font-size:14px; }
@@ -72,8 +73,9 @@
       padding:2px 8px; border-radius:999px; margin-left:8px; }
     .soft-divider{ border:0; border-top:1px dashed #e5e7eb; margin:16px 0; }
 
-    /* 表單 */
-    .form-title{ margin:0 0 10px; font-size:16px; color:#1f2937; }
+    .form-title-wrap{ display:flex; align-items:center; gap:8px; }
+    .form-title{ margin:0; font-size:16px; color:#1f2937; }
+
     .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
     .field.full{ grid-column:1 / -1; }
     .label{ display:block; font-size:12px; color:#6b7280; margin-bottom:6px; }
@@ -84,11 +86,9 @@
     .input:focus{ outline:none; border-color:#0799fa; box-shadow:0 0 0 3px rgba(7,153,250,.18); }
     .btn-primary.block{ width:100%; margin-top:6px; }
 
-    /* 訊息/狀態 */
     .ok-msg{ color:#16a34a; margin-top:8px; font-size:13px; }
     .status{ margin-top:10px; color:#6b7280; font-size:12px; text-align:center; }
 
-    /* 行動版：單欄 */
     @media (max-width:768px){
       .section{ padding:20px 0 56px; }
       .auth-card{ max-width:100%; padding:16px; }
@@ -98,7 +98,6 @@
   </style>
 </head>
 <body class="auth-page">
-  <!-- 共用 Header 注入 -->
   <div id="header-container"></div>
 
   <main class="section">
@@ -106,11 +105,10 @@
       <h2>登入你的帳號</h2>
       <p class="lead">使用 Google 安全登入以進入會員功能</p>
 
-      <!-- 卡片：包含登入按鈕 / 使用者資訊 / 表單 -->
       <div class="auth-card">
         <div class="auth-inner">
 
-          <!-- 登入按鈕（未登入時顯示） -->
+          <!-- 未登入顯示 -->
           <div class="actions">
             <button id="loginBtn" class="btn-primary" aria-label="使用 Google 登入">
               <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
@@ -123,7 +121,7 @@
             </button>
           </div>
 
-          <!-- 使用者資訊 + 表單（登入後顯示；auth.js 控制顯示/隱藏） -->
+          <!-- 已登入顯示 -->
           <div id="userBox" style="display:none;">
             <div class="profile-head">
               <img id="photo" class="avatar" alt="頭像">
@@ -139,8 +137,14 @@
 
             <hr class="soft-divider" />
 
-            <h3 class="form-title">基本資料</h3>
+            <!-- 標題＋重新填入口 -->
+            <div class="form-title-wrap">
+              <h3 class="form-title">基本資料</h3>
+              <button id="editProfileBtn" class="link-btn" style="display:none;">重新填資料</button>
+              <button id="cancelEditBtn" class="link-btn" style="display:none;">取消</button>
+            </div>
 
+            <!-- 表單（預設隱藏；已填過也能透過「重新填資料」開啟） -->
             <form id="profileForm" style="display:none;">
               <div class="form-grid">
                 <label class="field">
@@ -175,13 +179,10 @@
     </div>
   </main>
 
-  <!-- 共用 Footer 注入 -->
   <div id="footer-container"></div>
 
-  <!-- Firebase 登入邏輯（auth.js 完整版） -->
   <script type="module" src="./auth.js"></script>
 
-  <!-- 注入 header / footer + （若需要）.news-card 點擊委派 -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       Promise.all([
