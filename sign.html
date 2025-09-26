@@ -5,79 +5,96 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>會員登入 | 想翔旅遊</title>
 
-  <!-- 站點共用樣式 -->
+  <!-- 共用站台樣式 -->
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    /* 讓登入頁和首頁一致：同背景、同版心比例 */
+    /* 整頁白底（方案 C） */
     body.auth-page{
-      background: #f0f0f094;
+      background:#fff;
       display:grid;
       grid-template-rows:auto 1fr auto; /* header / content / footer */
       min-height:100vh;
       font-family: Arial, sans-serif;
     }
-    .container-65{ max-width:65%; width:100%; margin:0 auto; }
 
-    /* 區塊外距與首頁節奏一致 */
-    .section{ padding: 28px 0 72px; }
+    /* 版心與首頁一致（桌機 65%，平板 88%） */
+    .container-65{ max-width:65%; width:100%; margin:0 auto; }
+    @media (max-width:1024px){ .container-65{ max-width:88%; } }
+
+    /* 區塊節奏 */
+    .section{ padding:28px 0 80px; }
     .section h2{
-      font-size:22px; font-weight:700; color:#1f2937;
-      margin: 0 0 8px;
-      text-align:center;
+      font-size:20px; font-weight:700; color:#1f2937;
+      margin:0 0 8px; text-align:center;
     }
     .section p.lead{
-      margin:0 0 22px; color:#6b7280; text-align:center; font-size:14px;
+      margin:0 0 20px; color:#6b7280; text-align:center; font-size:14px; line-height:1.6;
     }
 
-    /* 卡片更像內容段落，而不是 hero：陰影輕、邊框淡 */
+    /* 卡片 */
     .auth-card{
-      background:#fff;
-      border:1px solid #eee;
-      border-radius:14px;
-      box-shadow:0 6px 18px rgba(0,0,0,.06);
+      max-width:680px; margin:0 auto;
+      background:#fff; border:1px solid #eee; border-radius:14px;
+      box-shadow:0 6px 18px rgba(0,0,0,.07);
       padding:20px;
     }
+    .auth-inner{ max-width:620px; margin:0 auto; }
 
-    /* 內部排版：靠左、但整卡置中於版心 */
-    .auth-inner{ max-width:520px; margin:0 auto; }
+    /* 動作列（登入） */
+    .actions{ display:flex; justify-content:center; margin-bottom:8px; }
 
-    /* 站內主色系的主按鈕（取代 GIS 小白鈕） */
+    /* 按鈕 */
     .btn-primary{
       display:inline-flex; align-items:center; gap:10px;
       padding:10px 16px; border-radius:10px;
       background:#0799fa; color:#fff; border:1px solid #0799fa;
       font-weight:700; cursor:pointer;
-      transition:filter .15s, transform .15s;
+      transition:filter .15s, transform .15s, box-shadow .15s;
+      outline:none;
     }
     .btn-primary:hover{ filter:brightness(0.95); transform:translateY(-1px); }
+    .btn-primary:focus-visible{ box-shadow:0 0 0 3px rgba(7,153,250,.25); }
+
     .btn-secondary{
       display:inline-flex; align-items:center; gap:8px;
-      padding:10px 14px; border-radius:10px;
+      padding:8px 12px; border-radius:10px;
       background:#f9fafb; color:#1f2937; border:1px solid #e5e7eb;
       font-weight:600; cursor:pointer;
     }
+    .btn-secondary.small{ padding:6px 10px; font-size:13px; }
 
-    .actions{ display:flex; gap:12px; justify-content:center; margin:14px 0 6px; }
-
-    /* 登入後資訊區 */
-    .auth-user{ display:none; margin-top:12px; border-top:1px dashed #e5e7eb; padding-top:14px; }
-    .user-row{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
-    .avatar{ width:48px; height:48px; border-radius:50%; border:1px solid #e5e7eb; object-fit:cover; }
+    /* 頭像列 */
+    .profile-head{ display:flex; align-items:center; gap:14px; }
+    .avatar{ width:56px;height:56px;border-radius:50%;border:1px solid #e5e7eb;object-fit:cover; }
     .email{ color:#666; font-size:14px; }
-    .badge{ background:#e0f2ff; color:#0799fa; font-weight:700; font-size:12px; padding:2px 8px; border-radius:999px; margin-left:8px; }
-    .status{ margin-top:8px; color:#6b7280; font-size:12px; text-align:center; }
+    .badge{ background:#e0f2ff; color:#0799fa; font-weight:700; font-size:12px;
+      padding:2px 8px; border-radius:999px; margin-left:8px; }
+    .soft-divider{ border:0; border-top:1px dashed #e5e7eb; margin:16px 0; }
 
-    @media (max-width:1024px){ .container-65{ max-width:88%; } }
+    /* 表單 */
+    .form-title{ margin:0 0 10px; font-size:16px; color:#1f2937; }
+    .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .field.full{ grid-column:1 / -1; }
+    .label{ display:block; font-size:12px; color:#6b7280; margin-bottom:6px; }
+    .input{
+      width:100%; padding:10px 12px; border:1px solid #e5e7eb; border-radius:10px;
+      background:#fff; font-size:14px; transition:border-color .15s, box-shadow .15s;
+    }
+    .input:focus{ outline:none; border-color:#0799fa; box-shadow:0 0 0 3px rgba(7,153,250,.18); }
+    .btn-primary.block{ width:100%; margin-top:6px; }
+
+    /* 訊息/狀態 */
+    .ok-msg{ color:#16a34a; margin-top:8px; font-size:13px; }
+    .status{ margin-top:10px; color:#6b7280; font-size:12px; text-align:center; }
+
+    /* 行動版：單欄 */
     @media (max-width:768px){
       .section{ padding:20px 0 56px; }
-      .auth-card{ padding:16px; }
+      .auth-card{ max-width:100%; padding:16px; }
+      .form-grid{ grid-template-columns:1fr; }
+      .btn-secondary.small{ margin-left:0; }
     }
-
-  body.auth-page{
-    background: #fff;  /* 全白 */
-  }
-
   </style>
 </head>
 <body class="auth-page">
@@ -89,12 +106,13 @@
       <h2>登入你的帳號</h2>
       <p class="lead">使用 Google 安全登入以進入會員功能</p>
 
+      <!-- 卡片：包含登入按鈕 / 使用者資訊 / 表單 -->
       <div class="auth-card">
         <div class="auth-inner">
-          <!-- 動作：登入 / 登出 -->
+
+          <!-- 登入按鈕（未登入時顯示） -->
           <div class="actions">
             <button id="loginBtn" class="btn-primary" aria-label="使用 Google 登入">
-              <!-- 小型四色 G 圖標 -->
               <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
                 <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.8 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.7 1.1 7.7 3l5.7-5.7C33.6 6.1 29 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.5-.4-3.5z"/>
                 <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.5 16.2 18.9 12 24 12c3 0 5.7 1.1 7.7 3l5.7-5.7C33.6 6.1 29 4 24 4 16.1 4 9.3 8.3 6.3 14.7z"/>
@@ -103,12 +121,11 @@
               </svg>
               使用 Google 登入
             </button>
-            <button id="logoutBtn" class="btn-secondary" style="display:none;">登出</button>
           </div>
 
-          <!-- 登入後顯示 -->
-          <div id="userBox" class="auth-user">
-            <div class="user-row">
+          <!-- 使用者資訊 + 表單（登入後顯示；auth.js 控制顯示/隱藏） -->
+          <div id="userBox" style="display:none;">
+            <div class="profile-head">
               <img id="photo" class="avatar" alt="頭像">
               <div>
                 <div style="display:flex;align-items:center;flex-wrap:wrap;">
@@ -117,7 +134,39 @@
                 </div>
                 <div id="email" class="email"></div>
               </div>
+              <button id="logoutBtn" class="btn-secondary small" style="margin-left:auto;">登出</button>
             </div>
+
+            <hr class="soft-divider" />
+
+            <h3 class="form-title">基本資料</h3>
+
+            <form id="profileForm" style="display:none;">
+              <div class="form-grid">
+                <label class="field">
+                  <span class="label">姓名（可改）</span>
+                  <input id="pf_name" type="text" placeholder="王小明" class="input">
+                </label>
+
+                <label class="field">
+                  <span class="label">手機</span>
+                  <input id="pf_phone" type="tel" placeholder="0912-345-678" class="input">
+                </label>
+
+                <label class="field">
+                  <span class="label">生日</span>
+                  <input id="pf_birthday" type="date" class="input">
+                </label>
+
+                <label class="field full">
+                  <span class="label">備註 / 興趣</span>
+                  <textarea id="pf_note" rows="3" placeholder="喜歡關西、溫泉…" class="input"></textarea>
+                </label>
+              </div>
+
+              <button type="submit" class="btn-primary block">送出基本資料</button>
+              <p id="pf_msg" class="ok-msg" style="display:none;">已儲存！</p>
+            </form>
           </div>
 
           <div id="status" class="status">尚未登入</div>
@@ -126,44 +175,20 @@
     </div>
   </main>
 
-
-
-  <!-- 你的 Firebase 登入邏輯（v12 CDN 的 auth.js） -->
-  <script type="module" src="./auth.js"></script>
-
-  <form id="profileForm" style="display:none; margin-top:14px;">
-  <div style="display:grid; gap:10px;">
-    <label>姓名（可改）
-      <input id="pf_name" type="text" placeholder="王小明" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;">
-    </label>
-    <label>手機
-      <input id="pf_phone" type="tel" placeholder="0912-345-678" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;">
-    </label>
-    <label>生日
-      <input id="pf_birthday" type="date" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;">
-    </label>
-    <label>備註 / 興趣
-      <textarea id="pf_note" rows="3" placeholder="喜歡關西、溫泉…" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;"></textarea>
-    </label>
-    <button type="submit" class="btn-primary" style="justify-content:center;">送出基本資料</button>
-  </div>
-</form>
-
-<!-- 提交結果提示 -->
-<p id="pf_msg" style="display:none;color:#16a34a;margin-top:10px;">已儲存！</p>
-
   <!-- 共用 Footer 注入 -->
   <div id="footer-container"></div>
 
-  <!-- 注入 header / footer；若此頁沒有 .news-card 也不影響 -->
+  <!-- Firebase 登入邏輯（auth.js 完整版） -->
+  <script type="module" src="./auth.js"></script>
+
+  <!-- 注入 header / footer + （若需要）.news-card 點擊委派 -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       Promise.all([
         fetch('header.html').then(r => r.text()).then(html => (document.getElementById('header-container').innerHTML = html)),
         fetch('footer.html').then(r => r.text()).then(html => (document.getElementById('footer-container').innerHTML = html)),
-      ]);
+      ]).catch(err => console.error('載入共用區塊失敗：', err));
 
-      // 如其他頁有用到：卡片整張可點（排除按鈕）
       document.body.addEventListener('click', (e) => {
         const card = e.target.closest('.news-card');
         if (!card) return;
@@ -175,6 +200,3 @@
   </script>
 </body>
 </html>
-
-
-
