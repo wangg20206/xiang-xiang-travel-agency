@@ -132,6 +132,27 @@
   <!-- 你的 Firebase 登入邏輯（v12 CDN 的 auth.js） -->
   <script type="module" src="./auth.js"></script>
 
+  <form id="profileForm" style="display:none; margin-top:14px;">
+  <div style="display:grid; gap:10px;">
+    <label>姓名（可改）
+      <input id="pf_name" type="text" placeholder="王小明" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;">
+    </label>
+    <label>手機
+      <input id="pf_phone" type="tel" placeholder="0912-345-678" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;">
+    </label>
+    <label>生日
+      <input id="pf_birthday" type="date" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;">
+    </label>
+    <label>備註 / 興趣
+      <textarea id="pf_note" rows="3" placeholder="喜歡關西、溫泉…" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;"></textarea>
+    </label>
+    <button type="submit" class="btn-primary" style="justify-content:center;">送出基本資料</button>
+  </div>
+</form>
+
+<!-- 提交結果提示 -->
+<p id="pf_msg" style="display:none;color:#16a34a;margin-top:10px;">已儲存！</p>
+
   <!-- 注入 header / footer；若此頁沒有 .news-card 也不影響 -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -152,5 +173,6 @@
   </script>
 </body>
 </html>
+
 
 
