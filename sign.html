@@ -74,21 +74,9 @@
       .auth-card{ padding:16px; }
     }
 
-        /* ===== 讓頂端整條是白色，超過導覽高度後轉為淺灰 ===== */
-    :root{
-      /* 依你 header + menu 的總高度微調：140~180px 之間 */
-      --header-band: 140px;
-    }
-    
-    body.auth-page{
-      /* 這行用來取代原本的 background 設定 */
-      background: linear-gradient(#fff 0 var(--header-band), #f0f0f094 var(--header-band));
-    }
-    
-    /* 手機版 header 通常更高，這裡可再加長白色帶 */
-    @media (max-width: 768px){
-      :root{ --header-band: 170px; }
-    }
+  body.auth-page{
+    background: #fff;  /* 全白 */
+  }
 
   </style>
 </head>
@@ -164,4 +152,5 @@
   </script>
 </body>
 </html>
+
 
