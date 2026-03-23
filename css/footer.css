@@ -1,0 +1,92 @@
+.site-footer {
+  background-color: #f8f8f8;
+  padding: 30px 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-brand {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer-brand img {
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.footer-brand .brand-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.footer-links {
+  flex: 2 1 300px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-column {
+  flex: 1 1 120px;
+}
+
+.footer-column h4 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column li {
+  margin-bottom: 6px;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.footer-contact {
+  flex: 1 1 200px;
+}
+
+.footer-contact p {
+  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.footer-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.footer-icons img {
+  height: 24px;
+}
+
+.footer-copy {
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #666;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>載入中...</title>
+  <link rel="stylesheet" href="css/styles_8150.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>
+  <div id="header-container"></div>
+  <header class="banner"></header>
+
+  <button id="backToTopBtn" title="回到最上層">↑</button>
+
+  <section id="kx">
+    <div class="kx-beginning">
+      <h1>
+        <span id="hero-title-main">載入中...</span>
+        <span id="hero-title-highlight" title="哞~~~~ ">載入中...</span>
+      </h1>
+      <h2 id="hero-subtitle">載入中...</h2>
+
+      <div class="kx-hero">
+        <img id="hero-image" src="" alt="瀨戶內主圖" class="kx-main-img">
+
+        <div class="kx-price-card">
+          <p class="kx-price-text" id="price-text">載入中...</p>
+          <p class="kx-info-text" id="people-info">載入中...</p>
+          <p class="kx-info-text" id="travel-type">載入中...</p>
+          <p class="kx-info-text" id="depart-date">載入中...</p>
+          <p class="kx-info-text" id="return-date">載入中...</p>
+          <p class="kx-info-text" id="city-info">載入中...</p>
+          <a id="download-link" href="#" download>
+            <button style="margin-left: 20px;">📥 下載行程表&nbsp;&nbsp;</button>
+          </a>
+          <p class="kx-disclaimer-text" id="disclaimer">載入中...</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="kx-flight-card">
+      <h2 id="flight-title">載入中...</h2>
+      <p class="kx-notice" id="flight-notice"></p>
+      <table class="kx-flight-table">
+        <tr>
+          <td>去程</td>
+          <td><span id="outbound-airline">載入中...</span><br><span class="kx-gray-text" id="outbound-code"></span></td>
+          <td class="kx-gray-text" id="outbound-date"></td>
+          <td class="kx-flight-time" id="outbound-time1"></td>
+          <td class="kx-destination" id="outbound-from"></td>
+          <td class="kx-flight-arrow">→</td>
+          <td class="kx-flight-time" id="outbound-time2"></td>
+          <td class="kx-destination" id="outbound-to"></td>
+        </tr>
+        <tr>
+          <td>回程</td>
+          <td><span id="return-airline">載入中...</span><br><span class="kx-gray-text" id="return-code"></span></td>
+          <td class="kx-gray-text" id="return-date2"></td>
+          <td class="kx-flight-time" id="return-time1"></td>
+          <td class="kx-destination" id="return-from"></td>
+          <td class="kx-flight-arrow">→</td>
+          <td class="kx-flight-time" id="return-time2"></td>
+          <td class="kx-destination" id="return-to"></td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="summary">
+    <div class="summary-banner"></div>
+    <h2 id="summary-title">行程亮點</h2>
+
+  <div id="summary-intro-list"></div>
+
+    <div id="highlights-container"></div>
+
+    <div style="height: 50px;"></div>
+
+    <ul>
+      <li>出發日：2025/8/29</li> 
+      <li>天數：5天6夜</li>
+    </ul>
+  </section>
+
+  <div class="trip-header">
+    <h2>每日行程</h2>
+  </div>
+
+  <div class="day-nav" id="day-nav"></div>
+  <div id="day-container"></div>
+
+  <div id="footer-container"></div>
+
+<script>
+  const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQr_FoLwWF8LYD29i4gUfuq8qHQfDYx0KgWQB7uEkLYt9IUVfEPTfQu5HFZPxc8bo1yHw025LXrk5jG/pub?gid=208410193&single=true&output=csv";
+  const CONTENT_CSV_URL = "https://docs.google.com/spreadsheets/d/1XHNHIdoygjDgjELEWO5X3y6AlSA-llLGP1yMEIJ4Ig4/export?format=csv&gid=1204085470";
+  const HIGHLIGHTS_CSV_URL = "https://docs.google.com/spreadsheets/d/1XHNHIdoygjDgjELEWO5X3y6AlSA-llLGP1yMEIJ4Ig4/export?format=csv&gid=1912506071";
+  const SUMMARY_ITEMS_CSV_URL = "https://docs.google.com/spreadsheets/d/1XHNHIdoygjDgjELEWO5X3y6AlSA-llLGP1yMEIJ4Ig4/export?format=csv&gid=2097584893";
+</script>
+
+<script src="js/google_sheet.js"></script>
+
+</body>
+</html>

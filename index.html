@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xxiang 全台最大日本自由行</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+    <div id="header-container"></div>
+  
+    <div class="slideshow-container">
+        <div class="slide fade"><img src="https://www.pdtravel.com.tw/material-alias/%E5%BD%AD%E5%A4%A7%E6%97%85%E9%81%8A%E9%A0%81/%E4%BC%81%E5%8A%83%E9%A0%81-%E6%B2%96%E7%B9%A9/%E5%BD%AD%E5%A4%A7%E6%97%85%E9%81%8A-%E4%BC%81%E5%8A%83%E9%A0%81-%E6%B2%96%E7%B9%A9.jpg" alt="沖繩"></div>
+        <div class="slide fade"><img src="https://static.lifetour.info/eWeb_lifetour/IMGDB/003462/003520/003528/003543/003565/00113570.WEBP" alt="四國/中國"></div>
+        <div class="slide fade"><img src="https://media.wwpkg.com.hk/live/Resources/Tour/20230626/0aa687ab-3f8c-44f1-964f-b5ab84a0b8b7.webp" alt="九州"></div>
+        <div class="slide fade"><img src="https://hiyoritravel.com/wp-content/uploads/event_0316%E4%B8%AD%E9%83%A8%E5%8C%97%E9%99%B8%E8%AC%9B%E5%BA%A7.png" alt="中部"></div>
+        <div class="slide fade"><img src="https://www.worldwide.com.tw/material-alias/EDM/JP20240130/banner-kanto.jpg" alt="關東"></div>
+        <div class="slide fade"><img src="https://www.flyttour.com.tw/eWeb_flyt/IMGDB/000001/000130/000230/000231/00003979.JPG" alt="四過秘境"></div>
+        <div class="slide fade"><img src="https://static.lifetour.info/eWeb_lifetour/IMGDB/003462/003520/003528/003540/003559/00113567.WEBP" alt="北海道"></div>
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+
+    <div>
+        <h2>想翔旅遊</h2>
+        <p>誠摯地邀請您，用最便宜的價格乘風踏上日本之旅，感受櫻花飛舞的詩意，品味抹茶幽香的情懷，流連於古韻與現代交織的夢幻國度。</p>
+    </div>
+
+    <section class="tour-section">
+        <h2>精選行程</h2>
+        <div id="tour-list" class="tour-list"></div>
+    </section>
+
+    <div class="main-content-wrapper">
+        <div class="news-section">
+            <div class="gallery-header">
+                <h2><span class="dot" style="color:#ff0000; font-size:20px;">●</span> 旅遊資訊介紹</h2>
+            </div>
+            <div class="swiper newsSwiper">
+                <div class="swiper-wrapper" id="news-container">
+                    </div>
+                <div class="swiper-button-next news-next"></div>
+                <div class="swiper-button-prev news-prev"></div>
+                <div class="swiper-pagination news-pagination"></div>
+            </div>
+        </div>
+
+        <div class="gallery-section">
+            <div class="gallery-header">
+                <h2>精彩回顧</h2>
+                <div class="header-actions">
+                    <button id="toggle-btn" class="btn-pause">⏸ 暫停輪播</button>
+                    <a href="#" class="btn-more">more</a>
+                </div>
+            </div>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="images/20250113_165814.jpg" alt="活動照片1">
+                        <div class="slide-caption">2026-01-13 阿倍野展望台上</div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/IMG20250115215139.jpg" alt="活動照片1">
+                        <div class="slide-caption">2026-01-15 京都車站</div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/m_b.jpg" alt="活動照片2">
+                        <div class="slide-caption">2026-01-17 富士山河口湖</div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/小豆島下山路旁.JPG" alt="活動照片1">
+                        <div class="slide-caption">2026-09-01 小豆島下山路旁</div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/萬博-飯田集團×大阪公立大學館.JPG" alt="活動照片3">
+                        <div class="slide-caption">2026-09-03 萬博-飯田集團×大阪公立大學館</div>
+                    </div>
+                </div>
+                <div class="swiper-button-next gallery-next"></div>
+                <div class="swiper-button-prev gallery-prev"></div>
+                <div class="swiper-pagination gallery-pagination"></div>
+            </div>
+        </div>
+    </div>
+    <div class="exchange-rate-container">
+        <div class="exchange-rate-box">
+            <p class="exchange-title">日幣匯率</p>
+            <p class="exchange-value" id="jpy-rate">載入中...</p>
+            <p class="exchange-time" id="last-updated">更新時間：載入中...</p>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="js/layout.js"></script>
+    <script src="js/slideshow.js"></script>
+    <script src="js/exchange-rate.js"></script>
+    <script src="js/tours.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/gallery.js"></script> <script src="js/news.js"></script>    </body>
+</html>
