@@ -733,3 +733,144 @@ section.summary li {
   line-height: 1.9;
   color: #333;
 }
+/* ===== 每日行程詳細介紹區塊：直接貼到 styles_8150.css 最底部 ===== */
+
+.day-detail-wrap {
+  max-width: 1200px;
+  margin: 18px auto 60px;
+  padding: 28px 34px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.day-detail-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 28px;
+}
+
+.day-detail-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.day-detail-icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d39a5c;
+  color: #c17d35;
+  background: #fffaf5;
+  border-radius: 4px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.day-detail-box-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.day-detail-line {
+  margin-bottom: 8px;
+  font-size: 17px;
+  line-height: 1.9;
+  color: #444;
+}
+
+.day-detail-line:last-child {
+  margin-bottom: 0;
+}
+
+.day-detail-label {
+  font-weight: 700;
+  color: #b87930;
+  margin-right: 10px;
+}
+
+.day-detail-value {
+  color: #444;
+}
+
+.day-detail-intro {
+  font-size: 18px;
+  line-height: 2;
+  color: #444;
+  margin: 6px 0 32px;
+  text-align: justify;
+}
+
+.day-detail-section {
+  margin-top: 34px;
+}
+
+.day-detail-section:first-of-type {
+  margin-top: 0;
+}
+
+.day-detail-section-title {
+  margin: 0 0 16px;
+  padding-left: 12px;
+  border-left: 6px solid #29b7d8;
+  color: #29b7d8;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.day-detail-section-content {
+  font-size: 17px;
+  line-height: 2;
+  color: #444;
+  text-align: justify;
+}
+
+.day-section .day-detail-wrap {
+  margin-top: 10px;
+}
+
+/* 手機版 */
+@media (max-width: 900px) {
+  .day-detail-wrap {
+    padding: 24px 20px;
+  }
+
+  .day-detail-top {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .day-detail-section-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .day-detail-wrap {
+    padding: 20px 16px;
+    border-radius: 10px;
+  }
+
+  .day-detail-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  .day-detail-line,
+  .day-detail-section-content,
+  .day-detail-intro {
+    font-size: 16px;
+  }
+
+  .day-detail-section-title {
+    font-size: 22px;
+  }
+}
