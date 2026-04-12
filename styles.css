@@ -1,0 +1,146 @@
+/* styles.css - 共用樣式文件 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; text-align: center; background-color: #f0f0f094; }
+
+/* 其他共用樣式 (如導航列、彈窗等，保留夥伴原本的設定) */
+.beginning { max-width: 1000px; margin: 0 auto; text-align: left; margin-bottom: 50px; }
+.beginning h2 { font-size: 30px; margin-bottom: 40px; }
+.Tour_Highlights { text-align: center; max-width: 1000px; margin: 0 auto; }
+.Tour_Highlights h1 { font-size: 40px; color: #0799fa; margin-bottom: 15px; }
+.Tour_Highlights img { width: 800px; height: 600px; border-radius: 15px; }
+.Tour_Highlights p { max-width: 1000px; margin: 10px auto; text-align: justify; font-size: 18px; line-height: 1.8; color: #333; }
+
+/* 幻燈片 */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+.slide {
+    width: 65%;
+    height: 100%;
+    position: absolute;
+}
+
+.slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* 讓圖片填滿，但會裁切 */
+    object-position: center center; /* 預設置中 */
+    display: block;
+}
+
+.img-okinawa {
+    object-position: center top;
+}
+
+.img-shikoku {
+    object-position: center 35%;
+}
+
+.img-kyushu {
+    object-position: center center;
+}
+
+.img-chubu {
+    object-position: 50% 70%;
+}
+
+.img-kanto {
+    object-position: center 20%;
+}
+
+.img-secret {
+    object-position: 50% 35%;;
+}
+
+.img-hokkaido {
+    object-position: center top;
+}
+
+
+.fade { animation: fadeEffect 1.5s; }
+@keyframes fadeEffect { from { opacity: 0.4; } to { opacity: 1; } }
+.prev, .next { position: absolute; top: 50%; transform: translateY(-50%); font-size: 30px; padding: 10px; color: white; background: rgba(0, 0, 0, 0.5); border: none; cursor: pointer; }
+.prev { left: 10px; } .next { right: 10px; }
+.prev:hover, .next:hover { background: rgba(0, 0, 0, 0.8); }
+
+/* --- 夥伴新增的：精選行程 --- */
+.tour-section { width: 90%; max-width: 1200px; margin: 40px auto; }
+.tour-section h2 { font-size: 28px; margin-bottom: 20px; color: #222; }
+.tour-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.tour-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: left;}
+.tour-card-image { width: 100%; height: 180px; object-fit: cover; display: block; }
+.tour-card-body { padding: 16px; }
+.tour-card h3 { font-size: 20px; margin-bottom: 10px; }
+.tour-meta { color: #0799fa; font-weight: bold; margin-bottom: 10px; }
+.tour-description { color: #555; line-height: 1.6; margin-bottom: 14px; }
+.tour-link { display: inline-block; padding: 10px 14px; background: #0799fa; color: white; text-decoration: none; border-radius: 8px; }
+.tour-link:hover { background: #067ecc; }
+
+/* =========================================
+   我們寫的：佈局：左右 50% / 50% 完美並排
+   ========================================= */
+.main-content-wrapper { display: flex; justify-content: space-between; align-items: stretch; max-width: 75%; margin: 40px auto; gap: 30px; }
+.news-section, .gallery-section { flex: 0 0 calc(50% - 15px); min-width: 0; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05); display: flex; flex-direction: column; text-align: left; }
+.gallery-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; min-height: 40px; }
+.gallery-header h2 { font-size: 26px; color: #333; margin: 0; }
+.header-actions { display: flex; align-items: center; gap: 10px; }
+
+/* Swiper 容器 */
+.newsSwiper, .mySwiper { width: 100%; flex-grow: 1; position: relative; padding-bottom: 40px; }
+
+/* 新聞專屬內部設定 */
+.news-card { height: 100%; display: flex; flex-direction: column; }
+.news-card img { width: 100%; aspect-ratio: 16 / 9; height: auto; object-fit: cover; border-radius: 5px; }
+.news-card h3 { font-size: 18px; margin: 15px 0 10px 0; }
+.news-card p { font-size: 14px; color: #666; flex-grow: 1; }
+.news-card a { display: block; margin-top: 10px; text-decoration: none; color: #ff5722; font-weight: bold; }
+
+/* 精彩回顧專屬內部設定 */
+/* --- 精彩回顧專屬內部設定 --- */
+.swiper-slide img {
+    width: 100%;
+    aspect-ratio: 16 / 9; 
+    height: auto;
+    
+    /* ★ 關鍵修改：從 cover 改成 contain，確保直圖不被裁切 */
+    object-fit: contain; 
+    
+    /* ★ 新增：為左右留白的地方加上背景色 (這裡用淺灰色，你也可以改成黑色 #000) */
+    background-color: #f0f0f0; 
+    
+    border-radius: 5px;
+    display: block;
+}
+.slide-caption { padding: 15px 0; font-size: 16px; color: #555; text-align: center; }
+.btn-more { padding: 5px 20px; border: 1px solid #bba58e; border-radius: 20px; color: #bba58e; text-decoration: none; font-size: 14px; transition: 0.3s; }
+.btn-more:hover { background: #bba58e; color: #fff; }
+.btn-pause { background-color: #555; color: white; border: none; padding: 6px 14px; font-size: 14px; cursor: pointer; border-radius: 5px; transition: background-color 0.3s; margin: 0; }
+.btn-pause:hover { background-color: #333; }
+
+/* 共用的 Swiper 箭頭與圓點 (釘死位置) */
+.swiper-button-next, .swiper-button-prev { background-color: rgba(180, 170, 160, 0.8) !important; width: 36px !important; height: 36px !important; border-radius: 50% !important; color: white !important; top: 0 !important; margin-top: calc(28.125% - 18px) !important; transform: none !important; }
+.swiper-button-next::after, .swiper-button-prev::after { font-size: 14px !important; font-weight: bold !important; }
+.swiper-pagination { position: absolute !important; bottom: 5px !important; margin-top: 0 !important; }
+.swiper-pagination-bullet-active { background-color: #0799fa !important; }
+
+/* 匯率顯示區塊 */
+.exchange-rate-container { display: flex; justify-content: center; align-items: center; margin-top: 20px; margin-bottom: 50px; }
+.exchange-rate-box { background: linear-gradient(135deg, #02afff, #0051ff); color: rgb(240, 240, 240); padding: 15px 20px; border-radius: 10px; text-align: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); width: 250px; }
+.exchange-title { font-size: 18px; font-weight: bold; margin-bottom: 5px; }
+.exchange-value { font-size: 24px; font-weight: bold; }
+.exchange-time { font-size: 12px; opacity: 0.8; }
+
+/* 響應式設計：手機適配 */
+@media (max-width: 768px) {
+    .slideshow-container { height: 300px; }
+    .main-content-wrapper { flex-direction: column; max-width: 95%; margin: 20px auto; gap: 30px; }
+    .news-section, .gallery-section { flex: auto; width: 100%; }
+}
