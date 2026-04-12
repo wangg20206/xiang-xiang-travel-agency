@@ -1,45 +1,41 @@
+/* ===== 全域 ===== */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background-color: white;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  background-color: transparent;
-}
-
+/* ===== Header 外層（重要：滿版） ===== */
 #header-container {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
+/* ===== 上方導覽列 ===== */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: white;
   width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
   position: relative;
   z-index: 10;
 }
 
+/* 內容置中但外框滿版 */
 .navbar-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 20px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 65%;
-  width: 100%;
-  margin: 0 auto;
-  gap: 20px;
 }
 
+/* ===== LOGO ===== */
 .logo {
   display: flex;
   align-items: center;
@@ -47,30 +43,31 @@ body {
 }
 
 .logo img {
-  height: 60px;
+  height: 50px;
 }
 
 .logo-text {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: bold;
   color: #0799fa;
   white-space: nowrap;
 }
 
+/* ===== ICON ===== */
 .icons {
   display: flex;
   align-items: center;
+  gap: 12px;
 }
 
 .icons a {
-  margin-left: 10px;
   text-decoration: none;
   color: black;
-  font-size: 16px;
 }
 
 .icons img {
   height: 20px;
+  display: block;
 }
 
 .search-icon,
@@ -78,20 +75,29 @@ body {
   font-size: 18px;
 }
 
+/* ===== MENU（整條滿版） ===== */
 .menu {
-  background-color: #fff;
   width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
 }
 
+/* 內容區（可滑動） */
 .menu-content {
-  max-width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
+
   overflow-x: auto;
+  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
+
   white-space: nowrap;
   scroll-behavior: smooth;
+
+  padding: 0 16px; /* 👉 防止最左被吃掉 */
 }
 
+/* scrollbar 美化 */
 .menu-content::-webkit-scrollbar {
   height: 8px;
 }
@@ -105,56 +111,67 @@ body {
   background-color: #f1f1f1;
 }
 
+/* ===== menu 排列 ===== */
 .menu ul {
   list-style: none;
   display: flex;
-  justify-content: center;
-  padding: 10px 0;
-  width: 100%;
-  background-color: #fff;
+  align-items: center;
+
+  justify-content: flex-start;   /* ❗不要用 center */
+  padding: 12px 0;
+
+  min-width: max-content;
+  width: max-content;
 }
 
 .menu ul li {
-  margin: 0 15px;
-  flex: none;
+  flex: 0 0 auto;
+  margin: 0 8px;
 }
 
+/* ===== menu 按鈕 ===== */
 .menu ul li a {
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 10px 15px;
-  background-color: #fff;
-  color: black;
   font-size: 20px;
   text-decoration: none;
-  transition: background-color 0.3s;
-  height: 7vh;
-  box-sizing: border-box;
-  max-height: 7vh;
+  color: black;
+
   white-space: nowrap;
+  border-radius: 4px;
+
+  transition: all 0.2s;
 }
 
+/* hover（桌機） */
 @media (min-width: 769px) {
   .menu ul li a:hover {
     background-color: #b0b0b0;
-    text-decoration: none;
+    color: white;
   }
 }
 
+/* =====🔥 首頁固定不被蓋 ===== */
+.home-item {
+  position: sticky;
+  left: 0;
+  z-index: 20;
+  background: #fff;
+  padding-right: 8px;
+}
+
+.home-item a {
+  background: #fff;
+}
+
+/* ===== 手機版 ===== */
 @media (max-width: 768px) {
-  .navbar {
-    padding: 8px 10px;
-    gap: 10px;
-  }
 
   .navbar-content {
-    max-width: 100%;
-    padding: 0 10px;
-  }
-
-  .logo {
-    gap: 5px;
+    padding: 8px 10px;
   }
 
   .logo img {
@@ -162,16 +179,11 @@ body {
   }
 
   .logo-text {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .icons {
-    justify-content: flex-end;
-  }
-
-  .icons a {
-    margin-left: 8px;
-    margin-right: 0;
+    gap: 8px;
   }
 
   .icons img {
@@ -184,30 +196,19 @@ body {
   }
 
   .menu-content {
-    max-width: 100%;
-    overflow-x: auto;
     padding: 0 10px;
-    scroll-behavior: smooth;
   }
 
   .menu ul {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    padding: 10px 0;
+    padding: 8px 0;
+  }
+
+  .menu ul li {
+    margin: 0 6px;
   }
 
   .menu ul li a {
     font-size: 14px;
     padding: 8px 12px;
-    height: auto;
-    min-width: 80px;
-    border-radius: 4px;
-    background-color: #fff;
-    color: black;
-  }
-
-  .menu ul li a:hover {
-    background-color: #fff;
   }
 }

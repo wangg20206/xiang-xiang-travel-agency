@@ -178,7 +178,76 @@ section.summary li {
   scroll-margin-top: 60px;
 }
 
+/* ===== 每日行程吸頂區塊 ===== */
+.trip-sticky-wrap {
+  position: sticky;
+  top: 0;              /* 如果上方沒有固定 header，就用 0 */
+  z-index: 900;
+  background: #ffffff; /* 跟頁面底色一致，避免吸頂時顏色突兀 */
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
 
+/* 每日行程標題 */
+.trip-header {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.trip-header h2 {
+  font-size: 26px;
+  font-weight: bold;
+  color: #333;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 10px;
+  margin: 0;
+}
+
+.trip-header h2::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 3px;
+  background-color: #444;
+  bottom: 0;
+  left: 25%;
+  border-radius: 3px;
+}
+
+/* 天數按鈕列 */
+.day-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 0 10px;
+  padding: 0 20px;
+  flex-wrap: wrap;
+  background: #ffffff;
+}
+
+.day-nav button {
+  background-color: #eee;
+  border: none;
+  padding: 12px 30px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.day-nav button:hover {
+  background-color: #ccc;
+}
+
+.day-nav button.active {
+  background-color: #4a4a4a;
+  color: white;
+}
 
 .trip-header {
   text-align: center;
@@ -244,16 +313,7 @@ section.summary li {
   background-color: #666;
 }
 
-.day-nav.fixed {
-  position: fixed;
-  top: -8;
-  left: 0;
-  right: 0;
-  background: white;
-  z-index: 1000;
-  padding: 10px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-}
+
 
 
 /*圖片格式*/
