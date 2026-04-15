@@ -606,28 +606,4 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-function isSafeDownloadUrl(url) {
-  try {
-    const u = new URL(url);
-    const allowedHosts = [
-      "wangg20206.github.io",
-      "docs.google.com",
-      "drive.google.com"
-    ];
-    return u.protocol === "https:" && allowedHosts.includes(u.hostname);
-  } catch {
-    return false;
-  }
-}
 
-function setSafeLink(id, value) {
-  const el = document.getElementById(id);
-  if (!el) return;
-
-  if (value && isSafeDownloadUrl(value)) {
-    el.href = value;
-  } else {
-    el.removeAttribute("href");
-    console.warn("download-link 已被阻擋，網址不在白名單內:", value);
-  }
-}
