@@ -83,6 +83,7 @@ body { font-family: Arial, sans-serif; text-align: center; background-color: #f0
 .tour-description { color: #555; line-height: 1.6; margin-bottom: 14px; }
 .tour-link { display: inline-block; padding: 10px 14px; background: #0799fa; color: white; text-decoration: none; border-radius: 8px; }
 .tour-link:hover { background: #067ecc; }
+.tour-pagination { display: none; }
 
 /* =========================================
    我們寫的：佈局：左右 50% / 50% 完美並排
@@ -140,7 +141,138 @@ body { font-family: Arial, sans-serif; text-align: center; background-color: #f0
 
 /* 響應式設計：手機適配 */
 @media (max-width: 768px) {
-    .slideshow-container { height: 300px; }
+    .slideshow-container {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 16 / 9;
+        background-color: #f5f5f5;
+    }
+
+    .slide {
+        width: 100%;
+        height: 100%;
+    }
+
+    .slide-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center center;
+    }
+
+    .prev,
+    .next {
+        display: none;
+    }
+
+    .tour-section {
+        width: 100%;
+        margin: 32px auto;
+        overflow: hidden;
+    }
+
+    .tour-section h2 {
+        margin: 0 16px 18px;
+        padding-left: 12px;
+        border-left: 5px solid #ef3156;
+        font-size: 24px;
+        text-align: left;
+    }
+
+    .tour-list {
+        display: flex;
+        gap: 14px;
+        width: 100%;
+        padding: 0 16px 18px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-padding-left: 16px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tour-list::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tour-pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        min-height: 24px;
+        margin: -4px 0 0;
+    }
+
+    .tour-pagination-dot {
+        width: 9px;
+        height: 9px;
+        padding: 0;
+        border: 1px solid #c8c8c8;
+        border-radius: 999px;
+        background: #fff;
+        cursor: pointer;
+        transition: width 0.22s ease, background-color 0.22s ease, border-color 0.22s ease;
+    }
+
+    .tour-pagination-dot.active {
+        width: 20px;
+        border-color: #c7c7c7;
+        background: #c7c7c7;
+    }
+
+    .tour-card {
+        flex: 0 0 86%;
+        max-width: 430px;
+        scroll-snap-align: start;
+        border-radius: 14px;
+        box-shadow: none;
+    }
+
+    .tour-card-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
+
+    .tour-card-body {
+        display: flex;
+        flex-direction: column;
+        min-height: 190px;
+        padding: 16px 18px;
+    }
+
+    .tour-card h3 {
+        margin-bottom: 10px;
+        font-size: 20px;
+        line-height: 1.4;
+    }
+
+    .tour-description {
+        flex: 1;
+        margin-bottom: 14px;
+        color: #777;
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .tour-meta {
+        order: 3;
+        margin: 0;
+        color: #ef3156;
+        font-size: 17px;
+        text-align: right;
+    }
+
+    .tour-link {
+        order: 4;
+        margin-top: 10px;
+        text-align: center;
+    }
+
     .main-content-wrapper { flex-direction: column; max-width: 95%; margin: 20px auto; gap: 30px; }
     .news-section, .gallery-section { flex: auto; width: 100%; }
 }

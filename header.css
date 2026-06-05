@@ -1,0 +1,214 @@
+/* ===== 全域 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+}
+
+/* ===== Header 外層（重要：滿版） ===== */
+#header-container {
+  width: 100%;
+}
+
+/* ===== 上方導覽列 ===== */
+.navbar {
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  z-index: 10;
+}
+
+/* 內容置中但外框滿版 */
+.navbar-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ===== LOGO ===== */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.logo-text {
+  font-size: 32px;
+  font-weight: bold;
+  color: #0799fa;
+  white-space: nowrap;
+}
+
+/* ===== ICON ===== */
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icons a {
+  text-decoration: none;
+  color: black;
+}
+
+.icons img {
+  height: 20px;
+  display: block;
+}
+
+.search-icon,
+.profile-icon {
+  font-size: 18px;
+}
+
+/* ===== MENU（整條滿版） ===== */
+.menu {
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+/* 內容區（可滑動） */
+.menu-content {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  white-space: nowrap;
+  scroll-behavior: smooth;
+
+  padding: 0 16px; /* 👉 防止最左被吃掉 */
+}
+
+/* scrollbar 美化 */
+.menu-content::-webkit-scrollbar {
+  height: 8px;
+}
+
+.menu-content::-webkit-scrollbar-thumb {
+  background-color: #b0b0b0;
+  border-radius: 4px;
+}
+
+.menu-content::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* ===== menu 排列 ===== */
+.menu ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+
+  justify-content: flex-start;   /* ❗不要用 center */
+  padding: 12px 0;
+
+  min-width: max-content;
+  width: max-content;
+}
+
+.menu ul li {
+  flex: 0 0 auto;
+  margin: 0 8px;
+}
+
+/* ===== menu 按鈕 ===== */
+.menu ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 15px;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+
+  white-space: nowrap;
+  border-radius: 4px;
+
+  transition: all 0.2s;
+}
+
+/* hover（桌機） */
+@media (min-width: 769px) {
+  .menu ul li a:hover {
+    background-color: #b0b0b0;
+    color: white;
+  }
+}
+
+/* =====🔥 首頁固定不被蓋 ===== */
+.home-item {
+  position: sticky;
+  left: 0;
+  z-index: 20;
+  background: #fff;
+  padding-right: 8px;
+}
+
+.home-item a {
+  background: #fff;
+}
+
+/* ===== 手機版 ===== */
+@media (max-width: 768px) {
+
+  .navbar-content {
+    padding: 8px 10px;
+  }
+
+  .logo img {
+    height: 30px;
+  }
+
+  .logo-text {
+    font-size: 22px;
+  }
+
+  .icons {
+    gap: 8px;
+  }
+
+  .icons img {
+    height: 16px;
+  }
+
+  .search-icon,
+  .profile-icon {
+    font-size: 14px;
+  }
+
+  .menu-content {
+    padding: 0 10px;
+  }
+
+  .menu ul {
+    padding: 8px 0;
+  }
+
+  .menu ul li {
+    margin: 0 6px;
+  }
+
+  .menu ul li a {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
