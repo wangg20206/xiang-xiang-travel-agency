@@ -5,9 +5,9 @@
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>載入中...</title>
-  <link rel="stylesheet" href="css/styles_8150.css">
+  <link rel="stylesheet" href="css/styles_8150.css?v=20260605-11">
   <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/footer.css?v=20260605-2">
 </head>
 
 <body>
@@ -68,12 +68,19 @@
     </div>
   </section>
 
-  <section class="summary">
+  <nav class="section-sticky-nav" id="sectionStickyNav" aria-label="頁面區段導覽">
+    <a href="#trip-highlights">行程亮點</a>
+    <a href="#attraction-intro">景點介紹</a>
+    <a href="#tripStickyWrap">每日行程</a>
+  </nav>
+
+  <section class="summary" id="trip-highlights">
     <div class="summary-banner"></div>
     <h2 id="summary-title">行程亮點</h2>
 
   <div id="summary-intro-list"></div>
 
+    <div id="attraction-intro" class="section-anchor" aria-hidden="true"></div>
     <div id="highlights-container"></div>
 
     <div style="height: 50px;"></div>
@@ -105,7 +112,7 @@
   const DAY_DETAIL_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQr_FoLwWF8LYD29i4gUfuq8qHQfDYx0KgWQB7uEkLYt9IUVfEPTfQu5HFZPxc8bo1yHw025LXrk5jG/pub?gid=647392388&single=true&output=csv";
 </script>
 
-<script src="js/google_sheet.js"></script>
+<script src="js/google_sheet.js?v=20260605-10"></script>
 
 </body>
 </html>
